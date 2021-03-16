@@ -1,6 +1,6 @@
 package be.jochenhansoul.forstatement;
 
-public class Opdracht17ah {
+public class Opdracht17h {
     public static void main(String[] args) {
         int count = 0;
         for (int n = 2; n < 1000; n++) {
