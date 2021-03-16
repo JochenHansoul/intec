@@ -1,14 +1,21 @@
 package be.jochenhansoul.methodengebruiken;
 
+import java.util.Scanner;
+
 public class IsPrimeMethod {
     public static void main(String[] args) {
-        for (int i = -2; i < 8; i++) {
+        Scanner sc = new Scanner(System.in);
+        int counter = 0;
+        for (int i = -2; i < 10; i++) {
             try {
-                System.out.println(i + ": " + isPrime(i));
+                if (isPrime(i)) {
+                    counter++;
+                }
             } catch (IllegalArgumentException e) {
                 System.out.println(e.getMessage());
             }
         }
+        System.out.println(counter);
     }
 
     public static boolean isPrime(int n) {
