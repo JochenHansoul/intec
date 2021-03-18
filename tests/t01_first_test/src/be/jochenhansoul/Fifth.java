@@ -4,8 +4,6 @@ package be.jochenhansoul;
 (5) Schrijf een programma dat een paswoord vraagt als input (een String)
 Het programma kijkt vervolgens na of de ingegeven String een sterk paswoord is. Een sterk paswoord moet aan de volgende voorwaarden voldoen:
 
-
-
 - minimum 16 characters
 - moet minimaal 1 kleine letter bevatten (a - z) -->
 - moet minimaal 1 grote letter bevatten (A - Z)
