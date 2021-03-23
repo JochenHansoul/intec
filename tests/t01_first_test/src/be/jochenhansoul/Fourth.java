@@ -4,6 +4,10 @@ import java.util.Scanner;
 
 public class Fourth {
     public static void main(String[] args) {
+        /*
+        het was de bedoeling dat we een requestOperator(), requestNumber(), createOutput() methode aanmaakten
+         */
+
         Scanner input = new Scanner(System.in);
         System.out.println("Welke bewerking wilt u uitvoeren?");
         String operation = input.nextLine();
@@ -15,7 +19,7 @@ public class Fourth {
         if (operation.equals("som") || operation.equals("+")) {
             System.out.println(sum(first, second));
         } else if (operation.equals("aftrekken") || operation.equals("-")) {
-            System.out.println(substract(first, second));
+            System.out.println(subtract(first, second));
         } else if (operation.equals("vermenigvuldig") || operation.equals("*")) {
             System.out.println(multiply(first, second));
         } else {
@@ -28,7 +32,7 @@ public class Fourth {
         return first + second;
     }
 
-    public static int substract(int first, int second) {
+    public static int subtract(int first, int second) {
         return first - second;
     }
 
