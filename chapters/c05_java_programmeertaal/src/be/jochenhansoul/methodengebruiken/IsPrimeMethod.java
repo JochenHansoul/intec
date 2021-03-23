@@ -21,14 +21,15 @@ public class IsPrimeMethod {
     public static boolean isPrime(int n) {
         if (n == 1) {
             return false;
-        } else if (n > 1){
+        } else if (n > 1) {
             int i = 2;
             boolean dividable = true;
             while (i < (n / 2 + 1) && dividable) {
                 if (n % i == 0) {
                     dividable = false;
+                } else {
+                    i++;
                 }
-                i++;
             }
             return dividable;
         } else {
