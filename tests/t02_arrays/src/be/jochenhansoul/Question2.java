@@ -1,24 +1,31 @@
 package be.jochenhansoul;
 
+import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.Random;
 
 public class Question2 {
     public static void main(String[] args) {
-        Random random = new Random();
-        int[][] intMatrix = new int[9][9];
+        int[][] matrix = new int[9][9];
+        fillMatrixWithRandomNumbers(matrix, 1, 9, new Random(5));
+        printMatrix(matrix);
+        System.out.println("print sum columns:");;
+        System.out.println(Arrays.toString(calculateSumColumn(matrix)));
+        System.out.println("total sum: " + calculateSumMatrix(matrix));
+    }
 
-        for (int i = 0; i < intMatrix.length; i++) {
-            for (int j = 0; j < intMatrix[i].length; j++) {
-                intMatrix[i][j] = random.nextInt(9) + 1;
+    public static void fillMatrixWithRandomNumbers(int[][] matrix, int min, int max, Random rand) {
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix[i].length; j++) {
+                matrix[i][j] = rand.nextInt(max - min + 1) + min;
             }
         }
+    }
 
-        System.out.println("print sum:");;
-        for (int i : calculateSumColumn(intMatrix)) {
-            System.out.println(i);
+    public static void printMatrix(int[][] matrix) {
+        for (int[] ar : matrix) {
+            System.out.println(Arrays.toString(ar));
         }
-        System.out.println("total sum: " + calculateSumMatrix(intMatrix));
     }
 
     public static int[] calculateSumRow(int[][] intMatrix) {
