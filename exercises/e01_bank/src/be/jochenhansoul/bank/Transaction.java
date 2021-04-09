@@ -7,8 +7,10 @@ it to another account.
 package be.jochenhansoul.bank;
 
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 
 public class Transaction {
+    public final LocalDateTime TIME;
     public final Person PERSON;
     public final BigDecimal AMOUNT;
     public final String CURRENCY;
@@ -19,6 +21,7 @@ public class Transaction {
     }
 
     public Transaction(Person person, BigDecimal amount, String currency, BankAccount bankAccount) {
+        this.TIME = LocalDateTime.now();
         this.PERSON = person;
         this.AMOUNT = amount;
         this.CURRENCY = currency;
@@ -26,6 +29,6 @@ public class Transaction {
     }
     
     public String toString() {
-        return this.PERSON + " " + this.AMOUNT + " " + this.CURRENCY + " " + this.ACCOUNT;
+        return this.TIME + " " + this.PERSON + " " + this.AMOUNT + " " + this.CURRENCY + " " + this.ACCOUNT;
     }
 }
