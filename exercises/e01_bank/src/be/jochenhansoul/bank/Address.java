@@ -4,7 +4,7 @@ public class Address {
     private String street;
     private int number;
     private String numberAddition;
-    private int postalcode;
+    private int postalCode;
     private String city;
     private String country;
 
@@ -12,32 +12,48 @@ public class Address {
         String street,
         int number,
         String numberAddition,
-        int postalcode,
+        int postalCode,
         String city,
         String country) {
         
         this.street = street;
         this.number = number;
         this.numberAddition = numberAddition;
-        this.postalcode = postalcode;
+        this.postalCode = postalCode;
         this.city = city;
         this.country = country;
+    }
+
+    public void setStreet(String street) {
+        this.street = street;
+    }
+
+    public void setNumber(int number) {
+        this.number = number;
+    }
+
+    public void setNumberAddition(String numberAddition) {
+        this.numberAddition = numberAddition;
+    }
+
+    public void setPostalCode(int postalCode) {
+        this.postalCode = postalCode;
     }
 
     public String getStreet() {
         return this.street;
     }
 
-    public int getnumber() {
+    public int getNumber() {
         return this.number;
     }
 
-    public String getnumberAddition() {
+    public String getNumberAddition() {
         return this.numberAddition;
     }
 
-    public int getPostalcode() {
-        return this.postalcode;
+    public int getPostalCode() {
+        return this.postalCode;
     }
 
     public String getCity() {
@@ -51,6 +67,6 @@ public class Address {
     @Override
     public String toString() {
         return this.number + " " + this.numberAddition + " " + this.street
-            + " " + this.postalcode + " " + this.city + " " + this.country;
+            + " " + this.postalCode + " " + this.city + " " + this.country;
     }
 }
