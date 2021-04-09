@@ -67,6 +67,23 @@ public class Person {
     }
 
     @Override
+    public int hashCode() {
+        return this.ID;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        } else if (o == null || this.getClass() != o.getClass()) {
+            return false;
+        } else {
+            Person person = (Person) o;
+            return this.ID == person.ID;
+        }
+    }
+
+    @Override
     public String toString() {
         return this.firstName + " " + this.lastName + " " + this.address;
     }
