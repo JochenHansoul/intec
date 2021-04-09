@@ -12,7 +12,7 @@ public class BankAccount {
     private List<Person> proxies;
     private int lowerLimit = 0;
     private BigDecimal balance = BigDecimal.valueOf(0);
-    private List<Transaction> history = new ArrayList();
+    private List<Transaction> transactions = new ArrayList();
 
     public BankAccount(String id, Person owner, String currency) {
         this(id, owner, currency, new ArrayList());
@@ -73,9 +73,8 @@ public class BankAccount {
         }
     }
 
-    public String[] getHistory() {
-        //return this.history.toArray(new String[0]).clone();
-        return new String[0]; // todo
+    public Transaction[] getTransactions() {
+        return this.transactions.toArray(new Transaction[0]).clone();
     }
 
     public void addProxie(Person person) {
