@@ -3,6 +3,7 @@ package be.jochenhansoul.bank;
 import java.util.Arrays;
 import java.util.List;
 import java.util.ArrayList;
+import java.time.LocalDate;
 
 public class Person {
     private static int idCounter = 0;
@@ -10,22 +11,25 @@ public class Person {
     public final int ID;
     private String firstName;
     private String lastName;
+    private LocalDate birthDate;
     private Address address;
     private List<ContactInfo> contactInfos;
 
-    public Person(String firstName, String lastName, Address address) {
-        this(firstName, lastName, address, new ArrayList());
+    public Person(String firstName, String lastName, LocalDate birthDate, Address address) {
+        this(firstName, lastName, birthDate, address, new ArrayList());
     }
 
     public Person(
         String firstName,
         String lastName,
+        LocalDate birthDate,
         Address address,
         ArrayList<ContactInfo> contactInfos) {
 
         this.ID = ++idCounter;
         this.firstName = firstName;
         this.lastName = lastName;
+        this.birthDate = birthDate;
         this.address = address;
         this.contactInfos = contactInfos;
     }
@@ -38,6 +42,10 @@ public class Person {
         this.lastName = lastName;
     }
 
+    public void setBirthDate(LocalDate birthDate) {
+        this.birthDate = birthDate;
+    }
+
     public void setAddress(Address address) {
         this.address = address;
     }
@@ -48,6 +56,10 @@ public class Person {
 
     public String getLastName() {
         return this.lastName;
+    }
+
+    public LocalDate getBirthDate() {
+        return this.birthDate;
     }
 
     public Address getAddress() {
