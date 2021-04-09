@@ -90,4 +90,8 @@ public class BankAccount {
     public String toString() {
         return this.ID + " " + this.owner;
     }
+
+    private boolean checkPerson(Person person) {
+        return this.owner.equals(person) || this.proxies.contains(person);
+    }
 }
