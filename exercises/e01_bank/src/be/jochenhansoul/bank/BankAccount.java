@@ -5,7 +5,8 @@ import java.util.List;
 import java.util.ArrayList;
 
 public class BankAccount {
-    private String id;
+    public final String ID;
+
     private Person owner;
     private String currency;
     private List<Person> proxies;
@@ -23,7 +24,7 @@ public class BankAccount {
         String currency,
         ArrayList proxies) {
 
-        this.id = id;
+        this.ID = id;
         this.owner = owner;
         this.currency= currency;
         this.proxies = proxies;
@@ -35,10 +36,6 @@ public class BankAccount {
 
     public void setLowerLimit(int lowerLimit) {
         this.lowerLimit = lowerLimit;
-    }
-
-    public String getId() {
-        return this.id;
     }
 
     public Person getOwner() {
@@ -91,6 +88,6 @@ public class BankAccount {
 
     @Override
     public String toString() {
-        return this.id + " " + this.owner;
+        return this.ID + " " + this.owner;
     }
 }
