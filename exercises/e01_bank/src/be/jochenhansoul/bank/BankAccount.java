@@ -64,12 +64,6 @@ public class BankAccount {
 
     public void widraw(String amount) {
         // todo
-        BigDecimal toBeSubtracted = new BigDecimal(amount);
-        if (this.balance.subtract(toBeSubtracted).compareTo(new BigDecimal(this.lowerLimit)) >= 0) {
-            this.balance.subtract(toBeSubtracted);
-        } else {
-            // todo
-        }
     }
 
     public Transaction[] getTransactions() {
@@ -89,7 +83,11 @@ public class BankAccount {
         return this.BANK_ID + " owner: " + this.OWNER_ID;
     }
 
-    private boolean checkPerson(Person person) {
+    private boolean eligiblePerson(Person person) {
         return this.OWNER_ID == person.ID || this.proxies.contains(person.ID);
+    }
+
+    private boolean enoughBalance(BigDecimal amount) {
+        return this.balance.subtract(amount).compareTo(new BigDecimal(this.lowerLimit)) >= 0;
     }
 }
