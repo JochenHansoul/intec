@@ -5,13 +5,13 @@ import java.util.List;
 import java.util.ArrayList;
 
 public class BankAccount {
-    public final String ID;
+    public final String BANK_ID;
+    public final int OWNER_ID;
 
-    private Person owner;
+    private List<Integer> proxies;
     private String currency;
-    private List<Person> proxies;
-    private int lowerLimit = 0;
     private BigDecimal balance = BigDecimal.valueOf(0);
+    private int lowerLimit = 0;
     private List<Transaction> transactions = new ArrayList();
 
     public BankAccount(String id, Person owner, String currency) {
@@ -24,30 +24,26 @@ public class BankAccount {
         String currency,
         ArrayList proxies) {
 
-        this.ID = id;
-        this.owner = owner;
+        this.BANK_ID = id;
+        this.OWNER_ID = owner.ID;
         this.currency= currency;
         this.proxies = proxies;
-    }
-
-    public void setOwner(Person owner) {
-        this.owner = owner;
     }
 
     public void setLowerLimit(int lowerLimit) {
         this.lowerLimit = lowerLimit;
     }
 
-    public Person getOwner() {
-        return this.owner;
+    public int getOwner() {
+        return this.OWNER_ID;
     }
 
     public String getCurrency() {
         return this.currency;
     }
 
-    public Person[] getProxies() {
-        return this.proxies.toArray(new Person[0]).clone();
+    public Integer[] getProxies() {
+        return this.proxies.toArray(new Integer[0]).clone();
     }
 
     public int getLowerLimit() {
@@ -78,7 +74,7 @@ public class BankAccount {
     }
 
     public void addProxie(Person person) {
-        this.proxies.add(person);
+        this.proxies.add(person.ID);
     }
 
     public void removeProxie(int i) {
@@ -87,10 +83,10 @@ public class BankAccount {
 
     @Override
     public String toString() {
-        return this.ID + " " + this.owner;
+        return this.BANK_ID + " owner: " + this.OWNER_ID;
     }
 
     private boolean checkPerson(Person person) {
-        return this.owner.equals(person) || this.proxies.contains(person);
+        return this.OWNER_ID == person.ID || this.proxies.contains(person.ID);
     }
 }
