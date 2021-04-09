@@ -6,7 +6,7 @@ public class ContactInfo {
     private Identifier  identifier;
     private long number;
 
-    public ContactInfo(Identifier  identifier, long number) {
+    public ContactInfo(Identifier  identifier, long number) throws Exception {
         this.identifier = identifier;
         this.number = checkNumber(number);
     }
@@ -15,7 +15,7 @@ public class ContactInfo {
         this.identifier = identifier;
     }
 
-    public void setNumber(long number) {
+    public void setNumber(long number) throws Exception {
         this.number = checkNumber(number);
     }
 
@@ -32,11 +32,11 @@ public class ContactInfo {
         return this.identifier + ": " + this.number;
     }
 
-    private long checkNumber(long number) {
+    private long checkNumber(long number) throws Exception {
         if (number >= 0) {
             return number;
         } else {
-            throw new IllegalArgumentException("number may not be lower then zero");
+            throw new Exception("number may not be lower then zero");
         }
     }
 }
