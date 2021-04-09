@@ -3,10 +3,12 @@ package be.jochenhansoul.bank;
 import java.math.BigDecimal;
 import java.util.List;
 import java.util.ArrayList;
+import java.time.LocalDateTime;
 
 public class BankAccount {
     public final String BANK_ID;
     public final int OWNER_ID;
+    public final LocalDateTime CREATION_DATE;
 
     private List<Integer> proxies;
     private String currency;
@@ -26,6 +28,7 @@ public class BankAccount {
 
         this.BANK_ID = id;
         this.OWNER_ID = owner.ID;
+        this.CREATION_DATE = LocalDateTime.now();
         this.currency= currency;
         this.proxies = proxies;
     }
