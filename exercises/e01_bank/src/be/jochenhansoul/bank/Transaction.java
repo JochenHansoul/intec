@@ -9,40 +9,23 @@ package be.jochenhansoul.bank;
 import java.math.BigDecimal;
 
 public class Transaction {
-    private Person person;
-    private BigDecimal amount;
-    private String currency;
-    private BankAccount bankAccount;
+    public final Person PERSON;
+    public final BigDecimal AMOUNT;
+    public final String CURRENCY;
+    public final BankAccount ACCOUNT;
 
     public Transaction(Person person, BigDecimal amount, String currency) {
         this(person, amount, currency, null);
     }
 
     public Transaction(Person person, BigDecimal amount, String currency, BankAccount bankAccount) {
-        this.person = person;
-        this.amount = amount;
-        this.currency = currency;
-        this.bankAccount = bankAccount;
+        this.PERSON = person;
+        this.AMOUNT = amount;
+        this.CURRENCY = currency;
+        this.ACCOUNT = bankAccount;
     }
     
-    public String  getPerson() {
-        return this.person.toString();
-    }
-
-    public String getAmount() {
-        return this.amount.toString();
-    }
-
-    public String getCurrency() {
-        return this.currency;
-    }
-
-    public BankAccount getBankAccount() {
-        return this.bankAccount;
-    }
-
-    @Override
     public String toString() {
-        return this.person + " " + this.amount + " " + this.currency + " " + this.bankAccount;
+        return this.PERSON + " " + this.AMOUNT + " " + this.CURRENCY + " " + this.ACCOUNT;
     }
 }
