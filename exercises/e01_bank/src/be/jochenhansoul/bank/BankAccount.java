@@ -1,8 +1,8 @@
 package be.jochenhansoul.bank;
 
-import java.math.BigDecimal;
 import java.util.List;
 import java.util.ArrayList;
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 public class BankAccount {
@@ -57,13 +57,44 @@ public class BankAccount {
         return this.balance.toString();
     }
 
-    public void deposit(Person person, String amount) {
-        // todo
-        this.balance.add(new BigDecimal(amount));
+    public void deposit(Person person, BigDecimal amount, String currency) {
+        if (eligiblePerson(person)) {
+            transactions.add(new Transaction(person, amount, currency));
+            this.balance = this.balance.add(amount);
+        }
+        // maybe add exception
     }
 
-    public void widraw(String amount) {
-        // todo
+    public void widraw(Person person, BigDecimal amount, String currency) {
+        if (eligiblePerson(person) && enoughBalance(amount)) {
+            transactions.add(new Transaction(person, amount, currency));
+            this.balance = this.balance.subtract(amount);
+        }
+        // maybe add exception
+    }
+
+    public void transfer(
+        Person person,
+        BigDecimal amount,
+        String currency,
+        BankAccount account) throws Exception {
+
+        if (eligiblePerson(person)) {
+            BigDecimal n = new BigDecimal(0);
+            BigDecimal negativeAmount = amount.multiply(new BigDecimal(-1));
+            if (negativeAmount.compareTo(n) > 0) {
+                this.balance = this.balance.add(negativeAmount);
+            } else if (amount.compareTo(n) < 0) {
+                if (enoughBalance(amount)) {
+                    this.balance = this.balance.subtract(negativeAmount);
+                }
+                // maybe add exception
+            } else {
+                throw new Exception("amount may not be 0");
+            }
+            transactions.add(new Transaction(person, negativeAmount, currency, account));
+        }
+        // maybe add exception
     }
 
     public Transaction[] getTransactions() {
