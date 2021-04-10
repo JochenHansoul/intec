@@ -65,7 +65,7 @@ public class BankAccount {
         // maybe add exception
     }
 
-    public void widraw(Person person, BigDecimal amount, String currency) {
+    public void withdraw(Person person, BigDecimal amount, String currency) {
         if (eligiblePerson(person) && enoughBalance(amount)) {
             transactions.add(new Transaction(person, amount, currency));
             this.balance = this.balance.subtract(amount);
