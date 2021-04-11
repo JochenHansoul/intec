@@ -53,8 +53,8 @@ public class BankAccount {
         return this.lowerLimit;
     }
     
-    public String getBalance() {
-        return this.balance.toString();
+    public BigDecimal getBalance() {
+        return this.balance;
     }
 
     public void deposit(Person person, BigDecimal amount, String currency) {
@@ -87,14 +87,16 @@ public class BankAccount {
             } else if (amount.compareTo(n) < 0) {
                 if (enoughBalance(amount)) {
                     this.balance = this.balance.subtract(negativeAmount);
+                } else {
+                    throw new Exception("not enough balance");
                 }
-                // maybe add exception
             } else {
                 throw new Exception("amount may not be 0");
             }
             transactions.add(new Transaction(person, negativeAmount, currency, account));
+        } else {
+            throw new Exception("person is not eligible to make a transfer");
         }
-        // maybe add exception
     }
 
     public Transaction[] getTransactions() {
