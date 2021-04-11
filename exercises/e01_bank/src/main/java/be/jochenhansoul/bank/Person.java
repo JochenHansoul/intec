@@ -6,27 +6,27 @@ import java.util.ArrayList;
 import java.time.LocalDate;
 
 public class Person {
-    private static int idCounter = 0;
-
     public final int ID;
+
     private String firstName;
     private String lastName;
     private LocalDate birthDate;
     private Address address;
     private List<ContactInfo> contactInfos;
 
-    public Person(String firstName, String lastName, LocalDate birthDate, Address address) {
-        this(firstName, lastName, birthDate, address, new ArrayList());
+    public Person(int id, String firstName, String lastName, LocalDate birthDate, Address address) {
+        this(id, firstName, lastName, birthDate, address, new ArrayList());
     }
 
     public Person(
+        int id,
         String firstName,
         String lastName,
         LocalDate birthDate,
         Address address,
         ArrayList<ContactInfo> contactInfos) {
 
-        this.ID = ++idCounter;
+        this.ID = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.birthDate = birthDate;
