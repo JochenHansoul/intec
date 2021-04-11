@@ -1,6 +1,7 @@
 package be.jochenhansoul.bank;
 
 import java.time.LocalDate;
+import java.math.BigDecimal;
 
 public class App {
     public static void main(String[] args) {
@@ -16,7 +17,11 @@ public class App {
         bankService.addBankAccount(new BankAccount("BE44444444", person2, "euro"));
 
         try {
-            System.out.println(bankService.getBalance("BE11111111"));
+            bankService.deposit("BE11111111", person1, new BigDecimal("1000"), "euro");
+            System.out.println("account 1 before transfer: " + bankService.getBalance("BE11111111"));
+            bankService.transfer("BE11111111", "BE33333333", person1, new BigDecimal("250"), "euro");
+            System.out.println("account 1: " + bankService.getBalance("BE11111111"));
+            System.out.println("account 2: " + bankService.getBalance("BE33333333"));
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
