@@ -18,19 +18,18 @@ public class BankAccountService {
 
     public void deposit(String id, Person person, BigDecimal amount, String currency) throws Exception {
         BankAccount account = getAccount(id);
-        account.deposit(Person person, BigDecimal amount, String currency);
+        account.deposit(person, amount, currency);
     }
 
     public void withdraw(String id, Person person, BigDecimal amount, String currency) throws Exception {
         BankAccount account = getAccount(id);
-        account.withdraw(Person person, BigDecimal amount, String currency);
+        account.withdraw(person, amount, currency);
     }
 
     public void transfer(String idSource, String idTarget, Person person, BigDecimal amount, String currency) throws Exception {
         BankAccount source = getAccount(idSource);
         BankAccount target = getAccount(idTarget);
         source.transfer(person, amount.multiply(new BigDecimal("-1")), currency, target);
-        // must add exception otherwise the transaction continues even when the source account transaction is invalid
         target.transfer(person, amount, currency, source);
     }
 
