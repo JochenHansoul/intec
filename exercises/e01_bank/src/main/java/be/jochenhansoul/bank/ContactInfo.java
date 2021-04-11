@@ -29,7 +29,9 @@ public class ContactInfo {
 
     @Override
     public String toString() {
-        return this.identifier + ": " + this.number;
+        return String.format("%s: %09d",
+            this.identifier.name().toLowerCase().replace('_', ' '),
+            this.number);
     }
 
     private long checkNumber(long number) throws Exception {
