@@ -29,7 +29,8 @@ public class ContactInfo {
 
     @Override
     public String toString() {
-        return String.format("%s: %09d",
+        // niet enkel "%s: %09d". We gebruiken de toString() voor developer purposes en logging
+        return String.format("PhoneNumber[phoneNumberIdentifier='%s', phoneNumber=%09d]",
             this.identifier.name().toLowerCase().replace('_', ' '),
             this.number);
     }
