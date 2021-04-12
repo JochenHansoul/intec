@@ -16,21 +16,35 @@ public class BankAccountService {
         return account.getBalance();
     }
 
-    public void deposit(String id, Person person, BigDecimal amount, String currency) throws Exception {
-        BankAccount account = getAccount(id);
-        account.deposit(person, amount, currency);
+    public void deposit(String bankId, Person person, BigDecimal amount, String currency) throws Exception {
+        if (amount.compareTo(new BigDecimal("0")) <= 0) {
+            throw new Exception("amount must be higher then zero");
+        } else {
+            BankAccount account = getAccount(id);
+            account.deposit(person, amount, currency);
+        }
     }
 
-    public void withdraw(String id, Person person, BigDecimal amount, String currency) throws Exception {
-        BankAccount account = getAccount(id);
-        account.withdraw(person, amount, currency);
+    public void withdraw(String bankId, Person person, BigDecimal amount, String currency) throws Exception {
+        if (amount.compareTo(new BigDecimal("0")) <= 0) {
+            throw new Exception("amount must be higher then zero");
+        } else {
+            BankAccount account = getAccount(id);
+            account.withdraw(person, amount, currency);
+        }
     }
 
     public void transfer(String idSource, String idTarget, Person person, BigDecimal amount, String currency) throws Exception {
-        BankAccount source = getAccount(idSource);
-        BankAccount target = getAccount(idTarget);
-        source.transfer(person, amount.multiply(new BigDecimal("-1")), currency, target);
-        target.transfer(person, amount, currency, source);
+        if (idSource.equals(idTarget) {
+            throw new Exception("source account may not be the same as target account");
+        } else if (amount.compareTo(new BigDecimal("0")) <= 0) {
+            throw new Exception("amount must be higher then zero");
+        } else {
+            BankAccount source = getAccount(idSource);
+            BankAccount target = getAccount(idTarget);
+            source.transfer(person, amount.multiply(new BigDecimal("-1")), currency, target);
+            target.transfer(person, amount, currency, source);
+        }
     }
 
     private BankAccount getAccount(String id) throws Exception {
