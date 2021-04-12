@@ -4,7 +4,7 @@ public class Address {
     private String street;
     private int number;
     private String numberAddition;
-    private int postalCode;
+    private int postalCode; // sommige landen gebruiken letters in hun postcode
     private String city;
     private String country;
 
