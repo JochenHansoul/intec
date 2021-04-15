@@ -12,5 +12,7 @@ public class App {
         square.setHeight(5);
 
         System.out.println(square.getWidth());
+        System.out.println("amount of rectangles: " + Rectangle.getAmount());
+        System.out.println("amount of square: " + Square.getAmount());
     }
 }

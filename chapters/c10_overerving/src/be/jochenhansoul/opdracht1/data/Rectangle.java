@@ -1,6 +1,8 @@
 package be.jochenhansoul.opdracht1.data;
 
 public class Rectangle {
+    private static int count = 0;
+
     private int height;
     private int width;
     private int x;
@@ -10,6 +12,11 @@ public class Rectangle {
     public Rectangle(int height, int width, int x, int y) {
         this.height = height;
         this.width = width;
+        count++;
+    }
+
+    public static int getAmount() {
+        return count;
     }
 
     public void setHeight(int height) {
