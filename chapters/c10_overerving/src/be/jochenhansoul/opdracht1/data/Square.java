@@ -2,6 +2,14 @@ package be.jochenhansoul.opdracht1.data;
 
 public class Square extends Rectangle {
 
+    public Square() {
+        this(1);
+    }
+
+    public Square(int size) {
+        this(size, 0, 0);
+    }
+
     public Square(int size, int x, int y) {
         super(size, size, x, y);
     }
