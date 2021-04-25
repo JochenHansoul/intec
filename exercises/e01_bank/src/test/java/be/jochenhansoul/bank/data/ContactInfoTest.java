@@ -1,4 +1,4 @@
-package be.jochenhansoul.bank;
+package be.jochenhansoul.bank.data;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -36,14 +36,15 @@ public class ContactInfoTest {
 
     @Test
     public void testToString() throws Exception {
+        //"PhoneNumber[phoneNumberIdentifier='%s', phoneNumber=%09d]"
         ContactInfo contact = new ContactInfo(Identifier.PHONE, 1L);
-        assertEquals("phone: 000000001", contact.toString());
+        assertEquals("PhoneNumber[phoneNumberIdentifier='phone', phoneNumber=000000001]", contact.toString());
     }
         
     @Test
     public void testToStringWithUnderscores() throws Exception {
         ContactInfo contact = new ContactInfo(Identifier.MOBILE_PHONE, 1L);
-        assertEquals("mobile phone: 000000001", contact.toString());
+        assertEquals("PhoneNumber[phoneNumberIdentifier='mobile phone', phoneNumber=000000001]", contact.toString());
     }
         
     @Test

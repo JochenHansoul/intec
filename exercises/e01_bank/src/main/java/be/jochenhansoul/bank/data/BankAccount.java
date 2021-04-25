@@ -1,4 +1,4 @@
-package be.jochenhansoul.bank;
+package be.jochenhansoul.bank.data;
 
 import java.util.List;
 import java.util.ArrayList;
@@ -14,10 +14,10 @@ public class BankAccount {
     private String currency;
     private BigDecimal balance = BigDecimal.valueOf(0);
     private int lowerLimit = 0;
-    private List<Transaction> transactions = new ArrayList();
+    private final List<Transaction> transactions = new ArrayList<>();
 
     public BankAccount(String id, Person owner, String currency) {
-        this(id, owner, currency, new ArrayList());
+        this(id, owner, currency, new ArrayList<>());
     }
 
     public BankAccount(

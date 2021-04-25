@@ -4,7 +4,7 @@ If no bankAccount is given then the person had deposited or widrawed money but n
 it to another account.
 */
 
-package be.jochenhansoul.bank;
+package be.jochenhansoul.bank.data;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;

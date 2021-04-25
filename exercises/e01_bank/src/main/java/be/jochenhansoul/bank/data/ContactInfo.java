@@ -1,12 +1,10 @@
-package be.jochenhansoul.bank;
-
-import be.jochenhansoul.bank.Identifier;
+package be.jochenhansoul.bank.data;
 
 public class ContactInfo {
     private Identifier  identifier;
     private long number;
 
-    public ContactInfo(Identifier  identifier, long number) throws Exception {
+    public ContactInfo(Identifier identifier, long number) throws Exception {
         this.identifier = identifier;
         this.number = checkNumber(number);
     }

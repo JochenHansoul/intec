@@ -1,14 +1,17 @@
-package be.jochenhansoul.bank;
+package be.jochenhansoul.bank.service;
+
+import be.jochenhansoul.bank.data.BankAccount;
+import be.jochenhansoul.bank.data.Person;
 
 import java.util.List;
 import java.util.ArrayList;
 import java.math.BigDecimal;
 
 public class BankAccountService {
-    private List<BankAccount> accounts = new ArrayList();
+    private final List<BankAccount> ACCOUNTS = new ArrayList<>();
 
     public void addBankAccount(BankAccount account) {
-        this.accounts.add(account);
+        this.ACCOUNTS.add(account);
     }
 
     public BigDecimal getBalance(String id) throws Exception {
@@ -17,27 +20,27 @@ public class BankAccountService {
     }
 
     public void deposit(String bankId, Person person, BigDecimal amount, String currency) throws Exception {
-        if (amount.compareTo(new BigDecimal("0")) <= 0) {
+        if (amount.compareTo(BigDecimal.ZERO) <= 0) {
             throw new Exception("amount must be higher then zero");
         } else {
-            BankAccount account = getAccount(id);
+            BankAccount account = getAccount(bankId);
             account.deposit(person, amount, currency);
         }
     }
 
     public void withdraw(String bankId, Person person, BigDecimal amount, String currency) throws Exception {
-        if (amount.compareTo(new BigDecimal("0")) <= 0) {
+        if (amount.compareTo(BigDecimal.ZERO) <= 0) {
             throw new Exception("amount must be higher then zero");
         } else {
-            BankAccount account = getAccount(id);
+            BankAccount account = getAccount(bankId);
             account.withdraw(person, amount, currency);
         }
     }
 
     public void transfer(String idSource, String idTarget, Person person, BigDecimal amount, String currency) throws Exception {
-        if (idSource.equals(idTarget) {
+        if (idSource.equals(idTarget)) {
             throw new Exception("source account may not be the same as target account");
-        } else if (amount.compareTo(new BigDecimal("0")) <= 0) {
+        } else if (amount.compareTo(BigDecimal.ZERO) <= 0) {
             throw new Exception("amount must be higher then zero");
         } else {
             BankAccount source = getAccount(idSource);
@@ -48,7 +51,7 @@ public class BankAccountService {
     }
 
     private BankAccount getAccount(String id) throws Exception {
-        BankAccount[] accounts = this.accounts.toArray(new BankAccount[0]);
+        BankAccount[] accounts = this.ACCOUNTS.toArray(new BankAccount[0]);
         BankAccount account = null;
         int counter = 0;
         boolean found = false;

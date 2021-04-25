@@ -1,5 +1,10 @@
 package be.jochenhansoul.bank;
 
+import be.jochenhansoul.bank.data.Address;
+import be.jochenhansoul.bank.data.BankAccount;
+import be.jochenhansoul.bank.data.Person;
+import be.jochenhansoul.bank.service.BankAccountService;
+
 import java.time.LocalDate;
 import java.math.BigDecimal;
 

@@ -1,4 +1,4 @@
-package be.jochenhansoul.bank;
+package be.jochenhansoul.bank.data;
 
 public class Address {
     private String street;
@@ -38,6 +38,14 @@ public class Address {
 
     public void setPostalCode(int postalCode) {
         this.postalCode = postalCode;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
     }
 
     public String getStreet() {

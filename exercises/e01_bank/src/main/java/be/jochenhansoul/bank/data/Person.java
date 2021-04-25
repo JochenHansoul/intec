@@ -1,5 +1,6 @@
-package be.jochenhansoul.bank;
+package be.jochenhansoul.bank.data;
 
+import java.lang.StringBuilder;
 import java.util.Arrays;
 import java.util.List;
 import java.util.ArrayList;
@@ -66,8 +67,20 @@ public class Person {
         return this.address;
     }
 
-    public ContactInfo[] getContacts(int i) {
-        return this.contactInfos.toArray(new ContactInfo[0]).clone();
+    public ContactInfo[] getContacts() {
+        if (this.contactInfos == null) {
+            return new ContactInfo[0];
+        } else {
+            return this.contactInfos.toArray(new ContactInfo[0]).clone();
+        }
+    }
+
+    public String getContactString() {
+        StringBuilder sb = new StringBuilder();
+        for (ContactInfo contact : getContacts()) {
+            sb.append(contact.toString());
+        }
+        return sb.toString();
     }
 
     public void addContact(ContactInfo contactInfo) {
@@ -97,6 +110,10 @@ public class Person {
 
     @Override
     public String toString() {
-        return this.firstName + " " + this.lastName + " " + this.address;
+        return String.format("%s %s address: %s contacts: %s",
+            this.firstName,
+            this.lastName,
+            this.address.toString(),
+            this.getContactString());
     }
 }

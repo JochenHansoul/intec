@@ -1,4 +1,4 @@
-package be.jochenhansoul.bank;
+package be.jochenhansoul.bank.data;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
