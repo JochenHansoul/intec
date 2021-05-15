@@ -16,7 +16,7 @@ public class Person {
     private List<ContactInfo> contactInfos;
 
     public Person(int id, String firstName, String lastName, LocalDate birthDate, Address address) {
-        this(id, firstName, lastName, birthDate, address, new ArrayList());
+        this(id, firstName, lastName, birthDate, address, new ArrayList<>());
     }
 
     public Person(
@@ -77,7 +77,7 @@ public class Person {
 
     public String getContactString() {
         StringBuilder sb = new StringBuilder();
-        for (ContactInfo contact : getContacts()) {
+        for (ContactInfo contact : this.getContacts()) {
             sb.append(contact.toString());
         }
         return sb.toString();
