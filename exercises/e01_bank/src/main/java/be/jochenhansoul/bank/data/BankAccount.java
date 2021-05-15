@@ -12,7 +12,7 @@ public class BankAccount {
 
     private List<Integer> proxies;
     private String currency;
-    private BigDecimal balance = BigDecimal.valueOf(0);
+    private BigDecimal balance = BigDecimal.ZERO;
     private int lowerLimit = 0;
     private final List<Transaction> transactions = new ArrayList<>();
 
@@ -24,12 +24,12 @@ public class BankAccount {
         String id,
         Person owner,
         String currency,
-        ArrayList proxies) {
+        ArrayList<Integer> proxies) {
 
         this.BANK_ID = id;
         this.OWNER_ID = owner.ID;
         this.CREATION_DATE = LocalDateTime.now();
-        this.currency= currency;
+        this.currency = currency;
         this.proxies = proxies;
     }
 
@@ -81,10 +81,9 @@ public class BankAccount {
         String currency,
         BankAccount account) throws Exception {
 
-        BigDecimal bigNull = new BigDecimal(0);
-        if (amount.compareTo(bigNull) == 0) {
+        if (amount.compareTo(BigDecimal.ZERO) == 0) {
             throw new Exception("amount may not be 0");
-        } else if (amount.compareTo(bigNull) < 0) {
+        } else if (amount.compareTo(BigDecimal.ZERO) < 0) {
             if (!eligiblePerson(person)) {
                 throw new Exception("person is not eligible to make a transfer");
             } else if (!enoughBalance(amount)) {
