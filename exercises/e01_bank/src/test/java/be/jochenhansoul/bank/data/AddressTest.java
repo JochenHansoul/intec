@@ -11,7 +11,7 @@ public class AddressTest {
     @BeforeEach
     public void testCreateAddress() {
         this.address = new Address(
-            "langenakkerstraat",
+            "Langenakkerstraat",
             47,
             "b",
             3830,
@@ -19,10 +19,9 @@ public class AddressTest {
             "Belgie");
     }
 
-    /*
     @Test
     public void testGetStreet() {
-        assertEquals("langenakkerstraat", this.address.getStreet());
+        assertEquals("Langenakkerstraat", this.address.getStreet());
     }
 
     @Test
@@ -49,5 +48,9 @@ public class AddressTest {
     public void testGetCountry() {
         assertEquals("Belgie", this.address.getCountry());
     }
-    */
+
+    @Test
+    public void testToString() {
+        assertEquals("Langenakkerstraat 47b, 3830 Wellen, Belgie", this.address.toString());
+    }
 }
