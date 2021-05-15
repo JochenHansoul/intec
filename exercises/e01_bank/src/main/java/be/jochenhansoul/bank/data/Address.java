@@ -74,7 +74,12 @@ public class Address {
 
     @Override
     public String toString() {
-        return this.number + " " + this.numberAddition + " " + this.street
-            + " " + this.postalCode + " " + this.city + " " + this.country;
+        return String.format("%s %d%s, %d %s, %s",
+            this.street,
+            this.number,
+            this.numberAddition,
+            this.postalCode,
+            this.city,
+            this.country);
     }
 }
