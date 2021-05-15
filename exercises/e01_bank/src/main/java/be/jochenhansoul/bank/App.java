@@ -23,8 +23,13 @@ public class App {
 
         try {
             bankService.deposit("BE11111111", person1, new BigDecimal("1000"), "euro");
-            System.out.println("account 1 before transfer: " + bankService.getBalance("BE11111111"));
+
+            System.out.println("before transfer:");
+            System.out.println("account 1: " + bankService.getBalance("BE11111111"));
+            System.out.println("account 2: " + bankService.getBalance("BE33333333"));
             bankService.transfer("BE11111111", "BE33333333", person1, new BigDecimal("250"), "euro");
+
+            System.out.println("after transfer:");
             System.out.println("account 1: " + bankService.getBalance("BE11111111"));
             System.out.println("account 2: " + bankService.getBalance("BE33333333"));
         } catch (Exception e) {
