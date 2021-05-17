@@ -1,4 +1,4 @@
-package be.jochenhansoul.localinnerclass;
+package be.jochenhansoul.anonymousinnerclass;
 
 public class Musician {
 
@@ -7,7 +7,7 @@ public class Musician {
             public void makeSound() {
                 System.out.println("instrument makes sound");
             }
-        }
+        };
         instrument.makeSound();
     }
 }
