@@ -1,12 +1,8 @@
-package be.jochenhansoul.innerclass;
+package be.jochenhansoul.localinnerclass;
 
 public class App {
     public static void main(String[] args) {
         Musician musician = new Musician();
         musician.play();
-
-        // instnatiate inner class
-        Musician.Instrument instrument = musician.new Instrument();
-        instrument.makeSound();
     }
 }
