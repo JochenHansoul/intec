@@ -18,11 +18,11 @@ public class Duo<T> {
     }
 
     public T getFirst() {
-        return first;
+        return this.first;
     }
 
     public T getSecond() {
-        return second;
+        return this.second;
     }
 
     public void swap() {
