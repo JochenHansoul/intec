@@ -21,7 +21,7 @@ public class TextApp {
 
         System.out.println("***words that contain two letters 'e'***");
         tp.printFilteredWords((s) -> {
-            return s.contains("e") ? deleteCharAt(s, s.indexOf('e')).contains("e") : false;
+            return s.contains("e") ? s.substring(s.indexOf('e') + 1).contains("e") : false;
         });
     }
 
