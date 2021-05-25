@@ -1,5 +1,7 @@
 package be.jochenhansoul.opdracht1;
 
+import static java.lang.System.*;
+
 public class TextApp {
     public static void main(String[] args) {
         TextPrinter tp = new TextPrinter(
@@ -17,5 +19,13 @@ public class TextApp {
         System.out.println("***words with second letter 'e'***");
         tp.printFilteredWords((s) -> (s.length() > 1) ? s.substring(1, 2).equals("e") : false);
 
+        System.out.println("***words that contain two letters 'e'***");
+        tp.printFilteredWords((s) -> {
+            return s.contains("e") ? deleteCharAt(s, s.indexOf('e')).contains("e") : false;
+        });
+    }
+
+    private static String deleteCharAt(String s, int index) {
+        return s.substring(0, index) + s.substring(index + 1);
     }
 }
