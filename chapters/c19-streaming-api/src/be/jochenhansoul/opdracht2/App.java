@@ -5,6 +5,9 @@ import java.util.stream.*;
 
 public class App {
     public static void main(String[] args) {
+        // ******
+        // deel 1
+        // ******
         long amount = IntStream.of(1, 2, 3, 4, 5)
             .count();
         System.out.println(amount);
@@ -29,5 +32,13 @@ public class App {
         int result = IntStream.of(1, 2, 3, 4, 5)
             .reduce(0, (acc, el) -> acc + (int) Math.pow(el, 2));
         System.out.println(result);
+
+        // ******
+        // deel 2
+        // ******
+        String[] symbols = new String[]{"*", "(", "8"};
+        String s = Stream.of(symbols)
+            .reduce("", (acc, el) -> acc + el + ", ");
+        System.out.println(s);
     }
 }
