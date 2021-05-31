@@ -1,4 +1,4 @@
-package be.jochenhansoul.opdracht1;
+package be.jochenhansoul.general;
 
 public class Person {
     private String firstName;

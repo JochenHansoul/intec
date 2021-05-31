@@ -1,5 +1,7 @@
 package be.jochenhansoul.opdracht1;
 
+import be.jochenhansoul.general.*;
+
 import java.util.Arrays;
 import java.util.stream.*;
 
