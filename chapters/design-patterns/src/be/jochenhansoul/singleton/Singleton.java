@@ -1,4 +1,4 @@
-package be.jochenhanoul;
+package be.jochenhanoul.singleton;
 
 /*
 conditions:
@@ -15,11 +15,19 @@ the new gang of four
 uncle bob (roger martin)
 linus thorvald
 
+Deze code word allemaal gedaan bij het opstarten van het programma.
+Het grote verschil is dat dit obj dan altijd word aangemaakt
+bij de andere word het obj mogelijk nooit aangemaakt.
+
+EAGER <> LAZY
+wat als het aanmaken van uw instantie i.p.v. 10 nanoseconden 10 seconden
+duurt. Wanneer uw gebruiker eerst gegevens moet invoeren en dit obj nodig
+is kan je het op de tweede manier aanmaken, wanneer de gebruiker de gegevens
+invoert kan je het object ondertussen al laden.
 */
 
 public class Singleton {
     private static Singleton instance = new Singleton();
-    //private static boolean alreadyMade = false;
 
     private Singleton() {
     }
@@ -28,7 +36,10 @@ public class Singleton {
         return instance;
     }
 
-    /*public static getInstance() {
+    /*
+    private static boolean alreadyMade = false;
+
+    public static getInstance() {
         if (alreadyMade) {
             throw new Exception("only one instance of Singleton class allowed");
         } else {
