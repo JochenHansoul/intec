@@ -3,7 +3,7 @@ package be.jochenhansoul.opdracht1;
 import java.util.Arrays;
 import java.util.stream.*;
 
-public class Source {
+public class App {
     public static void main(String[] args) {
         // part 1
         System.out.println("part 1");
