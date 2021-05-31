@@ -1,4 +1,5 @@
 package be.jochenhansoul.school;
 
-public Interface EventListener {
+public interface EventListener {
+    void onEvent(Event event);
 }
