@@ -34,7 +34,7 @@ public class Person {
 
     @Override
     public String toString() {
-        return String.format("%s %s, %s, age: %n, weight: %n, length: %n",
+        return String.format("%s %s, %s, age: %d, weight: %f, length: %f",
             this.firstName,
             this.lastName,
             this.gender.toString(),
