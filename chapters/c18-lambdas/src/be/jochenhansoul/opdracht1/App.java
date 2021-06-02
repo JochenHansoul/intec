@@ -1,8 +1,10 @@
 package be.jochenhansoul.opdracht1;
 
+import be.jochenhansoul.general.TextPrinter;
+
 import static java.lang.System.*;
 
-public class TextApp {
+public class App {
     public static void main(String[] args) {
         TextPrinter tp = new TextPrinter(
             "Hello this is an example of a sentence containing words");
