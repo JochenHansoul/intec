@@ -17,4 +17,10 @@ public class TextPrinter {
             }
         }
     }
+
+    public void printProcessedWords(WordProcessor processor) {
+        for (String w : sentence.split(" ")) {
+            System.out.println(processor.process(w));
+        }
+    }
 }
