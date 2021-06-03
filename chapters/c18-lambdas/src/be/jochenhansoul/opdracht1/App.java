@@ -1,6 +1,6 @@
 package be.jochenhansoul.opdracht1;
 
-import be.jochenhansoul.general.TextPrinter;
+import be.jochenhansoul.general.*;
 
 import static java.lang.System.*;
 

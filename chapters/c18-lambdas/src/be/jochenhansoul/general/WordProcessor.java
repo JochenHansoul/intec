@@ -1,4 +1,4 @@
-package be.jochenhansoul.opdracht2;
+package be.jochenhansoul.general;
 
 @FunctionalInterface
 public interface WordProcessor {

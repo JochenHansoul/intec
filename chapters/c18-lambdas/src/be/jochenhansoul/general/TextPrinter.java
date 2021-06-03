@@ -1,8 +1,5 @@
 package be.jochenhansoul.general;
 
-import be.jochenhansoul.opdracht1.WordFilter;
-import be.jochenhansoul.opdracht2.WordProcessor;
-
 public class TextPrinter {
     private String sentence;
 

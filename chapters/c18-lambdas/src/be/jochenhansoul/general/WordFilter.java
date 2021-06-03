@@ -1,4 +1,4 @@
-package be.jochenhansoul.opdracht1;
+package be.jochenhansoul.general;
 
 public interface WordFilter {
     public boolean isValid(String s);
