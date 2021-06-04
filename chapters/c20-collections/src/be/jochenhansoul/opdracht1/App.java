@@ -26,9 +26,10 @@ public class App {
         System.out.println(integers);
 
         // print sum
-        System.out.println(sum);
+        System.out.println("Sum:" + sum);
         // print average
-        System.out.println(sum / integers.size());
+        System.out.println("average:" + sum / integers.size());
+
         input.close();
     }
 }
