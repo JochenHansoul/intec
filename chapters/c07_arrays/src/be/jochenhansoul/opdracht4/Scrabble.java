@@ -26,42 +26,15 @@ public class Scrabble {
     }
 
     public static int valueLetter(char c) {
-        switch (c) {
-            case 'E':
-            case 'A':
-            case 'I':
-            case 'O':
-            case 'N':
-            case 'R':
-            case 'T':
-            case 'L':
-            case 'S':
-            case 'U':
-                return 1;
-            case 'D':
-            case 'G':
-                return 2;
-            case 'B':
-            case 'C':
-            case 'M':
-            case 'P':
-                return 3;
-            case 'F':
-            case 'H':
-            case 'V':
-            case 'W':
-            case 'Y':
-                return 4;
-            case 'K':
-                return 5;
-            case 'J':
-            case 'X':
-                return 8;
-            case 'Q':
-            case 'Z':
-                return 10;
-            default:
-                return 0;
-        }
+        return switch (c) {
+            case 'E', 'A', 'I', 'O', 'N', 'R', 'T', 'L', 'S', 'U' -> 1;
+            case 'D', 'G' -> 2;
+            case 'B', 'C', 'M', 'P' -> 3;
+            case 'F', 'H', 'V', 'W', 'Y' -> 4;
+            case 'K' -> 5;
+            case 'J', 'X' -> 8;
+            case 'Q', 'Z' -> 10;
+            default -> 0;
+        };
     }
 }
