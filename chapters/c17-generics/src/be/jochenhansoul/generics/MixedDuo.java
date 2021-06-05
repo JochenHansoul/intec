@@ -4,7 +4,7 @@ public class MixedDuo<T, U> {
     private T first;
     private U second;
 
-    public Duo(T first, U second) {
+    public MixedDuo(T first, U second) {
         this.first = first;
         this.second = second;
     }
