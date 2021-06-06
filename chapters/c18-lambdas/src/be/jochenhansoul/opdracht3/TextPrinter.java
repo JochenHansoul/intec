@@ -25,7 +25,7 @@ public class TextPrinter {
         }
     }
 
-    public void printNumberValues(Function<String, Integer> parser) {
+    public void printNumberValues(Function<String, BigDecimal> parser) {
         for (String w : sentence.split(" ")) {
             System.out.println(parser.apply(w));
         }
