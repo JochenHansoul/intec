@@ -32,6 +32,46 @@ public class Person {
         this.lastName = lastName;
     }
 
+    public void setGender(Gender gender) {
+        this.gender = gender;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public void setWeight(float weight) {
+        this.weight = weight;
+    }
+
+    public void setLength(float length) {
+        this.length = length;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public Gender getGender() {
+        return this.gender;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public float getWeight() {
+        return weight;
+    }
+
+    public float getLength() {
+        return length;
+    }
+
     @Override
     public String toString() {
         return String.format("%s %s, %s, age: %d, weight: %f, length: %f",
