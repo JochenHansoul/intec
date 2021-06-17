@@ -1,6 +1,7 @@
 package be.jochenhansoul.opdracht1;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -12,7 +13,7 @@ public class App {
         int amountOfNumbers = input.nextInt();
         input.nextLine();
 
-        List<Integer> integers = new ArrayList<>();
+        List<Integer> integers = new LinkedList<>();
         for(int i = 0; i < amountOfNumbers; i++) {
             System.out.println("enter number");
             integers.add(input.nextInt());
