@@ -20,8 +20,10 @@ public class PrintAppLambda {
     public static void print(char c, int count) {
         for (int i = 0; i < count; i++) {
             System.out.print(c);
+            //System.out.println(Thread.interrupted());
+            //Thread.yield();
             try {
-                Thread.sleep(100);
+                Thread.sleep(300);
             } catch (InterruptedException e) {
                 System.out.println(e.getMessage());
             }
