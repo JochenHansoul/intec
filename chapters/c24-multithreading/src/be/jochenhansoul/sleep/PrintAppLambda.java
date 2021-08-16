@@ -23,7 +23,7 @@ public class PrintAppLambda {
             //System.out.println(Thread.interrupted());
             //Thread.yield();
             try {
-                Thread.sleep(300);
+                Thread.sleep(100);
             } catch (InterruptedException e) {
                 System.out.println(e.getMessage());
             }
