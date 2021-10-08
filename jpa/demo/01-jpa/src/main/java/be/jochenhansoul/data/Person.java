@@ -1,16 +1,24 @@
 package be.jochenhansoul.data;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
+import java.sql.Date;
 import java.time.LocalDate;
 
 @Entity
+@Table(name = "person")
 public class Person {
     @Id
+    @Column(name = "person_id")
     private int personId;
+    @Column(name = "first_name")
     private String firstName;
+    @Column(name = "last_name")
     private String lastname;
-    private LocalDate birthDate;
+    @Column(name = "birth_date")
+    private Date birthDate;
 
     public void setPersonId(int personId) {
         this.personId = personId;
@@ -25,7 +33,7 @@ public class Person {
     }
 
     public void setBirthDate(LocalDate birthDate) {
-        this.birthDate = birthDate;
+        this.birthDate = Date.valueOf(birthDate);
     }
 
     public int getPersonId() {
@@ -41,7 +49,7 @@ public class Person {
     }
 
     public LocalDate getBirthDate() {
-        return birthDate;
+        return birthDate.toLocalDate();
     }
 
     @Override
@@ -50,7 +58,7 @@ public class Person {
                 "personId=" + personId +
                 ", firstName='" + firstName + '\'' +
                 ", lastname='" + lastname + '\'' +
-                ", birthDate=" + birthDate +
+                ", birthDate='" + birthDate + '\'' +
                 '}';
     }
 }
