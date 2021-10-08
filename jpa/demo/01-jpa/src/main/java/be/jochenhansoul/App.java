@@ -19,7 +19,7 @@ public class App {
         person.setPersonId(1);
         person.setFirstName("first1");
         person.setLastname("last1");
-        person.setBirthDate(LocalDate.of(2001, 1 , 1));
+        person.setBirthDate(LocalDate.of(2001, 1, 1));
 
         et.begin();
         em.persist(person);
