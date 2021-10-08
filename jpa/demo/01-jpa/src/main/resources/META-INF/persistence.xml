@@ -9,7 +9,7 @@
             <property name="javax.persistence.jdbc.url" value="jdbc:mysql://moktok.intecbrussel.org:33306/jochen" />
             <property name="javax.persistence.jdbc.user" value="jochen" />
             <property name="javax.persistence.jdbc.password" value="jochen-intec-123" />
-            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL8Dialect" /> <!-- deze property behoort niet tot de specificqtie-->
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL8Dialect" /> <!-- deze property behoort niet tot de specificatie-->
         </properties>
     </persistence-unit>
 </persistence>
