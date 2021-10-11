@@ -6,10 +6,15 @@
     <persistence-unit name="persistenceJochen">
         <properties>
             <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
+
             <property name="javax.persistence.jdbc.url" value="jdbc:mysql://moktok.intecbrussel.org:33306/jochen" />
             <property name="javax.persistence.jdbc.user" value="jochen" />
             <property name="javax.persistence.jdbc.password" value="jochen-intec-123" />
+
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL8Dialect" /> <!-- deze property behoort niet tot de specificatie-->
+            <property name="hibernate.show_sql" value="true"/><!--default op false-->
+            <property name="hibernate.format_sql" value="true"/>
+            <property name="hibernate.hbm2ddl.quto" value="validate"/><!-- HiBernate Model To Data Definition Language -->
         </properties>
     </persistence-unit>
 </persistence>
