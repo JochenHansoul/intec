@@ -8,5 +8,11 @@ function removeAllChildren(element) {
   }
 }
 
-removeAllChildren(H1_TITLE);
-H1_TITLE.appendChild(document.createTextNode("hello, world"));
+function replaceAllContent(element, string) {
+  removeAllChildren(element);
+  element.appendChild(document.createTextNode(string));
+}
+
+fetch("https://jsonplaceholder.typicode.com/todos/1")
+  .then(response => response.json())
+  .then(todo => replaceAllContent(H1_TITLE, todo.title));
