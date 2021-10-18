@@ -1,5 +1,8 @@
 "use strict";
 
+const URL = "https://jsonplaceholder.typicode.com/";
+const URL_TODO = URL + "todos/";
+
 const H1_TITLE = document.getElementById("js-title");
 
 function removeAllChildren(element) {
@@ -13,6 +16,12 @@ function replaceAllContent(element, string) {
   element.appendChild(document.createTextNode(string));
 }
 
-fetch("https://jsonplaceholder.typicode.com/todos/1")
-  .then(response => response.json())
-  .then(todo => replaceAllContent(H1_TITLE, todo.title));
+function getTodo(element, id) {
+  fetch(URL_TODO + id)
+    .then(response => response.json())
+    .then(todo => {
+      replaceAllContent(element, todo.title + ", completed: " + todo.completed);
+    })
+}
+
+getTodo(H1_TITLE, 4);
