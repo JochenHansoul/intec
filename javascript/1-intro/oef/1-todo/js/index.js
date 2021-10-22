@@ -5,16 +5,6 @@ const URL_TODO = URL + "todos/";
 
 const ARTICLE_TODO = document.getElementById("js-todo-paragraph");
 
-const removeAllChildren = (element) => {
-  while (element.hasChildNodes()) {
-    element.lastChild.remove();
-  }
-}
-
-const replaceAllContent = (element, string) => {
-  removeAllChildren(element);
-  element.appendChild(document.createTextNode(string));
-}
 
 const idQuery = (ids, idName = "id") => {
   if (ids.length === 0) {
@@ -46,7 +36,7 @@ const displayDataDefault = (element, data) => {
   element.lastChild.remove();
 }
 
-// input: element, url, function(element, data)
+// input: element, url, processData(data), displayData(element, data)
 const fetchAndAddData = (element, url, processData, displayData = displayDataDefault) => {
   fetch(url)
     .then(response => {
