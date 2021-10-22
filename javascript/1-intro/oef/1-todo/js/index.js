@@ -16,6 +16,20 @@ function replaceAllContent(element, string) {
   element.appendChild(document.createTextNode(string));
 }
 
+function idQuery(ids, idName = "id") {
+  if (ids.length === 0) {
+    return "";
+  } else if (ids.length === 1) {
+    return "" + ids[0];
+  } else {
+    let output = "?";
+    for (let id of ids) {
+      output += `${idName}=${id}&`;
+    }
+    return output.slice(0, output.length - 1);
+  }
+}
+
 function addTodo(element, id) {
   fetch(URL_TODO + id)
     .then(response => response.json())
@@ -24,4 +38,5 @@ function addTodo(element, id) {
     })
 }
 
+console.log(idQuery([5, 2, 3]));
 addTodo(H1_TITLE, 4);
