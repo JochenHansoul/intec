@@ -30,17 +30,24 @@ const idQuery = (ids, idName = "id") => {
   }
 }
 
-const addData = (element, data) => {
+const processData = (data) => {
+  let array = [];
   for (let d of data) {
-    let s = d.title + ", completed: " + d.completed;
-    element.appendChild(document.createTextNode(s));
+    array.push(d.title + ", completed: " + d.completed);
+  }
+  return array;
+}
+
+const displayDataDefault = (element, data) => {
+  for (let row of data) {
+    element.appendChild(document.createTextNode(row));
     element.appendChild(document.createElement("br"));
   }
   element.lastChild.remove();
 }
 
 // input: element, url, function(element, data)
-const fetchAndAddData = (element, url, addData) => {
+const fetchAndAddData = (element, url, processData, displayData = displayDataDefault) => {
   fetch(url)
     .then(response => {
       if (response.status === 200) {
@@ -49,7 +56,8 @@ const fetchAndAddData = (element, url, addData) => {
         throw new Error("getAndAddDate error with status " + response.status);
       }
     })
-    .then(data => addData(element, data))
+    .then(data => processData(data))
+    .then(array => displayData(element, array))
     .catch(e => console.log(e));
 }
 
@@ -62,4 +70,4 @@ const addTodo = (element, id) => {
 }
 
 let urlTodos = URL_TODO + idQuery([1, 2, 3]);
-fetchAndAddData(ARTICLE_TODO, urlTodos, addData);
+fetchAndAddData(ARTICLE_TODO, urlTodos, processData);
