@@ -3,7 +3,7 @@
 const URL = "https://jsonplaceholder.typicode.com/";
 const URL_TODO = URL + "todos/";
 
-const ARTICLE_TODO = document.getElementById("js-todo-paragraph");
+const P_TODO = document.getElementById("js-todo-paragraph");
 
 
 const idQuery = (ids, idName = "id") => {
@@ -20,14 +20,6 @@ const idQuery = (ids, idName = "id") => {
   }
 }
 
-const processData = (data) => {
-  let array = [];
-  for (let d of data) {
-    array.push(d.title + ", completed: " + d.completed);
-  }
-  return array;
-}
-
 const displayDataDefault = (element, data) => {
   for (let row of data) {
     element.appendChild(document.createTextNode(row));
@@ -37,7 +29,12 @@ const displayDataDefault = (element, data) => {
 }
 
 // input: element, url, processData(data), displayData(element, data)
-const fetchAndAddData = (element, url, processData, displayData = displayDataDefault) => {
+const fetchAndAddData = (
+  element,
+  url,
+  processData,
+  displayData = displayDataDefault) => {
+
   fetch(url)
     .then(response => {
       if (response.status === 200) {
@@ -51,13 +48,12 @@ const fetchAndAddData = (element, url, processData, displayData = displayDataDef
     .catch(e => console.log(e));
 }
 
-const addTodo = (element, id) => {
-  fetch(URL_TODO + id)
-    .then(response => response.json())
-    .then(todo => {
-      replaceAllContent(element, todo.title + ", completed: " + todo.completed);
-    })
+const processTodoData = (data) => {
+  let array = [];
+  for (let d of data) {
+    array.push(d.title + ", completed: " + d.completed);
+  }
+  return array;
 }
 
-let urlTodos = URL_TODO + idQuery([1, 2, 3]);
-fetchAndAddData(ARTICLE_TODO, urlTodos, processData);
+fetchAndAddData(P_TODO, URL_TODO + idQuery([1, 2, 3]), processTodoData);
