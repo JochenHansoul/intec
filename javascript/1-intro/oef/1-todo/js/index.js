@@ -3,7 +3,7 @@
 const URL = "https://jsonplaceholder.typicode.com/";
 const URL_TODO = URL + "todos/";
 
-const ARTICLE_TODO = document.getElementById("js-todo-article");
+const ARTICLE_TODO = document.getElementById("js-todo-paragraph");
 
 const removeAllChildren = (element) => {
   while (element.hasChildNodes()) {
