@@ -5,18 +5,18 @@ const URL_TODO = URL + "todos/";
 
 const ARTICLE_TODO = document.getElementById("js-todo-article");
 
-function removeAllChildren(element) {
+const removeAllChildren = (element) => {
   while (element.hasChildNodes()) {
     element.lastChild.remove();
   }
 }
 
-function replaceAllContent(element, string) {
+const replaceAllContent = (element, string) => {
   removeAllChildren(element);
   element.appendChild(document.createTextNode(string));
 }
 
-function idQuery(ids, idName = "id") {
+const idQuery = (ids, idName = "id") => {
   if (ids.length === 0) {
     return "";
   } else if (ids.length === 1) {
@@ -30,18 +30,17 @@ function idQuery(ids, idName = "id") {
   }
 }
 
-function addTodosGenerator(element) {
-  return function (todos) {
-    for (let todo of todos) {
-      let s = todo.title + ", completed: " + todo.completed;
-      element.appendChild(document.createTextNode(s));
-      element.appendChild(document.createElement("br"));
-    }
-    element.lastChild.remove();
+const addData = (element, data) => {
+  for (let d of data) {
+    let s = d.title + ", completed: " + d.completed;
+    element.appendChild(document.createTextNode(s));
+    element.appendChild(document.createElement("br"));
   }
+  element.lastChild.remove();
 }
 
-function fetchAndAddData(url, addData) {
+// input: element, url, function(element, data)
+const fetchAndAddData = (element, url, addData) => {
   fetch(url)
     .then(response => {
       if (response.status === 200) {
@@ -50,11 +49,11 @@ function fetchAndAddData(url, addData) {
         throw new Error("getAndAddDate error with status " + response.status);
       }
     })
-    .then(data => addData(data))
+    .then(data => addData(element, data))
     .catch(e => console.log(e));
 }
 
-function addTodo(element, id) {
+const addTodo = (element, id) => {
   fetch(URL_TODO + id)
     .then(response => response.json())
     .then(todo => {
@@ -62,5 +61,5 @@ function addTodo(element, id) {
     })
 }
 
-fetchAndAddData(URL_TODO + idQuery([1, 2, 3]), addTodosGenerator(ARTICLE_TODO));
-console.log(idQuery([5, 2, 3]));
+let urlTodos = URL_TODO + idQuery([1, 2, 3]);
+fetchAndAddData(ARTICLE_TODO, urlTodos, addData);
