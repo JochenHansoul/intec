@@ -3,7 +3,7 @@
 const URL = "https://jsonplaceholder.typicode.com/";
 const URL_TODO = URL + "todos/";
 
-const H1_TITLE = document.getElementById("js-title");
+const ARTICLE_TODO = document.getElementById("js-todo-article");
 
 function removeAllChildren(element) {
   while (element.hasChildNodes()) {
@@ -30,6 +30,30 @@ function idQuery(ids, idName = "id") {
   }
 }
 
+function addTodosGenerator(element) {
+  return function (todos) {
+    for (let todo of todos) {
+      let s = todo.title + ", completed: " + todo.completed;
+      element.appendChild(document.createTextNode(s));
+      element.appendChild(document.createElement("br"));
+    }
+    element.lastChild.remove();
+  }
+}
+
+function fetchAndAddData(url, addData) {
+  fetch(url)
+    .then(response => {
+      if (response.status === 200) {
+        return response.json();
+      } else {
+        throw new Error("getAndAddDate error with status " + response.status);
+      }
+    })
+    .then(data => addData(data))
+    .catch(e => console.log(e));
+}
+
 function addTodo(element, id) {
   fetch(URL_TODO + id)
     .then(response => response.json())
@@ -38,5 +62,5 @@ function addTodo(element, id) {
     })
 }
 
+fetchAndAddData(URL_TODO + idQuery([1, 2, 3]), addTodosGenerator(ARTICLE_TODO));
 console.log(idQuery([5, 2, 3]));
-addTodo(H1_TITLE, 4);
