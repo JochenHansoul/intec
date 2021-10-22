@@ -28,7 +28,18 @@ const displayDataDefault = (element, data) => {
   element.lastChild.remove();
 }
 
-// input: element, url, processData(data), displayData(element, data)
+/**
+* purpose:
+* Function fetches data from location url, processes them according to the
+* processData function and displays them according to the displayData function
+* to the specified element.
+
+* input:
+* element - an html element
+* url - url to resource
+* processData(data) - function that receives an array of objects and returns an array of strings
+* displayData(element, data) - (optional) function that receives an html element and an array of strings
+*/
 const fetchAndAddData = (
   element,
   url,
