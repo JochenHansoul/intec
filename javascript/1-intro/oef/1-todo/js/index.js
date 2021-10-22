@@ -16,7 +16,7 @@ function replaceAllContent(element, string) {
   element.appendChild(document.createTextNode(string));
 }
 
-function getTodo(element, id) {
+function addTodo(element, id) {
   fetch(URL_TODO + id)
     .then(response => response.json())
     .then(todo => {
@@ -24,4 +24,4 @@ function getTodo(element, id) {
     })
 }
 
-getTodo(H1_TITLE, 4);
+addTodo(H1_TITLE, 4);
