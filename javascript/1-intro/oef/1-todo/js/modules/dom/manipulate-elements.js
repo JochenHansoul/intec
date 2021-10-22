@@ -1,10 +1,10 @@
-exports.removeAllChildren = (element) => {
+export const removeAllChildren = (element) => {
   while (element.hasChildNodes()) {
     element.lastChild.remove();
   }
 }
 
-exports.replaceAllContent = (element, string) => {
+export const replaceAllContent = (element, string) => {
   removeAllChildren(element);
   element.appendChild(document.createTextNode(string));
 }
