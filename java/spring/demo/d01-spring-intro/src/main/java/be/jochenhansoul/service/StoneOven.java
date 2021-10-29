@@ -1,11 +1,14 @@
 package be.jochenhansoul.service;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 
 @Component(value = "StoneOven")
 public class StoneOven implements Oven {
+    @Value("${stone.oven.pizza.amount}")
     private int amountOfPizzas;
+    @Value("${stone.oven.temperature}")
     private int temperature;
 
     public void setAmountOfPizzas(int amountOfPizzas) {

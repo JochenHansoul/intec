@@ -10,7 +10,8 @@ public class PizzaService {
 
     public PizzaService(@Qualifier("StoneOven") Oven oven) {
         this.oven = oven;
-        System.out.println("creating pizza service");
+        System.out.println("creating a pizza service");
+        oven.bakePizza();
     }
 
     public void bakePizza() {
