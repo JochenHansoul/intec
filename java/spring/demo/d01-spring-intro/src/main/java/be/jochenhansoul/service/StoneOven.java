@@ -1,7 +1,6 @@
 package be.jochenhansoul.service;
 
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 
 @Component(value = "StoneOven")
@@ -29,6 +28,6 @@ public class StoneOven implements Oven {
 
     @Override
     public void bakePizza() {
-        System.out.printf("baking %d pizza on %d degrees", this.amountOfPizzas, this.temperature);
+        System.out.printf("baking %d pizza(s) on %d degree", this.amountOfPizzas, this.temperature);
     }
 }
