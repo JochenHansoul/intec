@@ -24,7 +24,7 @@ public class ElectricOven implements Oven {
 
     @Override
     public void bakePizza() {
-        System.out.printf("baking %d pizza on %d degrees, Bzzzzzzzzzzzzzzzzzzzzzz",
+        System.out.printf("baking %d pizza(s) on %d degree, Bzzzzzzzzzzzzzzzzzzzzzz",
                 this.amountOfPizzas, this.temperature);
     }
 }
