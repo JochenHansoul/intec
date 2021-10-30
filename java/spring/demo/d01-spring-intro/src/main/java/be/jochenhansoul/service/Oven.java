@@ -1,5 +1,5 @@
 package be.jochenhansoul.service;
 
 public interface Oven {
-    void bakePizza();
+    void bake(String food, int amount);
 }

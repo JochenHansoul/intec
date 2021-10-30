@@ -4,18 +4,10 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class ElectricOven implements Oven {
-    private int amountOfPizzas;
     private int temperature;
-
-    public void setAmountOfPizzas(int amountOfPizzas) {
-        this.amountOfPizzas = amountOfPizzas;
-    }
 
     public void setTemperature(int temperature) {
         this.temperature = temperature;
-    }
-    public int getAmountOfPizzas() {
-        return amountOfPizzas;
     }
 
     public int getTemperature() {
@@ -23,8 +15,8 @@ public class ElectricOven implements Oven {
     }
 
     @Override
-    public void bakePizza() {
-        System.out.printf("baking %d pizza(s) on %d degree, Bzzzzzzzzzzzzzzzzzzzzzz",
-                this.amountOfPizzas, this.temperature);
+    public void bake(String food, int amount) {
+        System.out.printf("baking %d %s(s) on %d degree, Bzzzzzzzzzzzzzzzzzzzzzz",
+                amount, food, this.temperature);
     }
 }

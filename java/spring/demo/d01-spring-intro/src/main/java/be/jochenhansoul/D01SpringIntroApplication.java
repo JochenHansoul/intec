@@ -7,10 +7,10 @@ import org.springframework.context.ApplicationContext;
 
 @SpringBootApplication
 public class D01SpringIntroApplication {
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 		ApplicationContext context = SpringApplication.run(D01SpringIntroApplication.class, args);
 
 		PizzaService pizzaService = context.getBean(PizzaService.class);
-		pizzaService.bakePizza();
+		pizzaService.bakePizza(30);
 	}
 }
