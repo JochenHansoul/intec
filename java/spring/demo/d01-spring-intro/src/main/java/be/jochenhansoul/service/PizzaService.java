@@ -1,15 +1,10 @@
 package be.jochenhansoul.service;
 
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Component;
-
-@Component
 public class PizzaService {
     private Oven oven;
     private Integer amountOfPizzas;
 
-    public PizzaService(@Qualifier("StoneOven") Oven oven, @Value("${pizza.amount}") Integer amountOfPizzas) throws Exception {
+    public PizzaService(Oven oven, Integer amountOfPizzas) throws Exception {
         if (amountOfPizzas < 0) {
             throw new Exception("amount of pizza's may not be below zero");
         } else {

@@ -1,11 +1,7 @@
 package be.jochenhansoul.service;
 
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Component;
-
-@Component
 public class ElectricOven extends Oven {
-    public ElectricOven(@Value("${electric.oven.temperature}") Integer temperature) {
+    public ElectricOven(Integer temperature) {
         super(temperature);
     }
 
