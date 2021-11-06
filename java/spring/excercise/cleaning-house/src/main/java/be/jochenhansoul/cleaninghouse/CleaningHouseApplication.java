@@ -1,4 +1,4 @@
-package com.example.cleaninghouse;
+package be.jochenhansoul.cleaninghouse;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

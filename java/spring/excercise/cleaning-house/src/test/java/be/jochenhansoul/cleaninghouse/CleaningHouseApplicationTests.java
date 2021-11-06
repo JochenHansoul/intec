@@ -1,4 +1,4 @@
-package com.example.cleaninghouse;
+package be.jochenhansoul.cleaninghouse;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
