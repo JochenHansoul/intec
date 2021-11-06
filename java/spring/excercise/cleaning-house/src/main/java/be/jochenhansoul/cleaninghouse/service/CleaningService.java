@@ -1,11 +1,11 @@
 package be.jochenhansoul.cleaninghouse.service;
 
-import be.jochenhansoul.cleaninghouse.service.tool.Usable;
+import be.jochenhansoul.cleaninghouse.service.tool.CleaningTool;
 
 public class CleaningService implements CleanServiceable {
-    private Usable cleaningTool;
+    private CleaningTool cleaningTool;
 
-    public CleaningService(Usable cleaningTool) {
+    public CleaningService(CleaningTool cleaningTool) {
         this.cleaningTool = cleaningTool;
     }
 
