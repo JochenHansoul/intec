@@ -1,6 +1,6 @@
-package be.jochenhansoul.cleaninghouse.service;
+package com.example.cleaninghouse.service;
 
-import be.jochenhansoul.cleaninghouse.service.tool.CleaningTool;
+import com.example.cleaninghouse.service.tool.CleaningTool;
 
 public class CleaningService implements CleanServiceable {
     private CleaningTool cleaningTool;

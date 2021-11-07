@@ -1,4 +1,4 @@
-package be.jochenhansoul.cleaninghouse.service;
+package com.example.cleaninghouse.service;
 
 public interface CleanServiceable {
     void clean();

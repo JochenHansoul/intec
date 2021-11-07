@@ -1,4 +1,4 @@
-package be.jochenhansoul.cleaninghouse.service.tool;
+package com.example.cleaninghouse.service.tool;
 
 public class VacuumCleaner extends CleaningTool {
     @Override

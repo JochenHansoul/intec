@@ -1,8 +1,10 @@
-package be.jochenhansoul.cleaninghouse.config;
+package com.example.cleaninghouse.config;
 
-import be.jochenhansoul.cleaninghouse.service.CleaningRobot;
-import be.jochenhansoul.cleaninghouse.service.CleaningService;
-import be.jochenhansoul.cleaninghouse.service.tool.*;
+import com.example.cleaninghouse.service.CleaningRobot;
+import com.example.cleaninghouse.service.CleaningService;
+import com.example.cleaninghouse.service.tool.Broom;
+import com.example.cleaninghouse.service.tool.Swiffer;
+import com.example.cleaninghouse.service.tool.VacuumCleaner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 

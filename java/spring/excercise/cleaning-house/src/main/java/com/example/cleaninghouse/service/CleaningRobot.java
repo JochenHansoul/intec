@@ -1,6 +1,6 @@
-package be.jochenhansoul.cleaninghouse.service;
+package com.example.cleaninghouse.service;
 
-import be.jochenhansoul.cleaninghouse.service.tool.*;
+import com.example.cleaninghouse.service.tool.CleaningTool;
 
 import java.util.List;
 import java.util.Random;
