@@ -2,9 +2,8 @@ package com.example.cleaninghouse.config;
 
 import com.example.cleaninghouse.service.CleaningRobot;
 import com.example.cleaninghouse.service.CleaningService;
-import com.example.cleaninghouse.service.tool.Broom;
-import com.example.cleaninghouse.service.tool.Swiffer;
-import com.example.cleaninghouse.service.tool.VacuumCleaner;
+import com.example.cleaninghouse.service.GardenService;
+import com.example.cleaninghouse.service.tool.*;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -30,5 +29,15 @@ public class BeanFactory {
     @Bean
     public CleaningRobot createCleaningRobot() {
         return new CleaningRobot(Arrays.asList(new Broom(), new VacuumCleaner(), new Swiffer()));
+    }
+
+    @Bean
+    public GardenService createLawnMowerGardenService() {
+        return new GardenService(new LawnMower());
+    }
+
+    @Bean
+    public GardenService createSpadeGardenService() {
+        return new GardenService(new Spade());
     }
 }
