@@ -1,20 +1,25 @@
 package com.example.cleaninghouse.service;
 
 import javax.annotation.PostConstruct;
+import java.util.List;
 
 public class DomesticService implements DomesticServiceable {
-    private CleanServiceable cleanService;
-    private GardenServiceable gardenService;
+    private List<CleanServiceable> cleanServices;
+    private List<GardenServiceable> gardenServices;
 
-    public DomesticService(CleanServiceable cleanService, GardenService gardenService) {
-        this.cleanService = cleanService;
-        this.gardenService = gardenService;
+    public DomesticService(List<CleanServiceable> cleanServices, List<GardenServiceable> gardenServices) {
+        this.cleanServices = cleanServices;
+        this.gardenServices = gardenServices;
     }
 
     @PostConstruct
     @Override
     public void runHousehold() {
-        this.cleanService.clean();
-        this.gardenService.garden();
+        for (CleanServiceable cleanServiceable : this.cleanServices) {
+            cleanServiceable.clean();
+        }
+        for (GardenServiceable gardenServiceable : this.gardenServices) {
+            gardenServiceable.garden();
+        }
     }
 }

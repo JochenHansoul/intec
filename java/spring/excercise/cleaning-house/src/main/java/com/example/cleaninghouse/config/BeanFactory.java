@@ -1,15 +1,13 @@
 package com.example.cleaninghouse.config;
 
-import com.example.cleaninghouse.service.CleaningRobot;
-import com.example.cleaninghouse.service.CleaningService;
-import com.example.cleaninghouse.service.DomesticService;
-import com.example.cleaninghouse.service.GardenService;
+import com.example.cleaninghouse.service.*;
 import com.example.cleaninghouse.service.tool.*;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import javax.annotation.PostConstruct;
 import java.util.Arrays;
+import java.util.List;
 
 @Configuration
 public class BeanFactory {
@@ -45,6 +43,10 @@ public class BeanFactory {
 
     @Bean
     public DomesticService createDomesticService() {
-        return new DomesticService(this.createBroomCleaningService(), this.createSpadeGardenService());
+        List<CleanServiceable> cleanServiceableList =
+                Arrays.asList(this.createBroomCleaningService(), this.createCleaningRobot());
+        List<GardenServiceable> gardenServiceableList =
+                Arrays.asList(this.createSpadeGardenService(), this.createLawnMowerGardenService());
+        return new DomesticService(cleanServiceableList, gardenServiceableList);
     }
 }
