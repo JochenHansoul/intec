@@ -3,6 +3,12 @@
 out/
 *.iml
 
+#ignored projects
+spring-demo-2021/
+d01-brewer/
+d02-beer/
+todo-app/
+
 #maven
 target/
 pom.xml.tag
