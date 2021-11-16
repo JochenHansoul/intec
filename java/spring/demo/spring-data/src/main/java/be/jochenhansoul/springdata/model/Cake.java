@@ -1,40 +1,18 @@
 package be.jochenhansoul.springdata.model;
 
+import lombok.Data;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity
+@Data
 public class Cake {
+    @Id
+    @GeneratedValue
+    private Integer id;
     private Integer size;
     private String name;
     private Boolean hasChocolate;
-
-    public void setSize(Integer size) {
-        this.size = size;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setHasChocolate(Boolean hasChocolate) {
-        this.hasChocolate = hasChocolate;
-    }
-
-    public Integer getSize() {
-        return size;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public Boolean getHasChocolate() {
-        return hasChocolate;
-    }
-
-    @Override
-    public String toString() {
-        return "Cake{" +
-                "size=" + size +
-                ", name='" + name + '\'' +
-                ", hasChocolate=" + hasChocolate +
-                '}';
-    }
 }
