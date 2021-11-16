@@ -6,6 +6,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 
+import java.util.Optional;
+
 @SpringBootApplication
 public class SpringDataApplication {
 
@@ -20,8 +22,14 @@ public class SpringDataApplication {
 		cake.setSize(10);
 		cake.setHasChocolate(true);
 
-		Cake savedCake = repository.save(cake);
-		System.out.println("saved cake: " + savedCake);
+		System.out.println("saved cake:");
+		System.out.println(repository.save(cake));
+
+		System.out.println("found cake:");
+		repository.findAll().forEach(System.out::println);
+
+		Optional<Cake> cake1 = Optional.of(repository.getById(1));
+		//System.out.println(cake1);
 	}
 
 }
