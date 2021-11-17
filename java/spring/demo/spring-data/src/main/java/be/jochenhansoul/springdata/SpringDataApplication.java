@@ -24,6 +24,8 @@ public class SpringDataApplication {
 
 		System.out.println("found cake:");
 		repository.findAll().forEach(System.out::println);
+		System.out.println("found cake with size 10:");
+		repository.findCakeBySize(10).forEach(System.out::println);
 
 		Optional<Cake> cake1 = Optional.of(repository.getById(1));
 		//System.out.println(cake1);
