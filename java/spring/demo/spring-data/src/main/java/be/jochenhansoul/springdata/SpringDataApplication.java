@@ -17,10 +17,7 @@ public class SpringDataApplication {
 		CakeRepository repository = ctx.getBean(CakeRepository.class);
 		System.out.println(repository);
 
-		Cake cake = new Cake();
-		cake.setName("chocolate cake");
-		cake.setSize(10);
-		cake.setHasChocolate(true);
+		Cake cake = new Cake("chocolate cake", 10, true);
 
 		System.out.println("saved cake:");
 		System.out.println(repository.save(cake));
