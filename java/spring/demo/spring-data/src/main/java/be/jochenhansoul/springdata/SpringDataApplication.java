@@ -17,10 +17,10 @@ public class SpringDataApplication {
 		CakeRepository repository = ctx.getBean(CakeRepository.class);
 		System.out.println(repository);
 
-		Cake cake = new Cake("chocolate cake", 10, true);
-
 		System.out.println("saved cake:");
-		System.out.println(repository.save(cake));
+		repository.save(new Cake("chocolate cake", 10, true));
+		repository.save(new Cake("vanilla cake", 10, false));
+		repository.save(new Cake("strawberry cake", 5, false));
 
 		System.out.println("found cake:");
 		repository.findAll().forEach(System.out::println);
