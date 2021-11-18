@@ -6,8 +6,6 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 
-import java.util.Optional;
-
 @SpringBootApplication
 public class SpringDataApplication {
 
@@ -29,7 +27,7 @@ public class SpringDataApplication {
 		System.out.println("same name as the cake");
 		repository.findSomeCake("strawberry cake").forEach(System.out::println);
 
-		Optional<Cake> cake1 = Optional.of(repository.getById(1));
+		Cake cake1 = repository.getById(1); // geeft een referentie terug
 		//System.out.println(cake1);
 	}
 
