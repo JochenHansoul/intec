@@ -11,10 +11,10 @@ public class Broom extends CleaningTool {
     @Value("${language.country}")
     String country;
     Locale locale = new Locale("fr", "FR");
-    //ResourceBundle resourceBundle = ResourceBundle.getBundle("res.bundle", locale);
+    ResourceBundle resourceBundle = ResourceBundle.getBundle("bundle", locale);
 
     @Override
     public void use() {
-        //System.out.println(resourceBundle.getString("tool.broom.use"));
+        System.out.println(resourceBundle.getString("tool.broom.use"));
     }
 }
