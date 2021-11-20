@@ -6,15 +6,15 @@ import java.util.Locale;
 import java.util.ResourceBundle;
 
 public class Broom extends CleaningTool {
-    @Value("${language}")
+    @Value("${language.language}")
     String language;
-    @Value("${country}")
+    @Value("${language.country}")
     String country;
-    Locale locale = new Locale(language, country);
-    ResourceBundle resourceBundle = ResourceBundle.getBundle("res.bundle", locale);
+    Locale locale = new Locale("fr", "FR");
+    //ResourceBundle resourceBundle = ResourceBundle.getBundle("res.bundle", locale);
 
     @Override
     public void use() {
-        System.out.println(resourceBundle.getString("tool.broom.use"));
+        //System.out.println(resourceBundle.getString("tool.broom.use"));
     }
 }
