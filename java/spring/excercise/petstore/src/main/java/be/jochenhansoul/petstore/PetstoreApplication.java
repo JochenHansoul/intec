@@ -17,26 +17,26 @@ public class PetstoreApplication {
 		CategoryRepository categoryRepository = ctx.getBean(CategoryRepository.class);
 		PetRepository petRepository = ctx.getBean(PetRepository.class);
 
-		Category category1 = new Category(1L, "mammal");
-		Category category2 = new Category(2L, "arachnid");
+		Category category1 = new Category(0L, "mammal");
+		Category category2 = new Category(0L, "arachnid");
 
-		categoryRepository.save(category1);
-		categoryRepository.save(category2);
+		category1 = categoryRepository.save(category1);
+		category2 = categoryRepository.save(category2);
 
 		petRepository.save(new Pet(
-				1L,
+				0L,
 				category1,
 				"dog",
 				PetStatus.AVAILABLE
 		));
 		petRepository.save(new Pet(
-				2L,
+				0L,
 				category1,
 				"cat",
 				PetStatus.AVAILABLE
 		));
 		petRepository.save(new Pet(
-				3L,
+				0L,
 				category2,
 				"spider",
 				PetStatus.SOLD
