@@ -13,7 +13,7 @@ import java.util.Objects;
 @Setter
 @ToString
 @RequiredArgsConstructor
-public class Order {
+public class PetOrder {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -24,7 +24,7 @@ public class Order {
     //private OrderStatus status;
     //private Boolean complete;
 
-    public Order(Long id, /*Pet pet, */Integer quantity/*, LocalDateTime shipDate, OrderStatus status, Boolean complete*/) {
+    public PetOrder(Long id, /*Pet pet, */Integer quantity/*, LocalDateTime shipDate, OrderStatus status, Boolean complete*/) {
         this.id = id;
         //this.pet = pet;
         this.petQuantity = quantity;
@@ -37,7 +37,7 @@ public class Order {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Order order = (Order) o;
+        PetOrder order = (PetOrder) o;
         return id.equals(order.id) && /*pet.equals(order.pet) &&*/ petQuantity.equals(order.petQuantity) /*&& shipDate.equals(order.shipDate) && status == order.status && complete.equals(order.complete)*/;
     }
 
