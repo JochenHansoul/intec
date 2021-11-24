@@ -22,10 +22,10 @@ public class PetOrder {
     private Pet pet;
     private Integer petQuantity;
     private LocalDateTime shipDate;
-    private OrderStatus status;
+    private PetOrderStatus status;
     private Boolean complete;
 
-    public PetOrder(Long id, Pet pet, Integer quantity, LocalDateTime shipDate, OrderStatus status, Boolean complete) {
+    public PetOrder(Long id, Pet pet, Integer quantity, LocalDateTime shipDate, PetOrderStatus status, Boolean complete) {
         this.id = id;
         this.pet = pet;
         this.petQuantity = quantity;

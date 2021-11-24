@@ -1,5 +1,5 @@
 package be.jochenhansoul.petstore.model;
 
-public enum OrderStatus {
+public enum PetOrderStatus {
     PENDING, COMPLETE;
 }
