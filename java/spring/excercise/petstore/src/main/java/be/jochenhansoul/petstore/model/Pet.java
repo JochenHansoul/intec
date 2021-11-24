@@ -25,6 +25,7 @@ public class Pet {
     private String name;
     private PetStatus status;
     @ElementCollection
+    @ToString.Exclude
     private List<String> photoUrls;
     @ManyToMany
     @ToString.Exclude
