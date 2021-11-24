@@ -26,7 +26,7 @@ public class Pet {
     private PetStatus status;
     @ElementCollection
     private List<String> photoUrls;
-    @OneToMany
+    @ManyToMany
     @ToString.Exclude
     private Set<Tag> tags;
 
