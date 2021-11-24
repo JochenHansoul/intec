@@ -6,7 +6,6 @@ import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.*;
-import java.time.LocalDateTime;
 import java.util.Objects;
 
 @Entity
@@ -18,19 +17,20 @@ public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @ManyToOne
-    private Pet pet;
-    private Integer quantity;
-    private LocalDateTime shipDate;
-    private OrderStatus status;
-    private Boolean complete = false;
+    //@ManyToOne
+    //private Pet pet;
+    private Integer petQuantity;
+    //private LocalDateTime shipDate;
+    //private OrderStatus status;
+    //private Boolean complete;
 
-    public Order(Long id, Pet pet, Integer quantity, LocalDateTime shipDate, OrderStatus status) {
+    public Order(Long id, /*Pet pet, */Integer quantity/*, LocalDateTime shipDate, OrderStatus status, Boolean complete*/) {
         this.id = id;
-        this.pet = pet;
-        this.quantity = quantity;
-        this.shipDate = shipDate;
-        this.status = status;
+        //this.pet = pet;
+        this.petQuantity = quantity;
+        //this.shipDate = shipDate;
+        //this.status = status;
+        //this.complete = complete;
     }
 
     @Override
@@ -38,11 +38,11 @@ public class Order {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Order order = (Order) o;
-        return id.equals(order.id) && pet.equals(order.pet) && quantity.equals(order.quantity) && shipDate.equals(order.shipDate) && status == order.status && complete.equals(order.complete);
+        return id.equals(order.id) && /*pet.equals(order.pet) &&*/ petQuantity.equals(order.petQuantity) /*&& shipDate.equals(order.shipDate) && status == order.status && complete.equals(order.complete)*/;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, pet, quantity, shipDate, status, complete);
+        return Objects.hash(id, /*pet,*/ petQuantity/*, shipDate, status, complete*/);
     }
 }
