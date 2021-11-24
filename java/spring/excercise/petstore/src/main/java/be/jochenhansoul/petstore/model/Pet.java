@@ -18,7 +18,7 @@ import java.util.Set;
 @RequiredArgsConstructor
 public class Pet {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @ManyToOne
     private Category category;
