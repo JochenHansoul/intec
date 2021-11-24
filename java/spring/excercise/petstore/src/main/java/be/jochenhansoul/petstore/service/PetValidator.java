@@ -4,8 +4,7 @@ import be.jochenhansoul.petstore.model.Pet;
 
 public class PetValidator {
     public boolean validate(Pet pet) {
-        return pet.getId() == 0
-                && pet.getCategory() != null
+        return pet.getCategory() != null
                 && pet.getName() != null
                 && pet.getName().length() > 0
                 && pet.getStatus() != null;
