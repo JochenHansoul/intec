@@ -19,11 +19,15 @@ public class PetService {
     }
 
     public Optional<Pet> save(Pet pet) {
-        if (this.PET_VALIDATOR.validate(pet)) {
-            return Optional.of(this.PET_REPOSITORY.save(pet));
-        } else {
-            return Optional.empty();
-        }
+        return (this.PET_VALIDATOR.validate(pet))
+                ? Optional.of(this.PET_REPOSITORY.save(pet))
+                : Optional.empty();
+    }
+
+    public Optional<Pet> getPet(long id) {
+        return (this.PET_REPOSITORY.existsById(id))
+                ? Optional.of(this.PET_REPOSITORY.getPetById(id))
+                : Optional.empty();
     }
 
     public Optional<Pet> update(long id, String name, String status) {
