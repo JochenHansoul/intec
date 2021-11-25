@@ -54,4 +54,22 @@ public class PetService {
     public List<Pet> findByStatus(String status) {
         return this.PET_REPOSITORY.getPetsByStatus(PetStatus.valueOf(status));
     }
+
+    public boolean delete(Long id) {
+        if (PET_REPOSITORY.existsById(id)) {
+            PET_REPOSITORY.deleteById(id);
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public boolean uploadImage(long id, String url) {
+        if (PET_REPOSITORY.existsById(id) && url != null && url.length() > 0) {
+            //PET_REPOSITORY;
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
