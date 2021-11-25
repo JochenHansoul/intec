@@ -3,10 +3,12 @@ package be.jochenhansoul.petstore.service;
 import be.jochenhansoul.petstore.model.Pet;
 import be.jochenhansoul.petstore.model.PetStatus;
 import be.jochenhansoul.petstore.repository.PetRepository;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 import java.util.Optional;
 
+@Component
 public class PetService {
     private final PetValidator PET_VALIDATOR;
     private final PetRepository PET_REPOSITORY;
