@@ -8,7 +8,8 @@ import org.springframework.data.jpa.repository.Query;
 import java.util.List;
 
 public interface PetRepository extends JpaRepository<Pet, Long> {
-    Pet getById(Long id);
+    @Query("SELECT p FROM Pet p WHERE p.id = :id")
+    Pet getPetById(Long id);
 
     void deleteById(Long id);
 
