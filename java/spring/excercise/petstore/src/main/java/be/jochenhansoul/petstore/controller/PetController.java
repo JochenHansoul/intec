@@ -28,7 +28,16 @@ public class PetController {
             return ResponseEntity.status(400).build();
         } else {
             Optional<Pet> optionalPet = PET_SERVICE.getPet(id);
-            return (optionalPet.isPresent()) ? ResponseEntity.ok(optionalPet.get()) : ResponseEntity.status(404).build();
+            return (optionalPet.isPresent())
+                    ? ResponseEntity.ok(optionalPet.get())
+                    : ResponseEntity.status(404).build();
         }
+    }
+
+    @DeleteMapping
+    public ResponseEntity deletePet(@RequestBody Long id) {
+        return (id <= 0) ? ResponseEntity.status(400).build() :
+                (PET_SERVICE.delete(id)) ? ResponseEntity.ok(200)
+                        : ResponseEntity.status(404).build();
     }
 }
