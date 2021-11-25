@@ -66,7 +66,7 @@ public class PetService {
 
     public boolean uploadImage(long id, String url) {
         if (PET_REPOSITORY.existsById(id) && url != null && url.length() > 0) {
-            //PET_REPOSITORY;
+            PET_REPOSITORY.addPhotoUrl(id, url);
             return true;
         } else {
             return false;
