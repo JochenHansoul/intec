@@ -24,7 +24,7 @@ public class PetService {
         }
     }
 
-    public int update(long id, String name, String status) {
+    public Optional<Pet> update(long id, String name, String status) {
         PetStatus petStatus = null;
         try {
             petStatus = PetStatus.valueOf(status);
@@ -32,10 +32,9 @@ public class PetService {
             System.out.println(e.getMessage());
         }
         if (name == null || petStatus == null || !this.PET_REPOSITORY.existsById(id)) {
-            return 405;
+            return Optional.empty();
         } else {
-            // update pet
-            return 200;
+            return Optional.of(this.PET_REPOSITORY.updatePet(id, name, petStatus));
         }
     }
 
