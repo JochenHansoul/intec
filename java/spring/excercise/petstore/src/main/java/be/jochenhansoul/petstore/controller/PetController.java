@@ -31,8 +31,6 @@ public class PetController {
         }
         if (id == null) {
             return ResponseEntity.status(400).body("id is not of type number");
-        } else if (id <= 0) {
-            return ResponseEntity.status(400).body("id may not be lower then zero");
         } else {
             Optional<Pet> optionalPet = PET_SERVICE.getPet(id);
             return (optionalPet.isPresent()) ? ResponseEntity.ok(optionalPet.get())
@@ -48,8 +46,7 @@ public class PetController {
         } catch (NumberFormatException ignored) {
         }
         return (id == null) ? ResponseEntity.status(400).body("id is not of type number") :
-                (id <= 0) ? ResponseEntity.status(400).body("id may not be lower then zero") :
-                        (PET_SERVICE.delete(id)) ? ResponseEntity.ok(200)
-                                : ResponseEntity.status(404).body("No pet found with id " + id);
+                (PET_SERVICE.delete(id)) ? ResponseEntity.ok(200)
+                        : ResponseEntity.status(404).body("No pet found with id " + id);
     }
 }
