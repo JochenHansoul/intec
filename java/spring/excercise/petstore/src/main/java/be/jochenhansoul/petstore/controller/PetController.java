@@ -22,31 +22,21 @@ public class PetController {
         return (optionalPet.isPresent()) ? ResponseEntity.ok("found") : ResponseEntity.status(405).build();
     }
 
-    @GetMapping("{petId}")
-    public ResponseEntity getPet(@PathVariable String petId) {
-        Long id = null;
-        try {
-            id = Long.parseLong(petId);
-        } catch (NumberFormatException ignored) {
-        }
-        if (id == null) {
-            return ResponseEntity.status(400).body("id is not of type number");
-        } else {
-            Optional<Pet> optionalPet = PET_SERVICE.getPet(id);
-            return (optionalPet.isPresent()) ? ResponseEntity.ok(optionalPet.get())
-                    : ResponseEntity.status(404).body("No pet found with id " + id);
-        }
+    @GetMapping("{id}")
+    public ResponseEntity getPet(@PathVariable Long id) {
+        Optional<Pet> optionalPet = PET_SERVICE.getPet(id);
+        return (optionalPet.isPresent()) ? ResponseEntity.ok(optionalPet.get())
+                : ResponseEntity.status(404).body("No pet found with id " + id);
     }
 
-    @DeleteMapping("{petId}")
-    public ResponseEntity deletePet(@PathVariable String petId) {
-        Long id = null;
-        try {
-            id = Long.parseLong(petId);
-        } catch (NumberFormatException ignored) {
-        }
-        return (id == null) ? ResponseEntity.status(400).body("id is not of type number") :
-                (PET_SERVICE.delete(id)) ? ResponseEntity.ok().build()
-                        : ResponseEntity.status(404).body("No pet found with id " + id);
+    @DeleteMapping("{id}")
+    public ResponseEntity deletePet(@PathVariable Long id) {
+        return (PET_SERVICE.delete(id)) ? ResponseEntity.ok().build()
+                : ResponseEntity.status(404).body("No pet found with id " + id);
+    }
+
+    @ExceptionHandler(NumberFormatException.class)
+    public ResponseEntity handleNumberFormatException() {
+        return ResponseEntity.status(400).body("id is not of type number");
     }
 }
