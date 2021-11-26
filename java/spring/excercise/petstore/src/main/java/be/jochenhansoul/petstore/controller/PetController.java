@@ -46,7 +46,7 @@ public class PetController {
         } catch (NumberFormatException ignored) {
         }
         return (id == null) ? ResponseEntity.status(400).body("id is not of type number") :
-                (PET_SERVICE.delete(id)) ? ResponseEntity.ok(200)
+                (PET_SERVICE.delete(id)) ? ResponseEntity.ok().build()
                         : ResponseEntity.status(404).body("No pet found with id " + id);
     }
 }
