@@ -15,7 +15,7 @@ import java.util.List;
 public class OpenHour {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private long idOpenHour;
     private DayOfWeek day;
     @OneToMany
     private List<MomentOpen> momentsOpen;

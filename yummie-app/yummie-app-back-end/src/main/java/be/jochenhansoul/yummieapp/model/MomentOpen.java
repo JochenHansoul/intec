@@ -17,7 +17,7 @@ import java.time.LocalTime;
 public class MomentOpen {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private long idMomentOpen;
     private LocalTime open;
     private LocalTime closed;
 }
