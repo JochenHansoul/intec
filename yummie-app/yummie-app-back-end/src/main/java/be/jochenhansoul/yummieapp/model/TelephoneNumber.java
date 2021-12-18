@@ -19,4 +19,5 @@ public class TelephoneNumber {
     private long idTelephoneNumber;
     private String description;
     private long number;
+    private boolean isMainTelephone;
 }

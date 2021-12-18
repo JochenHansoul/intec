@@ -19,4 +19,5 @@ public class EmailAddress {
     private long idEmailAddress;
     private String description;
     private String address;
+    private boolean isMainEmail;
 }

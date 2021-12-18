@@ -11,14 +11,20 @@ import java.util.List;
 @Setter
 @Getter
 @Accessors(chain = true)
-public class Contact {
+public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long idContact;
-    private long mainTelephone;
+    private long idUser;
+    private String firstName;
+    private String lastName;
+    @OneToMany
+    private List<Address> addresses;
     @OneToMany
     private List<TelephoneNumber> telephoneNumbers;
-    private String mainEmail;
     @OneToMany
     private List<EmailAddress> emailAddresses;
+    private boolean isRestaurantUser = false;
+    private String password;
+    @OneToOne
+    private Location defaultSearchLocation;
 }

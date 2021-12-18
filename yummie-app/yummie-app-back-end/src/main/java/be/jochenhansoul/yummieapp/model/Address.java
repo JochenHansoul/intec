@@ -21,4 +21,5 @@ public class Address {
     private String zipCode;
     private String street;
     private String number;
+    private boolean isMainAddress;
 }
