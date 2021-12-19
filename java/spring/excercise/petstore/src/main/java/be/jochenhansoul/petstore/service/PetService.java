@@ -50,16 +50,11 @@ public class PetService {
         }
     }
 
-    public int update(Pet pet) {
-        if (this.PET_VALIDATOR.validate(pet)) {
-            if (this.PET_REPOSITORY.existsById(pet.getId())) {
-                this.PET_REPOSITORY.save(pet);
-                return 200;
-            } else {
-                return 404;
-            }
+    public Optional<Pet> update(Pet pet) {
+        if (this.PET_REPOSITORY.existsById(pet.getId())) {
+            return Optional.of(this.PET_REPOSITORY.save(pet));
         } else {
-            return 405;
+            return Optional.empty();
         }
     }
 
