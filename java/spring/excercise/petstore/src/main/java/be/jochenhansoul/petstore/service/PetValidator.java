@@ -11,4 +11,8 @@ public class PetValidator {
                 && pet.getName().length() > 0
                 && pet.getStatus() != null;
     }
+
+    public boolean validateName(String name) {
+        return name != null && name.length() > 0;
+    }
 }
