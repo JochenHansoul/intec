@@ -32,23 +32,23 @@ public class PetService {
                 : Optional.empty();
     }
 
-    public Pet update(long id, String name) {
-        if (!this.PET_REPOSITORY.existsById(id)) {
-            throw new IllegalArgumentException("Could not find pet with id " + id);
-        } else if (!PET_VALIDATOR.validateName(name)) {
-            throw new IllegalArgumentException("Pet name is illegal");
+    public Optional<Pet> update(long id, String name) {
+        if (!PET_VALIDATOR.validateName(name)) {
+            throw new IllegalArgumentException("invalid name");
+        } else if (!this.PET_REPOSITORY.existsById(id)) {
+            return Optional.empty();
         } else {
-            return PET_REPOSITORY.updatePet(id, name);
+            return Optional.of(PET_REPOSITORY.updatePet(id, name));
         }
     }
 
-    public Pet update(long id, PetStatus status) {
-        if (!this.PET_REPOSITORY.existsById(id)) {
-            throw new IllegalArgumentException("Could not find pet with id " + id);
-        } else if (status == null) {
-            throw new IllegalArgumentException("Pet status is illegal");
+    public Optional<Pet> update(long id, PetStatus status) {
+        if (status == null) {
+            throw new IllegalArgumentException("invalid status");
+        } else if (!this.PET_REPOSITORY.existsById(id)) {
+            return Optional.empty();
         } else {
-            return PET_REPOSITORY.updatePet(id, status);
+            return Optional.of(PET_REPOSITORY.updatePet(id, status));
         }
     }
 
