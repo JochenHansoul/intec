@@ -5,8 +5,10 @@ import be.jochenhansoul.petstore.model.PetStatus;
 import be.jochenhansoul.petstore.repository.PetRepository;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 @Component
 public class PetService {
@@ -58,8 +60,12 @@ public class PetService {
         }
     }
 
-    public List<Pet> findByStatus(String status) {
-        return this.PET_REPOSITORY.getPetsByStatus(PetStatus.valueOf(status));
+    public List<Pet> findByStatus(Set<PetStatus> statuses) {
+        List<Pet> pets = new ArrayList<>();
+        for (PetStatus status : statuses) {
+            pets.addAll(this.PET_REPOSITORY.getPetsByStatus(status));
+        }
+        return pets;
     }
 
     public boolean delete(Long id) {
