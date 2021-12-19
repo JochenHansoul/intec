@@ -30,17 +30,23 @@ public class PetService {
                 : Optional.empty();
     }
 
-    public Optional<Pet> update(long id, String name, String status) {
-        PetStatus petStatus = null;
-        try {
-            petStatus = PetStatus.valueOf(status);
-        } catch (IllegalArgumentException e) {
-            System.out.println(e.getMessage());
-        }
-        if (name == null || petStatus == null || !this.PET_REPOSITORY.existsById(id)) {
-            return Optional.empty();
+    public Pet update(long id, String name) {
+        if (!this.PET_REPOSITORY.existsById(id)) {
+            throw new IllegalArgumentException("Could not find pet with id " + id);
+        } else if (!PET_VALIDATOR.validateName(name)) {
+            throw new IllegalArgumentException("Pet name is illegal");
         } else {
-            return Optional.of(this.PET_REPOSITORY.updatePet(id, name, petStatus));
+            return PET_REPOSITORY.updatePet(id, name);
+        }
+    }
+
+    public Pet update(long id, PetStatus status) {
+        if (!this.PET_REPOSITORY.existsById(id)) {
+            throw new IllegalArgumentException("Could not find pet with id " + id);
+        } else if (status == null) {
+            throw new IllegalArgumentException("Pet status is illegal");
+        } else {
+            return PET_REPOSITORY.updatePet(id, status);
         }
     }
 
