@@ -1,11 +1,15 @@
 package be.jochenhansoul.petstore.controller;
 
 import be.jochenhansoul.petstore.model.Pet;
+import be.jochenhansoul.petstore.model.PetStatus;
 import be.jochenhansoul.petstore.service.PetService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
+import java.util.Set;
+import java.util.TreeSet;
 
 @RestController
 @RequestMapping("pet/")
@@ -19,7 +23,24 @@ public class PetController {
     @PostMapping
     public ResponseEntity addPet(@RequestBody Pet pet) {
         Optional<Pet> optionalPet = PET_SERVICE.save(pet);
-        return (optionalPet.isPresent()) ? ResponseEntity.ok("found") : ResponseEntity.status(405).build();
+        return (optionalPet.isPresent()) ? ResponseEntity.ok(optionalPet.get())
+                : ResponseEntity.status(405).body("invalid input");
+    }
+
+    @PutMapping
+    public ResponseEntity updatePet(@RequestBody Pet pet) {
+        Optional<Pet> optionalPet = PET_SERVICE.update(pet);
+        return (optionalPet.isPresent()) ? ResponseEntity.ok("updated")
+                : ResponseEntity.status(405).body("validation exception");
+    }
+
+    @GetMapping("findByStatus")
+    public ResponseEntity findByStatus(@RequestParam(name = "status") String[] statuses) {
+        Set<PetStatus> statusSet = new TreeSet<>();
+        for (String status : statuses) {
+            statusSet.add(PetStatus.valueOf(status));
+        }
+        return ResponseEntity.ok(PET_SERVICE.findByStatus(statusSet));
     }
 
     @GetMapping("{id}")
