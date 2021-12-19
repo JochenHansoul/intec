@@ -50,6 +50,28 @@ public class PetController {
                 : ResponseEntity.status(404).body("No pet found with id " + id);
     }
 
+    @PostMapping("{id}")
+    public ResponseEntity updatePet(@PathVariable Long id, @RequestParam(name = "name") String name) {
+        try {
+            Optional<Pet> optionalPet = this.PET_SERVICE.update(id, name);
+            return (optionalPet.isPresent()) ? ResponseEntity.ok(optionalPet.get())
+                    : ResponseEntity.status(404).body("Error: not found");
+        } catch (IllegalArgumentException e) {
+            return ResponseEntity.status(405).body(e.getMessage());
+        }
+    }
+
+    @PostMapping("{id}")
+    public ResponseEntity updatePet(@PathVariable Long id, @RequestParam(name = "status") PetStatus status) {
+        try {
+            Optional<Pet> optionalPet = this.PET_SERVICE.update(id, status);
+            return (optionalPet.isPresent()) ? ResponseEntity.ok(optionalPet.get())
+                    : ResponseEntity.status(404).body("Error: not found");
+        } catch (IllegalArgumentException e) {
+            return ResponseEntity.status(405).body(e.getMessage());
+        }
+    }
+
     @DeleteMapping("{id}")
     public ResponseEntity deletePet(@PathVariable Long id) {
         return (PET_SERVICE.delete(id)) ? ResponseEntity.ok().build()
