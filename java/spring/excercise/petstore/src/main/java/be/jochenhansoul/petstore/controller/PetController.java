@@ -78,6 +78,17 @@ public class PetController {
                 : ResponseEntity.status(404).body("No pet found with id " + id);
     }
 
+    @PostMapping("{id}/uploadImage")
+    public ResponseEntity uploadImage(@PathVariable Long id, @RequestParam(name = "photoUrl") String url) {
+        if (url == null || url.length() == 0) {
+            return ResponseEntity.status(404).build();
+        } else if (this.PET_SERVICE.uploadImage(id, url)) {
+            return ResponseEntity.ok().build();
+        } else {
+            return ResponseEntity.status(400).build();
+        }
+    }
+
     @ExceptionHandler(NumberFormatException.class)
     public ResponseEntity handleNumberFormatException() {
         return ResponseEntity.status(400).body("id is not of type number");
