@@ -5,6 +5,7 @@ import be.jochenhansoul.petstore.model.PetStatus;
 import be.jochenhansoul.petstore.repository.PetRepository;
 import org.springframework.stereotype.Component;
 
+import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -32,24 +33,18 @@ public class PetService {
                 : Optional.empty();
     }
 
-    public Optional<Pet> update(long id, String name) {
+    @Transactional
+    public boolean update(long id, String name) {
         if (!PET_VALIDATOR.validateName(name)) {
             throw new IllegalArgumentException("invalid name");
-        } else if (!this.PET_REPOSITORY.existsById(id)) {
-            return Optional.empty();
         } else {
-            return Optional.of(PET_REPOSITORY.updatePet(id, name));
+            return PET_REPOSITORY.updatePet(id, name) == 1;
         }
     }
 
-    public Optional<Pet> update(long id, PetStatus status) {
-        if (status == null) {
-            throw new IllegalArgumentException("invalid status");
-        } else if (!this.PET_REPOSITORY.existsById(id)) {
-            return Optional.empty();
-        } else {
-            return Optional.of(PET_REPOSITORY.updatePet(id, status));
-        }
+    @Transactional
+    public boolean update(long id, PetStatus status) {
+        return PET_REPOSITORY.updatePet(id, status) == 1;
     }
 
     public Optional<Pet> update(Pet pet) {
