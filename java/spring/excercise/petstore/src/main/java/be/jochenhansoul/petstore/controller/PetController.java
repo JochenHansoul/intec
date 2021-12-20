@@ -6,7 +6,6 @@ import be.jochenhansoul.petstore.service.PetService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 import java.util.TreeSet;
@@ -51,10 +50,9 @@ public class PetController {
     }
 
     @PostMapping("{id}")
-    public ResponseEntity updatePet(@PathVariable Long id, @RequestParam(name = "name") String name) {
+    public ResponseEntity updatePet(@PathVariable Long id, @RequestParam("name") String name) {
         try {
-            Optional<Pet> optionalPet = this.PET_SERVICE.update(id, name);
-            return (optionalPet.isPresent()) ? ResponseEntity.ok(optionalPet.get())
+            return (this.PET_SERVICE.update(id, name)) ? ResponseEntity.ok().build()
                     : ResponseEntity.status(404).body("Error: not found");
         } catch (IllegalArgumentException e) {
             return ResponseEntity.status(405).body(e.getMessage());
@@ -64,8 +62,7 @@ public class PetController {
     /*@PostMapping("{id}")
     public ResponseEntity updatePet(@PathVariable Long id, @RequestParam(name = "status") PetStatus status) {
         try {
-            Optional<Pet> optionalPet = this.PET_SERVICE.update(id, status);
-            return (optionalPet.isPresent()) ? ResponseEntity.ok(optionalPet.get())
+            return (this.PET_SERVICE.update(id, status)) ? ResponseEntity.ok().build()
                     : ResponseEntity.status(404).body("Error: not found");
         } catch (IllegalArgumentException e) {
             return ResponseEntity.status(405).body(e.getMessage());
