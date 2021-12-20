@@ -61,7 +61,7 @@ public class PetController {
         }
     }
 
-    @PostMapping("{id}")
+    /*@PostMapping("{id}")
     public ResponseEntity updatePet(@PathVariable Long id, @RequestParam(name = "status") PetStatus status) {
         try {
             Optional<Pet> optionalPet = this.PET_SERVICE.update(id, status);
@@ -70,7 +70,7 @@ public class PetController {
         } catch (IllegalArgumentException e) {
             return ResponseEntity.status(405).body(e.getMessage());
         }
-    }
+    }*/
 
     @DeleteMapping("{id}")
     public ResponseEntity deletePet(@PathVariable Long id) {
