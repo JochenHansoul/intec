@@ -11,7 +11,7 @@ import java.util.Set;
 import java.util.TreeSet;
 
 @RestController
-@RequestMapping("pet/")
+@RequestMapping("pet")
 public class PetController {
     private final PetService PET_SERVICE;
 
@@ -33,7 +33,7 @@ public class PetController {
                 : ResponseEntity.status(405).body("validation exception");
     }
 
-    @GetMapping("findByStatus")
+    @GetMapping("/findByStatus")
     public ResponseEntity findByStatus(@RequestParam(name = "status") String[] statuses) {
         Set<PetStatus> statusSet = new TreeSet<>();
         for (String status : statuses) {
@@ -42,14 +42,14 @@ public class PetController {
         return ResponseEntity.ok(PET_SERVICE.findByStatus(statusSet));
     }
 
-    @GetMapping("{id}")
+    @GetMapping("/{id}")
     public ResponseEntity getPet(@PathVariable Long id) {
         Optional<Pet> optionalPet = PET_SERVICE.getPet(id);
         return (optionalPet.isPresent()) ? ResponseEntity.ok(optionalPet.get())
                 : ResponseEntity.status(404).body("No pet found with id " + id);
     }
 
-    @PostMapping("{id}")
+    @PostMapping("/{id}")
     public ResponseEntity updatePet(@PathVariable Long id, @RequestParam("name") String name) {
         try {
             return (this.PET_SERVICE.update(id, name)) ? ResponseEntity.ok().build()
@@ -59,7 +59,7 @@ public class PetController {
         }
     }
 
-    /*@PostMapping("{id}")
+    /*@PostMapping("/{id}")
     public ResponseEntity updatePet(@PathVariable Long id, @RequestParam(name = "status") PetStatus status) {
         try {
             return (this.PET_SERVICE.update(id, status)) ? ResponseEntity.ok().build()
@@ -69,13 +69,13 @@ public class PetController {
         }
     }*/
 
-    @DeleteMapping("{id}")
+    @DeleteMapping("/{id}")
     public ResponseEntity deletePet(@PathVariable Long id) {
         return (PET_SERVICE.delete(id)) ? ResponseEntity.ok().build()
                 : ResponseEntity.status(404).body("No pet found with id " + id);
     }
 
-    @PostMapping("{id}/uploadImage")
+    @PostMapping("/{id}/uploadImage")
     public ResponseEntity uploadImage(@PathVariable Long id, @RequestParam(name = "photoUrl") String url) {
         if (url == null || url.length() == 0) {
             return ResponseEntity.status(404).build();
