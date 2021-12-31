@@ -22,6 +22,10 @@ header nav li {
 }
 
 .right {
+  float: richt;
+}
+
+.green {
   background-color: green;
 }
 
