@@ -4,14 +4,15 @@
   <meta charset="utf-8">
   <title>yummie app</title>
   <link href="css/index.css" rel="stylesheet" />
+  <script src="js/create-user.js" defer></script>
 </head>
 <body>
   <form action="http://localhost:8080/user" method="post">
     <p>
-      <label>name: <input name="name" /></label>
+      <label>name: <input name="name" value="name1"/></label>
     </p>
     <p>
-      <label>password: <input type="password" name="password" /></label>
+      <label>password: <input type="password" name="password" value="passw1"/></label>
     </p>
     <p>
       <button type="submit">submit</button>
