@@ -1,11 +1,14 @@
 "use strict"
 
 const getFormObject = form => {
-    const o = {};
-    for (const element of form.getElementsByTagName("input")) {
-        o[element.name] = element.value;
-    }
-    return o;
+    const inputs = form.getElementsByTagName("input")
+    return Array.prototype.slice.call(inputs).reduce(
+        (obj, tag) => {
+            obj[tag.name] = tag.value;
+            return obj;
+        },
+        {}
+    );
 }
 
 const form = document.forms[0];
