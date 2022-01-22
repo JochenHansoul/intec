@@ -19,6 +19,7 @@ public class User {
     private long idUser;
     private String firstName;
     private String lastName;
+    private Gender gender;
     @OneToMany
     private List<Address> addresses;
     @OneToMany
