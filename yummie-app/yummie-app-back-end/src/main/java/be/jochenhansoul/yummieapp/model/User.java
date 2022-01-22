@@ -1,11 +1,13 @@
 package be.jochenhansoul.yummieapp.model;
 
+import com.sun.istack.NotNull;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.Accessors;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.Optional;
 
 @Entity
 @Setter
@@ -21,10 +23,22 @@ public class User {
     private List<Address> addresses;
     @OneToMany
     private List<TelephoneNumber> telephoneNumbers;
+    @NotNull
+    private String mainEmail;
+    private boolean mainEmailIsValidated = false;
+    private String mainEmailDescription;
     @OneToMany
     private List<EmailAddress> emailAddresses;
-    private boolean isRestaurantUser = false;
     private String password;
     @OneToOne
-    private Location defaultSearchLocation;
+    private Location defaultSearchLocation = null;
+    private boolean isRestaurantUser = false;
+
+    public Optional<String> getMainEmailDescription() {
+        if (this.mainEmailDescription == null) {
+            return Optional.empty();
+        } else {
+            return Optional.of(this.mainEmailDescription);
+        }
+    }
 }
