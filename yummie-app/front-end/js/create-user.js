@@ -1,4 +1,4 @@
-"use strict"
+"use strict";
 
 const getFormObject = form => {
     const inputs = form.getElementsByTagName("input")
@@ -11,6 +11,5 @@ const getFormObject = form => {
     );
 }
 
-const form = document.forms[0];
-const user = getFormObject(form);
+const user = getFormObject(document.forms.createUser);
 console.log(user);
