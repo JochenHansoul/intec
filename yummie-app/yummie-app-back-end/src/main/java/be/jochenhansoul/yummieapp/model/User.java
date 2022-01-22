@@ -35,10 +35,10 @@ public class User {
     private boolean isRestaurantUser = false;
 
     public Optional<String> getMainEmailDescription() {
-        if (this.mainEmailDescription == null) {
-            return Optional.empty();
-        } else {
-            return Optional.of(this.mainEmailDescription);
-        }
+        return Optional.ofNullable(this.mainEmailDescription);
+    }
+
+    public Optional<Location> getDefaultSearchLocation() {
+        return Optional.ofNullable(this.defaultSearchLocation);
     }
 }
