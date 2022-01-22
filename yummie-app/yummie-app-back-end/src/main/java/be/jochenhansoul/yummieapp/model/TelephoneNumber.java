@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.util.Optional;
 
 @Entity
 @Setter
@@ -17,7 +18,11 @@ public class TelephoneNumber {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long idTelephoneNumber;
-    private String description;
     private long number;
-    private boolean isMainTelephone;
+    private boolean isValidated = false;
+    private String description = null;
+
+    public Optional<String> getDescription() {
+        return Optional.ofNullable(this.description);
+    }
 }
