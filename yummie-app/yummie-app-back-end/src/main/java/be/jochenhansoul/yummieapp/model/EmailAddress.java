@@ -5,10 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.Accessors;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Optional;
 
 @Entity
@@ -20,15 +17,15 @@ public class EmailAddress {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long idEmailAddress;
     @NotNull
+    @Column(unique=true)
     private String emailAddress;
+    @NotNull
     private boolean isValidated = false;
+    @NotNull
+    private boolean isMainEmail = false;
     private String description = null;
 
     public Optional<String> getDescription() {
-        if (this.description == null) {
-            return Optional.empty();
-        } else {
-            return Optional.of(this.description);
-        }
+        return Optional.ofNullable(this.description);
     }
 }

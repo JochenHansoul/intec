@@ -17,27 +17,25 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long idUser;
+    @NotNull
     private String firstName;
+    @NotNull
     private String lastName;
+    @NotNull
     private Gender gender;
+    @NotNull
+    private String password;
+    @NotNull
+    private boolean isActiveRestaurantUser = false;
+    @NotNull
+    @OneToMany
+    private List<EmailAddress> emailAddresses;
     @OneToMany
     private List<Address> addresses;
     @OneToMany
     private List<TelephoneNumber> telephoneNumbers;
-    @NotNull
-    private String mainEmail;
-    private boolean mainEmailIsValidated = false;
-    private String mainEmailDescription;
-    @OneToMany
-    private List<EmailAddress> emailAddresses;
-    private String password;
     @OneToOne
     private Location defaultSearchLocation = null;
-    private boolean isRestaurantUser = false;
-
-    public Optional<String> getMainEmailDescription() {
-        return Optional.ofNullable(this.mainEmailDescription);
-    }
 
     public Optional<Location> getDefaultSearchLocation() {
         return Optional.ofNullable(this.defaultSearchLocation);
