@@ -1,5 +1,6 @@
-package be.jochenhansoul.yummieapp.model;
+package be.jochenhansoul.yummieapp.model.user;
 
+import be.jochenhansoul.yummieapp.model.general.Location;
 import com.sun.istack.NotNull;
 import lombok.Getter;
 import lombok.Setter;

@@ -1,6 +1,5 @@
-package be.jochenhansoul.yummieapp.model;
+package be.jochenhansoul.yummieapp.model.restaurant.dish;
 
-import com.sun.istack.NotNull;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.Accessors;
@@ -14,12 +13,9 @@ import javax.persistence.Id;
 @Setter
 @Getter
 @Accessors(chain = true)
-public class Location {
+public class Allergen {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idLocation;
-    @NotNull
-    private float longitude;
-    @NotNull
-    private float latitude;
+    private long idAllergen;
+    private String name;
 }

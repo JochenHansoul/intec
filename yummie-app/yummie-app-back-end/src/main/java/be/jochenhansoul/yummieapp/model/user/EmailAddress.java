@@ -1,4 +1,4 @@
-package be.jochenhansoul.yummieapp.model;
+package be.jochenhansoul.yummieapp.model.user;
 
 import com.sun.istack.NotNull;
 import lombok.Getter;

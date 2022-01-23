@@ -1,4 +1,4 @@
-package be.jochenhansoul.yummieapp.model;
+package be.jochenhansoul.yummieapp.model.user;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -13,9 +13,13 @@ import javax.persistence.Id;
 @Setter
 @Getter
 @Accessors(chain = true)
-public class Allergen {
+public class Address {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long idAllergen;
-    private String name;
+    private long idAddress;
+    private String country;
+    private String zipCode;
+    private String street;
+    private String number;
+    private boolean isMainAddress;
 }

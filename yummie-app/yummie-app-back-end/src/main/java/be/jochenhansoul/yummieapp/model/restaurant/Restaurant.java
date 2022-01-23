@@ -1,5 +1,9 @@
-package be.jochenhansoul.yummieapp.model;
+package be.jochenhansoul.yummieapp.model.restaurant;
 
+import be.jochenhansoul.yummieapp.model.general.Location;
+import be.jochenhansoul.yummieapp.model.restaurant.dish.Dish;
+import be.jochenhansoul.yummieapp.model.user.EmailAddress;
+import be.jochenhansoul.yummieapp.model.user.TelephoneNumber;
 import com.sun.istack.NotNull;
 import lombok.Getter;
 import lombok.Setter;

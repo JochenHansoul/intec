@@ -1,4 +1,4 @@
-package be.jochenhansoul.yummieapp.model;
+package be.jochenhansoul.yummieapp.model.restaurant;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;

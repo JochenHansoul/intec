@@ -1,5 +1,6 @@
-package be.jochenhansoul.yummieapp.model;
+package be.jochenhansoul.yummieapp.model.general;
 
+import com.sun.istack.NotNull;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.Accessors;
@@ -13,13 +14,12 @@ import javax.persistence.Id;
 @Setter
 @Getter
 @Accessors(chain = true)
-public class Address {
+public class Location {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long idAddress;
-    private String country;
-    private String zipCode;
-    private String street;
-    private String number;
-    private boolean isMainAddress;
+    private Long idLocation;
+    @NotNull
+    private float longitude;
+    @NotNull
+    private float latitude;
 }
