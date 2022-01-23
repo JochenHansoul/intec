@@ -1,25 +1,28 @@
 package be.jochenhansoul.yummieapp.model.user;
 
+import com.sun.istack.NotNull;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.Accessors;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Optional;
 
 @Entity
 @Setter
 @Getter
 @Accessors(chain = true)
-public class TelephoneNumber {
+public class Email {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long idTelephoneNumber;
-    private long number;
-    private boolean isValidated = false;
+    private long idEmail;
+    @NotNull
+    @Column(unique=true)
+    private String emailAddress;
+    @NotNull
+    private boolean validated = false;
+    @NotNull
+    private boolean mainEmail = false;
     private String description = null;
 
     public Optional<String> getDescription() {

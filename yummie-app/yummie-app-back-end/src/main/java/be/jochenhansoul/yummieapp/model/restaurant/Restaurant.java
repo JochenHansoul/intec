@@ -2,8 +2,8 @@ package be.jochenhansoul.yummieapp.model.restaurant;
 
 import be.jochenhansoul.yummieapp.model.general.Location;
 import be.jochenhansoul.yummieapp.model.restaurant.dish.Dish;
-import be.jochenhansoul.yummieapp.model.user.EmailAddress;
-import be.jochenhansoul.yummieapp.model.user.TelephoneNumber;
+import be.jochenhansoul.yummieapp.model.user.Email;
+import be.jochenhansoul.yummieapp.model.user.Telephone;
 import com.sun.istack.NotNull;
 import lombok.Getter;
 import lombok.Setter;
@@ -22,9 +22,9 @@ public class Restaurant {
     private long idRestaurant;
     private String name;
     @OneToMany
-    private List<TelephoneNumber> telephoneNumbers;
+    private List<Telephone> telephoneNumbers;
     @OneToMany
-    private List<EmailAddress> emailAddresses;
+    private List<Email> emailAddresses;
     @ManyToMany
     private List<FoodCategory> categories;
     private String restaurantDescription;

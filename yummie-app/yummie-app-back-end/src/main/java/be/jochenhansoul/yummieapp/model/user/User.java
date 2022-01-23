@@ -27,14 +27,14 @@ public class User {
     @NotNull
     private String password;
     @NotNull
-    private boolean isActiveRestaurantUser = false;
+    private boolean isRestaurantUser = false;
     @NotNull
     @OneToMany
-    private List<EmailAddress> emailAddresses;
+    private List<Email> emails;
     @OneToMany
     private List<Address> addresses;
     @OneToMany
-    private List<TelephoneNumber> telephoneNumbers;
+    private List<Telephone> telephones;
     @OneToOne
     private Location defaultSearchLocation = null;
 
