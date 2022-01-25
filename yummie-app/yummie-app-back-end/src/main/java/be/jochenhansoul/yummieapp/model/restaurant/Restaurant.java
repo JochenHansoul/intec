@@ -21,6 +21,8 @@ public class Restaurant {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long idRestaurant;
     private String name;
+    @OneToOne
+    private RestaurantAddress address;
     @OneToMany
     private List<Telephone> telephoneNumbers;
     @OneToMany
