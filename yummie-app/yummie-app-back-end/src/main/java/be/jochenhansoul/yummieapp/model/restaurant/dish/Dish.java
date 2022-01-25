@@ -18,6 +18,6 @@ public class Dish {
     private String name;
     private String pictureUrl;
     private float price;
-    @OneToMany
-    private List<Allergen> allergenList;
+    @ElementCollection
+    private List<String> allergenList;
 }
