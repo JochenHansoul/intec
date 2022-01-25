@@ -32,7 +32,7 @@ public class User {
     @OneToMany
     private List<Email> emails;
     @OneToMany
-    private List<Address> addresses;
+    private List<UserAddress> addresses;
     @OneToMany
     private List<Telephone> telephones;
     @OneToOne
