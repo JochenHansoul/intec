@@ -6,6 +6,7 @@ import lombok.Setter;
 import lombok.experimental.Accessors;
 
 import javax.persistence.*;
+import java.util.Objects;
 import java.util.Optional;
 
 @Entity
@@ -27,5 +28,18 @@ public class Email {
 
     public Optional<String> getDescription() {
         return Optional.ofNullable(this.description);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Email email = (Email) o;
+        return idEmail == email.idEmail && emailAddress.equals(email.emailAddress);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(idEmail, emailAddress);
     }
 }
