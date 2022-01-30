@@ -56,8 +56,9 @@ public class User {
     @NotNull
     private boolean isActive = true;
 
-    public void addEmail(Email email) {
+    public User addEmail(Email email) {
         this.emails.add(email);
+        return this;
     }
 
     public void addAddress(UserAddress address) {
