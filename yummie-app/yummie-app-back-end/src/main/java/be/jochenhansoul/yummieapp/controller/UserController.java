@@ -1,5 +1,6 @@
 package be.jochenhansoul.yummieapp.controller;
 
+import be.jochenhansoul.yummieapp.model.user.Email;
 import be.jochenhansoul.yummieapp.model.user.Gender;
 import be.jochenhansoul.yummieapp.model.user.User;
 import org.springframework.http.ResponseEntity;
@@ -19,14 +20,20 @@ public class UserController {
             @RequestParam("firstName") String firstName,
             @RequestParam("lastName") String lastName,
             @RequestParam("gender") Gender gender,
-            @RequestParam("password") String password) {
-        User user = new User();
-        user
+            @RequestParam("password") String password,
+            @RequestParam("emailAddress") String emailAddress,
+            @RequestParam(value = "emailDescription", required = false) String emailDescription) {
+        Email email = new Email()
+                .setEmailAddress(emailAddress)
+                .setDescription(emailDescription)
+                .setMainEmail(true);
+        User user = new User()
                 .setFirstName(firstName)
                 .setLastName(lastName)
                 .setGender(gender)
                 .setPassword(password)
-                .setCreationDate(LocalDate.now());
-        return ResponseEntity.ok(user.toString());
+                .setCreationDate(LocalDate.now())
+                .addEmail(email);
+        return ResponseEntity.ok(user.getDefaultEmail());
     }
 }
