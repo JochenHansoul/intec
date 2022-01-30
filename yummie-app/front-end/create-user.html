@@ -9,10 +9,21 @@
 <body>
   <form name="createUser" action="http://localhost:8080/user" method="post">
     <p>
-      <label>name: <input name="name" value="name1"/></label>
+      <label>first name: <input name="firstName" value="first1" required /></label>
     </p>
     <p>
-      <label>password: <input type="password" name="password" value="passw1"/></label>
+      <label>last name: <input name="lastName" value="last1" required /></label>
+    </p>
+    <p>
+      <label>gender:
+        <input type="radio" name="gender" value="UNKNOWN" checked />unknown
+        <input type="radio" name="gender" value="MALE" />male
+        <input type="radio" name="gender" value="FEMALE" />female
+        <input type="radio" name="gender" value="OTHER" />other
+      </label>
+    </p>
+    <p>
+      <label>password: <input type="password" name="password" value="passw1" required /></label>
     </p>
     <p>
       <button type="submit">submit</button>
