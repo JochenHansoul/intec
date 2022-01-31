@@ -34,6 +34,6 @@ public class UserController {
                 .setPassword(password)
                 .setCreationDate(LocalDate.now())
                 .addEmail(email);
-        return ResponseEntity.ok(user.getDefaultEmail());
+        return ResponseEntity.ok(user);
     }
 }
