@@ -11,5 +11,5 @@ const getFormObject = form => {
     );
 }
 
-const user = getFormObject(document.forms.createUser);
+const user = getFormObject(document.forms.user);
 console.log(user);
