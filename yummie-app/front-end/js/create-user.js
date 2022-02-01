@@ -36,7 +36,7 @@ const sendObject = (url, obj) => {
     console.log(result);
   })
   .catch((exception) => {
-    console.log(exception);
+    console.log(exception.message);
   })
 };
 
