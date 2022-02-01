@@ -2,6 +2,7 @@
 
 // constants
 const USER_FORM = document.forms.user;
+const SUBMIT_BUTTON = USER_FORM.getElementsByTagName("button")[0];
 
 // functions
 const getFormObject = form => {
@@ -41,7 +42,7 @@ const sendObject = (url, obj) => {
 };
 
 // main
-USER_FORM.addEventListener("submit", event => {
+SUBMIT_BUTTON.addEventListener("click", event=> {
   event.preventDefault();
   const user = getFormObject(USER_FORM);
   sendObject(USER_FORM.action, user);
