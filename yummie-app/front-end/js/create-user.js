@@ -22,7 +22,6 @@ const sendObject = (url, obj) => {
     body: JSON.stringify(obj),
     headers: {
       "Accept": "applicatin/json",
-      "Access-Control-Allow-Origin": "*", // paybe problem with addblocker?
       "Content-Type": "application/json"
     }
   })
