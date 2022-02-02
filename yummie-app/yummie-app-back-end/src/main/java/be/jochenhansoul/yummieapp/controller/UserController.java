@@ -8,9 +8,14 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("user")
 public class UserController {
 
+    @CrossOrigin
     @PostMapping
-    public ResponseEntity addUser(@RequestBody User user) {
-        System.out.println(user);
-        return ResponseEntity.status(201).body(user);
+    public ResponseBody addUser(@RequestBody User user) {
+        return (ResponseBody) user;
+    }
+
+    @ExceptionHandler(Exception.class)
+    public ResponseEntity sendUserException() {
+        return ResponseEntity.status(400).body("User not created");
     }
 }
