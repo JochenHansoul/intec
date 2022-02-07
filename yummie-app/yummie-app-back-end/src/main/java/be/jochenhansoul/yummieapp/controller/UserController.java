@@ -10,8 +10,8 @@ public class UserController {
 
     @CrossOrigin
     @PostMapping
-    public ResponseBody addUser(@RequestBody User user) {
-        return (ResponseBody) user;
+    public ResponseEntity addUser(@RequestBody User user) {
+        return ResponseEntity.status(201).body(user);
     }
 
     @ExceptionHandler(Exception.class)
