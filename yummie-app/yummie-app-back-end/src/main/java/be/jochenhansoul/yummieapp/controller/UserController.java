@@ -1,6 +1,8 @@
 package be.jochenhansoul.yummieapp.controller;
 
 import be.jochenhansoul.yummieapp.model.user.User;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -10,12 +12,17 @@ public class UserController {
 
     @CrossOrigin
     @PostMapping
-    public ResponseEntity addUser(@RequestBody User user) {
-        return ResponseEntity.status(201).body(user);
+    public ResponseEntity<String> addUser(@RequestBody User user) throws JsonProcessingException {
+        System.out.println("successfully created user");
+        ObjectMapper mapper = new ObjectMapper();
+        String json = mapper.writeValueAsString(user);
+        System.out.println("ResultingJSONstring = " + json);
+        return ResponseEntity.status(201).body(json);
     }
 
     @ExceptionHandler(Exception.class)
-    public ResponseEntity sendUserException() {
-        return ResponseEntity.status(400).body("User not created");
+    public ResponseEntity<String> sendUserException() {
+        System.out.println("inside sendUserException");
+        return ResponseEntity.status(400).body("{\"value\":\"User not created\"}"); // doesn't seem to matter if return string or json string
     }
 }
