@@ -27,15 +27,18 @@ const sendObject = (url, obj) => {
   })
   .then((response) => {
     if (response.status === 201) {
+      console.log("correct status");
       return response.json();
     } else {
       throw new Error("error with status " + response.status);
     }
   })
   .then((result) => {
+    console.log("inside result block");
     console.log(result);
   })
   .catch((exception) => {
+    console.log("inside exception block");
     console.log(exception.message);
   })
 };
