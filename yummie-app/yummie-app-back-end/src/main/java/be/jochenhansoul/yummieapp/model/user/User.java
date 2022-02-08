@@ -39,7 +39,7 @@ public class User {
     @NotNull
     @OneToMany
     private List<Email> emails = new ArrayList<>();
-    @Setter(AccessLevel.NONE)
+    /*@Setter(AccessLevel.NONE)
     @Getter(AccessLevel.NONE)
     @OneToMany
     private List<UserAddress> addresses  = new ArrayList<>();
@@ -54,14 +54,14 @@ public class User {
     @NotNull
     private LocalDate creationDate;
     @NotNull
-    private boolean isActive = true;
+    private boolean isActive = true;*/
 
     public User addEmail(Email email) {
         this.emails.add(email);
         return this;
     }
 
-    public void addAddress(UserAddress address) {
+    /*public void addAddress(UserAddress address) {
         this.addresses.add(address);
     }
 
@@ -71,16 +71,16 @@ public class User {
 
     public void setDefaultSearchLocation(Location location) {
         this.defaultSearchLocation = location;
-    }
+    }*/
 
     public List<Email> getEmails() {
         return new ArrayList<>(this.emails);
     }
 
-    public Email getDefaultEmail() {
+    /*public Email getDefaultEmail() {
         return this.emails.stream()
                 .filter(Email::isMainEmail)
-                .collect(Collectors.toList()).get(0);
+                .collect(Collectors.toList()).get(0); // probably error in this stream
     }
 
     public List<UserAddress> getAddresses() {
@@ -93,7 +93,7 @@ public class User {
 
     public Optional<Location> getDefaultSearchLocation() {
         return Optional.ofNullable(this.defaultSearchLocation);
-    }
+    }*/
 
     public boolean verifyEmail(Email email) {
         return false;
