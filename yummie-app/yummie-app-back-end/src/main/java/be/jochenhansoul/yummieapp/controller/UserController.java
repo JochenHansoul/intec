@@ -14,10 +14,11 @@ public class UserController {
     @PostMapping
     public ResponseEntity<String> addUser(@RequestBody User user) throws JsonProcessingException {
         System.out.println("successfully created user");
+        //System.out.println(user);
         ObjectMapper mapper = new ObjectMapper();
         String json = mapper.writeValueAsString(user);
-        System.out.println("ResultingJSONstring = " + json);
-        return ResponseEntity.status(201).body(json);
+        //System.out.println("ResultingJSONstring = " + json);
+        return ResponseEntity.status(201).body(json); // "{\"json\":\"user\"}"
     }
 
     @ExceptionHandler(Exception.class)
