@@ -3,6 +3,7 @@ package be.jochenhansoul.yummieapp.model.user;
 import com.sun.istack.NotNull;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 import lombok.experimental.Accessors;
 
 import javax.persistence.*;
@@ -13,6 +14,7 @@ import java.util.Optional;
 @Setter
 @Getter
 @Accessors(chain = true)
+@ToString
 public class Email {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
