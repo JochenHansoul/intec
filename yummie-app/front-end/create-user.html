@@ -8,27 +8,33 @@
 </head>
 <body>
   <form name="user" action="http://localhost:8080/user" method="post">
-    <p>
-      <label>first name: <input name="firstName" value="first1" required /></label>
-    </p>
-    <p>
-      <label>last name: <input name="lastName" value="last1" required /></label>
-    </p>
-    <p>
-      <label>gender:
-        <input type="radio" name="gender" value="UNKNOWN" checked />unknown
-        <input type="radio" name="gender" value="MALE" />male
-        <input type="radio" name="gender" value="FEMALE" />female
-        <input type="radio" name="gender" value="OTHER" />other
-      </label>
-    </p>
-    <!--<p>
-      <label>email: <input type="email" name="emailAddress" value="first.last@outlook.be" required /></label>
-      <label>email descrpiton: <input type="textfield" name="emailDescription" /></label>
-    </p>-->
-    <p>
-      <label>password: <input type="password" name="password" value="passw1" required /></label>
-    </p>
+    <fieldset name="user">
+      <legend>user</legend>
+      <p>
+        <label>first name: <input name="firstName" value="first1" required /></label>
+      </p>
+      <p>
+        <label>last name: <input name="lastName" value="last1" required /></label>
+      </p>
+      <p>
+        <label>gender:
+          <input type="radio" name="gender" value="UNKNOWN" checked />unknown
+          <input type="radio" name="gender" value="MALE" />male
+          <input type="radio" name="gender" value="FEMALE" />female
+          <input type="radio" name="gender" value="OTHER" />other
+        </label>
+      </p>
+      <p>
+        <label>password: <input type="password" name="password" value="passw1" required /></label>
+      </p>
+    </fieldset>
+    <fieldset name="email">
+      <legend>email</legend>
+      <p>
+        <label>email address: <input type="email" name="emailAddress" value="first.last@outlook.be" required /></label>
+        <!--<label>email descrpiton: <input type="textfield" name="emailDescription" /></label>-->
+      </p>
+    </fieldset>
     <p>
       <button type="submit">Submit</button>
     </p>
