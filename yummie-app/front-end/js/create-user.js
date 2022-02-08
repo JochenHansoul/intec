@@ -2,7 +2,7 @@
 
 // constants
 const USER_FORM = document.forms.user;
-const SUBMIT_BUTTON = USER_FORM.getElementsByTagName("button")[0];
+//const SUBMIT_BUTTON = USER_FORM.getElementsByTagName("button")[0];
 
 // functions
 const getFormObject = form => {
@@ -16,9 +16,9 @@ const getFormObject = form => {
     );
 };
 
-const sendObject = (url, obj) => {
+const sendObject = (url, obj, method = "GET") => {
   fetch(url, {
-    method: "POST",
+    method: method,
     body: JSON.stringify(obj),
     headers: {
       "Accept": "applicatin/json",
@@ -44,8 +44,9 @@ const sendObject = (url, obj) => {
 };
 
 // main
-SUBMIT_BUTTON.addEventListener("click", event=> {
+USER_FORM.addEventListener("submit", event=> {
   event.preventDefault();
-  const user = getFormObject(USER_FORM);
-  sendObject(USER_FORM.action, user);
+  const user = getFormObject(USER_FORM.user);
+  user["emails"] = [getFormObject(USER_FORM.email)];
+  sendObject(USER_FORM.action, user, USER_FORM.method);
 });
