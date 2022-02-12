@@ -2,7 +2,6 @@
 
 // constants
 const USER_FORM = document.forms.user;
-//const SUBMIT_BUTTON = USER_FORM.getElementsByTagName("button")[0];
 
 // functions
 const getFormObject = form => {
@@ -44,7 +43,7 @@ const sendObject = (url, obj, method = "GET") => {
 };
 
 // main
-USER_FORM.addEventListener("submit", event=> {
+USER_FORM.addEventListener("submit", event => {
   event.preventDefault();
   const user = getFormObject(USER_FORM.user);
   user["emails"] = [getFormObject(USER_FORM.email)];
