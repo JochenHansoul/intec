@@ -23,7 +23,7 @@ import java.util.stream.Collectors;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long idUser;
+    private Long idUser;
     @NotNull
     private String firstName;
     @NotNull
