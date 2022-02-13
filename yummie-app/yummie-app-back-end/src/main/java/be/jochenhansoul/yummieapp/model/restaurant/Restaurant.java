@@ -23,10 +23,10 @@ public class Restaurant {
     private String name;
     @OneToOne
     private RestaurantAddress address;
-    @OneToMany
-    private List<Telephone> telephoneNumbers;
-    @OneToMany
-    private List<Email> emailAddresses;
+    @ElementCollection
+    private List<String> telephoneNumbers;
+    @ElementCollection
+    private List<String> emailAddresses;
     @ManyToMany
     private List<FoodCategory> categories;
     private String restaurantDescription;
