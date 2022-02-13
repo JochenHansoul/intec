@@ -1,4 +1,4 @@
-package be.jochenhansoul.yummieapp.model.person;
+package be.jochenhansoul.yummieapp.model.user;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -6,7 +6,7 @@ import lombok.experimental.Accessors;
 
 import javax.persistence.*;
 
-//@Entity
+@Entity
 @Setter
 @Getter
 @Accessors(chain = true)

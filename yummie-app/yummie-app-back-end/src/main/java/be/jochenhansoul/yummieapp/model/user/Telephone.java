@@ -1,4 +1,4 @@
-package be.jochenhansoul.yummieapp.model.person;
+package be.jochenhansoul.yummieapp.model.user;
 
 import lombok.Getter;
 import lombok.Setter;
