@@ -1,16 +1,15 @@
-package be.jochenhansoul.yummieapp.model.user;
+package be.jochenhansoul.yummieapp.model.person;
 
 import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.Accessors;
 
-import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.util.Optional;
 
-@Entity
+//@Entity
 @Setter
 @Getter
 @Accessors(chain = true)
