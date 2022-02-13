@@ -26,6 +26,8 @@ public class User {
     @NotNull
     private Gender gender;
     @NotNull
+    private LocalDate birthDate;
+    @NotNull
     //@Column(unique = true)
     private String email;
     @NotNull
