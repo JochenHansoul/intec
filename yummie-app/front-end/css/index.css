@@ -4,10 +4,14 @@
 
 * {
   margin: 0;
-}/
+}
 
 body {
   background-color: #ffffe0;
+}
+
+p {
+  padding: 3px;
 }
 
 .left {
