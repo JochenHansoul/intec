@@ -1,24 +1,17 @@
-/** {
+/*******
+* general
+********/
+
+* {
   margin: 0;
-  padding: 0;
-}*/
+}/
 
 body {
   background-color: #ffffe0;
 }
 
-/* navigation */
-.navigation-bar {
-  background-color: #f95441;
-}
-
-header nav li {
-  list-style-type: none;
-  display: inline-block;
-  padding-right: 30px;
-  vertical-align: middle;
-
-  font-size: 24px;
+.left {
+  float: left;
 }
 
 .right {
@@ -29,7 +22,31 @@ header nav li {
   background-color: green;
 }
 
+/***********
+* header
+************/
+header {
+  padding-top: 16px;
+  background-color: #f95441;
+  height: 65px;
+}
+
+/***********
+/* navigation
+************/
+header nav ul li {
+  list-style-type: none;
+  display: inline-block;
+  padding-right: 30px;
+  vertical-align: middle;
+
+  font-size: 24px;
+}
+
 li img {
-  float: right;
   width: 40px;
+}
+
+.first-nav {
+  width: 60%;
 }
