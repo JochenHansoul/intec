@@ -9,33 +9,63 @@
   <script src="js/create-user.js" defer></script>
 </head>
 <body>
-  <form name="user" action="http://localhost:8080/user" method="post">
-    <p>
-      <label>first name: <input name="firstName" value="first1" required /></label>
-    </p>
-    <p>
-      <label>last name: <input name="lastName" value="last1" required /></label>
-    </p>
-    <p>
-      <label>gender:
-        <input type="radio" name="gender" value="UNKNOWN" checked />unknown
-        <input type="radio" name="gender" value="MALE" />male
-        <input type="radio" name="gender" value="FEMALE" />female
-        <input type="radio" name="gender" value="OTHER" />other
-      </label>
-    </p>
-    <p>
-      <label>birth date: <input type="date" name="birthDate" value="2000-01-01" required /></label>
-    </p>
-    <p>
-      <label>password: <input type="password" name="password" value="passw1" required /></label>
-    </p>
-    <p>
-      <label>email address: <input type="email" name="email" value="first.last@outlook.be" required /></label>
-    </p>
-    <p>
-      <button type="submit">Submit</button>
-    </p>
-  </form>
+  <header>
+    <nav class="navigation-bar">
+      <ul class="first-nav">
+        <li><a href="index.html"><img src="assets/home-icon.png" alt="home button" /></a></li>
+        <li><a href="find-restaurants.html">find restaurants</a></li>
+        <li><a href="favorite-restaurants.html">favorite restaurants</a></li>
+      </ul>
+      <ul class="user-nav">
+        <li class="user-name">
+          <div class="dropdown">
+            <a href="#"><img src="assets/user-icon.png" alt="user button" /></a>
+            <div class="dropdown-menu">
+              <a href="login-user.html"><p>Login User</p></a>
+            </div>
+          </div>
+        <li>
+        <li><a href="user-settings.html"><img src="assets/settings-icon.png" alt="settings button" /></li></a>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <article>
+      <h1>Register User</h1>
+      <form name="user" action="http://localhost:8080/user" method="post">
+        <p>
+          <label>first name: <input name="firstName" value="first1" required /></label>
+        </p>
+        <p>
+          <label>last name: <input name="lastName" value="last1" required /></label>
+        </p>
+        <p>
+          <label>gender:
+            <input type="radio" name="gender" value="UNKNOWN" checked />unknown
+            <input type="radio" name="gender" value="MALE" />male
+            <input type="radio" name="gender" value="FEMALE" />female
+            <input type="radio" name="gender" value="OTHER" />other
+          </label>
+        </p>
+        <p>
+          <label>birth date: <input type="date" name="birthDate" value="2000-01-01" required /></label>
+        </p>
+        <p>
+          <label>password: <input type="password" name="password" value="passw1" required /></label>
+        </p>
+        <p>
+          <label>email address: <input type="email" name="email" value="first.last@outlook.be" required /></label>
+        </p>
+        <p>
+          <button type="submit">Submit</button>
+        </p>
+      </form>
+    </article>
+  </main>
+  <footer>
+    <p>Jochen Hansoul</p>
+    <p><a href="terms-and-conditions">terms and conditions</a></p>
+    <p><a href="mailto:jochen.hansoul@outlook.be">jochen.hansoul@outlook.be</a></p>
+  </footer>
 </body>
 </html>
