@@ -75,8 +75,12 @@ li img {
   border-radius: 0.25rem;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .1);
   opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 150ms ease-in-out, transform 150ms ease-in-out;
 }
 
-.dropdown > a:focus + .dropdown-menu {
+.dropdown > a:hover + .dropdown-menu,
+.dropdown > a + .dropdown-menu:hover {
   opacity: 1;
+  transform: translateY(0);
 }
