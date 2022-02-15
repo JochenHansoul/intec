@@ -1,7 +1,6 @@
 /*******
 * general
 ********/
-
 * {
   margin: 0;
   padding: 0;
@@ -9,10 +8,6 @@
 
 body {
   background-color: #ffffe0;
-}
-
-p {
-  padding: 3px;
 }
 
 .left {
@@ -39,30 +34,34 @@ header {
 /***********
 /* navigation
 ************/
+header nav ul {
+  position: absolute;
+}
+
 header nav ul li {
   list-style-type: none;
   display: inline-block;
   padding-right: 30px;
   vertical-align: middle;
-
   font-size: 24px;
 }
 
-li img {
-  margin-left: 12px;
+header nav ul img {
   width: 40px;
 }
 
-.first-nav {
-  position: absolute;
+/* primary navigation */
+.first-nav img {
+  margin-left: 24px;
 }
 
+/* user navigation */
 .user-nav {
-  position: absolute;
   right: 0;
+  margin-right: 8px;
 }
 
-/* dropdown */
+/* dropdown user navigation */
 .dropdown {
   position: relative;
 }
@@ -87,15 +86,27 @@ li img {
   transform: translateY(0);
 }
 
+.dropdown-menu p {
+  padding: 3px;
+}
+
 /***********
 * main
 ************/
 main {
-  margin-top: 20px;
+  margin-top: 40px;
   margin-left: auto;
   margin-right: auto;
   width: 55vw;
   min-width: 800px;
+}
+
+main h1 {
+  margin-bottom: 15px;
+}
+
+main p {
+  line-height: 1.6;
 }
 
 /***********
