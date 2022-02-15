@@ -4,6 +4,7 @@
 
 * {
   margin: 0;
+  padding: 0;
 }
 
 body {
@@ -99,24 +100,30 @@ body > footer {
   color: white;
 }
 
-body > footer > ul {
-  margin: 0;
-  padding: 0;
-}
-
 body > footer > ul > li {
   display: inline-block;
-  margin: 0 auto;
-  margin-top: 12px;
-  padding: 0;
-  width: 30%;
+  margin: 12px auto 0 auto;
+  width: 30vw;
   vertical-align: middle;
+  text-align: center;
 }
 
 /* contact list */
 .contact-info-list {
   margin-top: -4px;
   list-style-type: none;
+}
+
+/*
+  bug in contact list:
+  when the horizontal view is verry small the content of
+  the contact info list is moved downward and pushes the
+  screen down so that an empty space underneath the footer
+  appears.
+*/
+.contact-info-list li {
+  padding-left: 30%;
+  text-align: left;
 }
 
 .contact-info-list li:first-child {
