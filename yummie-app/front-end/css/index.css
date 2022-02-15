@@ -68,8 +68,8 @@ li img {
 
 .dropdown-menu {
   position: absolute;
-  left: -60px;
-  width: 180px;
+  left: -90px;
+  width: 210px;
   top: calc(100% + 0.25rem);
   background-color: white;
   padding: 0.75rem;
