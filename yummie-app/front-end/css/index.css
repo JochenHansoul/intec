@@ -49,6 +49,7 @@ header nav ul li {
 }
 
 li img {
+  margin-left: 12px;
   width: 40px;
 }
 
@@ -131,12 +132,18 @@ body > footer > ul > li {
   the contact info list is moved downward and pushes the
   screen down so that an empty space underneath the footer
   appears.
+  solution:
+  with dynamic styles change paddig-left to a smaller size.
 */
 .contact-info-list li {
   padding-left: 30%;
   text-align: left;
+  font-size: 13px;
+  /*overflow: hidden;
+  overflow-x: scroll;*/
 }
 
 .contact-info-list li:first-child {
-  margin-bottom: 6px;
+  margin-bottom: 4px;
+  font-size: 16px;
 }
