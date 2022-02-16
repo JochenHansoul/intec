@@ -10,6 +10,6 @@ public interface RestaurantRepository extends JpaRepository<Restaurant, Long> {
     @Query("SELECT r FROM Restaurant r WHERE r.idRestaurant = :id")
     Restaurant getRestaurantByIdRestaurant(Long id);
 
-    @Query("SELECT r FROM Restaurant r WHERE r.idRestaurantUser = :id")
+    @Query("SELECT r FROM Restaurant r WHERE r.idUser = :id")
     List<Restaurant> getRestaurantsByIdRestaurantUser(Long id);
 }

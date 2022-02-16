@@ -1,9 +1,6 @@
 package be.jochenhansoul.yummieapp.model.restaurant;
 
 import be.jochenhansoul.yummieapp.model.general.Location;
-import be.jochenhansoul.yummieapp.model.restaurant.dish.Dish;
-import be.jochenhansoul.yummieapp.model.user.Email;
-import be.jochenhansoul.yummieapp.model.user.Telephone;
 import com.sun.istack.NotNull;
 import lombok.Getter;
 import lombok.Setter;
@@ -12,8 +9,6 @@ import lombok.experimental.Accessors;
 
 import javax.persistence.*;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -25,7 +20,7 @@ public class Restaurant {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idRestaurant;
-    private Long idRestaurantUser;
+    private Long idUser;
 
     private String name;
     /*@OneToOne
@@ -66,11 +61,11 @@ public class Restaurant {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Restaurant that = (Restaurant) o;
-        return idRestaurant.equals(that.idRestaurant) && idRestaurantUser.equals(that.idRestaurantUser) && name.equals(that.name) && location.equals(that.location) && creationDate.equals(that.creationDate) && restaurantCertificateLocation.equals(that.restaurantCertificateLocation);
+        return idRestaurant.equals(that.idRestaurant) && idUser.equals(that.idUser) && name.equals(that.name) && location.equals(that.location) && creationDate.equals(that.creationDate) && restaurantCertificateLocation.equals(that.restaurantCertificateLocation);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(idRestaurant, idRestaurantUser, name, location, creationDate, restaurantCertificateLocation);
+        return Objects.hash(idRestaurant, idUser, name, location, creationDate, restaurantCertificateLocation);
     }
 }
