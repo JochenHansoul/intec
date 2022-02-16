@@ -7,6 +7,7 @@ import be.jochenhansoul.yummieapp.model.user.Telephone;
 import com.sun.istack.NotNull;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 import lombok.experimental.Accessors;
 
 import javax.persistence.*;
@@ -18,10 +19,12 @@ import java.util.List;
 @Setter
 @Getter
 @Accessors(chain = true)
+@ToString
 public class Restaurant {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idRestaurant;
+    private Long idRestaurantUser;
 
     private String name;
     /*@OneToOne
@@ -39,7 +42,7 @@ public class Restaurant {
     @NotNull
     private boolean isVisible = false;
 
-    @ElementCollection
+    /*@ElementCollection
     private List<String> telephoneNumbers = new ArrayList<>();
     @ElementCollection
     private List<String> emailAddresses = new ArrayList<>();
@@ -52,7 +55,7 @@ public class Restaurant {
     @OneToMany
     private List<Picture> pictures = new ArrayList<>();
     @OneToMany
-    private List<Review> reviews = new ArrayList<>();
+    private List<Review> reviews = new ArrayList<>();*/
 
     private String openHoursDescription = null;
     private String restaurantDescription = null;
