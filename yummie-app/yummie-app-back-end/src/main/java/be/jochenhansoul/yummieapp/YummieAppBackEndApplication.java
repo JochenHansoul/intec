@@ -2,11 +2,9 @@ package be.jochenhansoul.yummieapp;
 
 import be.jochenhansoul.yummieapp.model.general.Location;
 import be.jochenhansoul.yummieapp.model.restaurant.Restaurant;
-import be.jochenhansoul.yummieapp.model.user.RestaurantUser;
 import be.jochenhansoul.yummieapp.model.user.User;
 import be.jochenhansoul.yummieapp.repository.LocationRepository;
 import be.jochenhansoul.yummieapp.repository.RestaurantRepository;
-import be.jochenhansoul.yummieapp.repository.RestaurantUserRepository;
 import be.jochenhansoul.yummieapp.repository.UserRepository;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
