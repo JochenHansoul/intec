@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>yummie app</title>
+  <link href="css/index.css" rel="stylesheet" />
+  <link href="css/create-user.css" rel="stylesheet" />
+</head>
+<body>
+  <header>
+    <nav>
+      <ul class="first-nav">
+        <li><a href="index.html"><img src="assets/home-icon.png" alt="home button" /></a></li>
+        <li><a href="find-restaurants.html">Find Restaurants</a></li>
+        <li><a href="favorite-restaurants.html">Favorite Restaurants</a></li>
+      </ul>
+      <ul class="user-nav">
+        <li class="user-name">
+          <div class="dropdown">
+            <a href="#"><img src="assets/user-icon.png" alt="user button" /></a>
+            <div class="dropdown-menu">
+              <a href="login-user.html"><p>Login User</p></a>
+              <a href="create-user.html"><p>Registrate User</p></a>
+            </div>
+          </div>
+        <li>
+        <li><a href="user-settings.html"><img src="assets/settings-icon.png" alt="settings button" /></li></a>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <article>
+      <h1>Add Restaurant</h1>
+      <form name="restaurant" action="http://localhost:8080/restaurant/create" method="post">
+        <p>
+          <label>restaurant name: <input name="restaurantName" value="restaurent1" required /></label>
+        </p>
+        <p>
+          <label>Longitude: 
+            <input type="number" size="4" min="-180" max="180" name="degrees" value="0" required />°
+            <input type="number" size="3" min="0" max="59" name="minutes" value="0" required />′
+            <input type="number" size="3" min="0" max="59" name="seconds" value="0" required />″
+          </label>
+        </p>
+        <p>
+          <label>Lattitude: 
+            <input type="number" size="3" min="-90" max="90" name="degrees" value="0" required />°
+            <input type="number" size="3" min="0" max="59" name="minutes" value="0" required />′
+            <input type="number" size="3" min="0" max="59" name="seconds" value="0" required />″
+          </label>
+        </p>
+        <p>
+          <label>Certificate: <input type="file" name="certificate" /></label>
+        </p>
+        <p>
+          <button type="submit">Submit</button>
+        </p>
+      </form>
+    </article>
+  </main>
+  <footer>
+    <ul>
+      <li>Jochen Hansoul</li>
+      <li><a href="terms-and-conditions">Terms and Conditions</a></li>
+      <li>
+        <ul class="contact-info-list">
+          <li>Contact Info</li>
+          <li><a href="site-maintenance.html">Site maintenance</a></li>
+          <li><a href="restaurant-maintenance.html">Restaurant Maintentance</a></li>
+          <li><a href="account-maintenantce.html">Account Maintenance</a></li>
+        </ul>
+      </li>
+    </ul>
+  </footer>
+</body>
+</html>
