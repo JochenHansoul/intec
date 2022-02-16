@@ -5,6 +5,8 @@
   <title>yummie app</title>
   <link href="css/index.css" rel="stylesheet" />
   <link href="css/create-user.css" rel="stylesheet" />
+  <script src="js/modules/send-post.js" defer></script>
+  <script src="js/create-restaurant.js" defer></script>
 </head>
 <body>
   <header>
@@ -36,15 +38,15 @@
           <label>restaurant name: <input name="restaurantName" value="restaurent1" required /></label>
         </p>
         <p>
-          <label>Longitude: 
-            <input type="number" size="4" min="-180" max="180" name="degrees" value="0" required />°
+          <label>Lattitude:
+            <input type="number" size="3" min="-90" max="90" name="degrees" value="0" required />°
             <input type="number" size="3" min="0" max="59" name="minutes" value="0" required />′
             <input type="number" size="3" min="0" max="59" name="seconds" value="0" required />″
           </label>
         </p>
         <p>
-          <label>Lattitude: 
-            <input type="number" size="3" min="-90" max="90" name="degrees" value="0" required />°
+          <label>Longitude:
+            <input type="number" size="4" min="-180" max="180" name="degrees" value="0" required />°
             <input type="number" size="3" min="0" max="59" name="minutes" value="0" required />′
             <input type="number" size="3" min="0" max="59" name="seconds" value="0" required />″
           </label>
