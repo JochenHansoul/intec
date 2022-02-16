@@ -17,6 +17,8 @@ public class UserService {
     }
 
     public Optional<User> saveUser(User user) {
-        return Optional.of(USER_REPOSITORY.save(user));
+        return (this.USER_VALIDATOR.validateUser(user))
+                ? Optional.of(USER_REPOSITORY.save(user))
+                : Optional.empty();
     }
 }
