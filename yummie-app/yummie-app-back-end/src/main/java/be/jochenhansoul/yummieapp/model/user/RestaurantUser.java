@@ -1,14 +1,11 @@
 package be.jochenhansoul.yummieapp.model.user;
 
 import be.jochenhansoul.yummieapp.model.restaurant.Restaurant;
-import com.sun.istack.NotNull;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 import lombok.experimental.Accessors;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Inheritance;
 import javax.persistence.OneToMany;
 import java.util.ArrayList;
@@ -17,22 +14,13 @@ import java.util.List;
 @Entity
 @Inheritance
 @NoArgsConstructor
+@AllArgsConstructor
 @Setter
 @Getter
 @Accessors(chain = true)
 public class RestaurantUser extends User {
-    @OneToMany
+    @OneToMany(fetch = FetchType.EAGER)
     private List<Restaurant> restaurants = new ArrayList<>();
-
-    public RestaurantUser(
-            User user,
-            List<Restaurant> restaurants,
-            String restaurantDocumentLocation,
-            boolean isValidRestaurantUser) {
-
-        super(user);
-        this.restaurants = restaurants;
-    }
 
     public RestaurantUser(User user, Restaurant restaurant) {
         super(user);
@@ -41,5 +29,10 @@ public class RestaurantUser extends User {
 
     public void addRestaurant(Restaurant restaurant) {
         this.restaurants.add(restaurant);
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() + " " + this.restaurants.toString();
     }
 }
