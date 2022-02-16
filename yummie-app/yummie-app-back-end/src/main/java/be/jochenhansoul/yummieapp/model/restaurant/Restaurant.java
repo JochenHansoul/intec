@@ -14,6 +14,7 @@ import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 @Entity
 @Setter
@@ -59,4 +60,17 @@ public class Restaurant {
 
     private String openHoursDescription = null;
     private String restaurantDescription = null;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Restaurant that = (Restaurant) o;
+        return idRestaurant.equals(that.idRestaurant) && idRestaurantUser.equals(that.idRestaurantUser) && name.equals(that.name) && location.equals(that.location) && creationDate.equals(that.creationDate) && restaurantCertificateLocation.equals(that.restaurantCertificateLocation);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(idRestaurant, idRestaurantUser, name, location, creationDate, restaurantCertificateLocation);
+    }
 }
