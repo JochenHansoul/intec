@@ -1,12 +1,15 @@
 package be.jochenhansoul.yummieapp.model.user;
 
 import be.jochenhansoul.yummieapp.model.general.Location;
+import be.jochenhansoul.yummieapp.model.restaurant.Restaurant;
 import com.sun.istack.NotNull;
 import lombok.*;
 import lombok.experimental.Accessors;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Setter
@@ -44,19 +47,10 @@ public class User {
     @OneToOne
     private Location defaultSearchLocation = null;
 
-    public User(User user) {
-        this.userId = user.userId;
-        this.firstName = user.firstName;
-        this.lastName = user.lastName;
-        this.gender = user.gender;
-        this.birthDate = user.birthDate;
-        this.email = user.email;
-        this.password = user.password;
-        this.isRestaurantUser = user.isRestaurantUser;
-        this.creationDate = user.creationDate;
-        this.isValidated = user.isValidated;
-        this.address  = user.address;
-        this.telephone  = user.telephone;
-        this.defaultSearchLocation = user.defaultSearchLocation;
+    @OneToMany(fetch = FetchType.EAGER)
+    private List<Restaurant> restaurants = new ArrayList<>();
+
+    public void addRestaurant(Restaurant restaurant) {
+        this.restaurants.add(restaurant);
     }
 }
