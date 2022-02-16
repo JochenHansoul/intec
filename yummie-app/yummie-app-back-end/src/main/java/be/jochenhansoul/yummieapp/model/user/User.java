@@ -2,9 +2,7 @@ package be.jochenhansoul.yummieapp.model.user;
 
 import be.jochenhansoul.yummieapp.model.general.Location;
 import com.sun.istack.NotNull;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 import lombok.experimental.Accessors;
 
 import javax.persistence.*;
@@ -14,6 +12,8 @@ import java.time.LocalDate;
 @Setter
 @Getter
 @Accessors(chain = true)
+@NoArgsConstructor
+@AllArgsConstructor
 @ToString
 public class User {
     @Id
@@ -43,4 +43,20 @@ public class User {
     private String telephone  = null;
     @OneToOne
     private Location defaultSearchLocation = null;
+
+    public User(User user) {
+        this.userId = user.userId;
+        this.firstName = user.firstName;
+        this.lastName = user.lastName;
+        this.gender = user.gender;
+        this.birthDate = user.birthDate;
+        this.email = user.email;
+        this.password = user.password;
+        this.isRestaurantUser = user.isRestaurantUser;
+        this.creationDate = user.creationDate;
+        this.isValidated = user.isValidated;
+        this.address  = user.address;
+        this.telephone  = user.telephone;
+        this.defaultSearchLocation = user.defaultSearchLocation;
+    }
 }
