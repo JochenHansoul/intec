@@ -1,5 +1,6 @@
 package be.jochenhansoul.yummieapp.service;
 
+import be.jochenhansoul.yummieapp.model.restaurant.Restaurant;
 import be.jochenhansoul.yummieapp.model.user.User;
 import be.jochenhansoul.yummieapp.repository.UserRepository;
 import org.springframework.stereotype.Component;
@@ -18,7 +19,17 @@ public class UserService {
 
     public Optional<User> saveUser(User user) {
         return (this.USER_VALIDATOR.validateUser(user))
-                ? Optional.of(USER_REPOSITORY.save(user))
+                ? Optional.of(this.USER_REPOSITORY.save(user))
                 : Optional.empty();
+    }
+
+    public Optional<User> addRestaurantToUser(Restaurant restaurant) {
+        User user = this.USER_REPOSITORY.getUsersByUserId(restaurant.getIdUser());
+        if (user != null) {
+            user.addRestaurant(restaurant);
+            return Optional.of(this.USER_REPOSITORY.save(user));
+        } else {
+            return Optional.empty();
+        }
     }
 }
