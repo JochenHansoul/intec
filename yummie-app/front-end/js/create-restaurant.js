@@ -26,8 +26,12 @@ RESTAURANT_FORM.addEventListener("submit", event => {
   const LONGITUDE = calculateCoordinate(LONGITUDES[0].value, LONGITUDES[1].value, LONGITUDES[2].value);
 
   const OUTPUTS = RESTAURANT_FORM.querySelectorAll("output");
+  OUTPUTS.forEach(output => output.innerText = ""); // clearing output fields
   if (LATTITUDE < -90 || LATTITUDE > 90) {
-      OUTPUTS[0].innerText = "lattitude must be between -90 and 90";
+    OUTPUTS[0].innerText = "lattitude must be between -90 and 90";
+    if (LONGITUDE < -180 || LONGITUDE > 180) {
+      OUTPUTS[1].innerText = "longitude must be between -180 and 180";
+    }
   } else if (LONGITUDE < -180 || LONGITUDE > 180) {
       OUTPUTS[1].innerText = "longitude must be between -180 and 180";
   } else {
