@@ -21,45 +21,41 @@ public class YummieAppBackEndApplication {
         UserRepository userRepository = ctx.getBean(UserRepository.class);
         LocationRepository locationRepository = ctx.getBean(LocationRepository.class);
         RestaurantRepository restaurantRepository = ctx.getBean(RestaurantRepository.class);
-        RestaurantUserRepository restaurantUserRepository = ctx.getBean(RestaurantUserRepository.class);
 
         // user
-        User user = new User();
-        user.setFirstName("first1");
-        user.setLastName("last1");
-        user.setPassword("pass1");
-        user.setEmail("first.last@outlook.be");
-        user.setTelephone("+32 111 11 11 11");
-        userRepository.save(user);
+        User user1 = new User();
+        user1.setFirstName("first1");
+        user1.setLastName("last1");
+        user1.setPassword("pass1");
+        user1.setEmail("first.last@outlook.be");
+        user1.setTelephone("+32 111 11 11 11");
 
-        // getting stored user
-        User storedUser = userRepository.getUsersByEmail("first.last@outlook.be");
-
-        // restaurant user
+        // location
         Location location1 = new Location().setLatitude(0).setLongitude(1);
+
+        // restaurant
         Restaurant restaurant1 = new Restaurant()
-                .setIdRestaurantUser(user.getUserId())
+                .setIdRestaurantUser(user1.getUserId())
                 .setName("First Restaurant")
                 .setLocation(location1)
                 .setRestaurantCertificateLocation("url");
-        RestaurantUser restaurantUser1 = new RestaurantUser(storedUser, restaurant1);
+
+        user1.addRestaurant(restaurant1);
 
         // saving
         locationRepository.save(location1);
         restaurantRepository.save(restaurant1);
-        restaurantUserRepository.save(restaurantUser1);
+        userRepository.save(user1);
 
         // receiving
-        //Restaurant storedRestaurant = restaurantRepository.getRestaurantByIdRestaurant(1L);
-        Restaurant storedRestaurant = restaurantRepository.getRestaurantsByIdRestaurantUser(user.getUserId()).get(0);
+        /*Restaurant storedRestaurant = restaurantRepository.getRestaurantsByIdRestaurantUser(user.getUserId()).get(0);
         System.out.println("stored restaurant");
-        System.out.println(storedRestaurant);
+        System.out.println(storedRestaurant);*/
 
-        System.out.println("stored restaurant user:");
-        RestaurantUser storedRestaurantUser = restaurantUserRepository.getRestaurantUserByEmail("first.last@outlook.be");
-        //storedRestaurantUser.addRestaurant(storedRestaurant);
-        System.out.println(storedRestaurantUser);
-
+        // getting stored user
+        User storedUser1 = userRepository.getUsersByEmail("first.last@outlook.be");
+        System.out.println("stored user:");
+        System.out.println(storedUser1);
     }
 
 }
