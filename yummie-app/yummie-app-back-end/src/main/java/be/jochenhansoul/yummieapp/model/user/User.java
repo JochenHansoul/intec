@@ -8,8 +8,8 @@ import lombok.experimental.Accessors;
 
 import javax.persistence.*;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Setter
@@ -30,27 +30,37 @@ public class User {
     private Gender gender;
     @NotNull
     private LocalDate birthDate;
+    @OneToOne
+    private UserAddress address  = null;
+    private String telephone  = null;
+
     @NotNull
     //@Column(unique = true)
     private String email;
     @NotNull
     private String password;
+
     @NotNull
-    private boolean isRestaurantUser = false;
+    private UserType userType = UserType.USER;
     @NotNull
     private LocalDate creationDate = LocalDate.now();
     @NotNull
     private boolean isValidated = false;
-    @OneToOne
-    private UserAddress address  = null;
-    private String telephone  = null;
+
     @OneToOne
     private Location defaultSearchLocation = null;
+    @ManyToMany(fetch = FetchType.EAGER)
+    private Set<Restaurant> favoriteRestaurants = new HashSet<>();
 
     @OneToMany(fetch = FetchType.EAGER)
-    private List<Restaurant> restaurants = new ArrayList<>();
+    private Set<Restaurant> ownedRestaurants = new HashSet<>();
+
+    // methods
+    public void addFavoriteRestaurant(Restaurant restaurant) {
+        this.favoriteRestaurants.add(restaurant);
+    }
 
     public void addRestaurant(Restaurant restaurant) {
-        this.restaurants.add(restaurant);
+        this.ownedRestaurants.add(restaurant);
     }
 }
