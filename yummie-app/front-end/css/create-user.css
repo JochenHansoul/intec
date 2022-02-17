@@ -16,3 +16,13 @@ main form {
 main form p {
   padding: 10px;
 }
+
+.lattitude input,
+.longitude input {
+  width: 40px;
+}
+
+.lattitude input:first-child,
+.longitude input:first-child {
+  width: 48px;
+}
