@@ -7,7 +7,7 @@ const LONGITUDES = RESTAURANT_FORM.querySelectorAll(".longitude input");
 const OUTPUT = RESTAURANT_FORM.querySelector("output");
 
 // functions
-const sendResponse = response => OUTPUT.innerText = "Succesfull: " + response.key;
+const sendResponse = response => OUTPUT.innerText = "Succesfull: " + response;
 const sendError = error => OUTPUT.innerText = "Error: " + error.message;
 
 // main
