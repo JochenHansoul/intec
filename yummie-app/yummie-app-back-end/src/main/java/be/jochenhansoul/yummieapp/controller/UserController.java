@@ -24,7 +24,7 @@ public class UserController {
         if (optionalUser.isPresent()) {
             User savedUser = optionalUser.get();
             return ResponseEntity.status(201).body("{\"idUser\":\"" + savedUser.getIdUser()
-                    + "\",\"userName\":\"" + savedUser.getFirstName() + " " + savedUser.getLastName() + "\"}"); // "{\"key\":\"value\"}"
+                    + "\",\"nameUser\":\"" + savedUser.getFirstName() + " " + savedUser.getLastName() + "\"}"); // "{\"key\":\"value\"}"
         } else {
             return ResponseEntity.status(422).body("user not created");
         }
