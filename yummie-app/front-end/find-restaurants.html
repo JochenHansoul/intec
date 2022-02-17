@@ -5,7 +5,10 @@
   <title>yummie app</title>
   <link href="css/index.css" rel="stylesheet" />
   <link href="css/create-user.css" rel="stylesheet" />
+  <script src="js/modules/coordinates.js" defer></script>
+  <script src="js/modules/send-post.js" defer></script>
   <script src="js/modules/get-user-name.js" defer></script>
+  <script src="js/find-restaurants.js" defer></script>
 </head>
 <body>
   <header>
@@ -35,7 +38,7 @@
   <main>
     <article>
       <h1>Find Restaurants</h1>
-      <form name="restaurant" action="http://localhost:8080/restaurant/get" method="get">
+      <form name="restaurant" action="http://localhost:8080/restaurant/get" method="post">
         <p>Enter Coordinates:</p>
         <p class="lattitude">
           Lattitude:
@@ -48,7 +51,6 @@
           </label>
             <input type="number" min="0" max="59" name="seconds" value="0" required />″
           </label>
-          <output name="lattitude" class="red"></output>
         </p>
         <p class="longitude">
           Longitude:
@@ -61,9 +63,14 @@
           <label>
             <input type="number" min="0" max="59" name="seconds" value="0" required />″
           </label>
-          <output name="longitude" class="red"></output>
         </p>
-        <output></output>
+        <p>
+          <button type="submit">Submit</button>
+        </p>
+        <p>
+          <output></output>
+        </p>
+        <p>
       </form>
     </article>
   </main>
