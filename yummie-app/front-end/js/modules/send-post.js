@@ -18,7 +18,7 @@ const sendPost = (
     body: JSON.stringify(obj)
   })
   .then((response) => {
-    if (response.status === 201) {
+    if (response.status === 200 || response.status === 201) {
       return response.json();
     } else {
       throw new Error(response.status);
