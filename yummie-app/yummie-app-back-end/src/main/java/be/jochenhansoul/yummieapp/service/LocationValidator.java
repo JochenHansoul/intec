@@ -7,11 +7,11 @@ import org.springframework.stereotype.Component;
 public class LocationValidator {
 
     public boolean validateLocation(Location location) {
-        return validateCoordinate(location.getLatitude(), 90F)
-                && validateCoordinate(location.getLongitude(), 180F);
+        return validateCoordinate(location.getLatitude(), 90)
+                && validateCoordinate(location.getLongitude(), 180);
     }
 
-    private boolean validateCoordinate(float coordinate, float range) {
+    private boolean validateCoordinate(double coordinate, double range) {
         return Math.abs(coordinate) <= range;
     }
 }
