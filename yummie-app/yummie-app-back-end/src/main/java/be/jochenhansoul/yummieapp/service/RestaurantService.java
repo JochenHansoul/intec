@@ -33,6 +33,7 @@ public class RestaurantService {
         List<Map.Entry<Restaurant, Double>> list = new ArrayList<>(restaurantMap.entrySet());
         list.sort(Map.Entry.comparingByValue());*/
 
+        // not sure if works
         restaurantList.sort((restaurant, t1) -> (int) restaurant.getLocation().getDistance(location));
         return restaurantList;
     }
