@@ -5,6 +5,7 @@ import be.jochenhansoul.yummieapp.model.restaurant.Restaurant;
 import be.jochenhansoul.yummieapp.service.LocationService;
 import be.jochenhansoul.yummieapp.service.RestaurantService;
 import be.jochenhansoul.yummieapp.service.UserService;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -16,7 +17,6 @@ import java.util.*;
 public class RestaurantController {
 
     private final ObjectMapper MAPPER = new ObjectMapper(); // throws JsonProcessingException
-    //String json = MAPPER.writeValueAsString(savedObj); // for later use
 
     private final LocationService LOCATION_SERVICE;
     private final RestaurantService RESTAURANT_SERVICE;
@@ -46,10 +46,9 @@ public class RestaurantController {
 
     @CrossOrigin
     @PostMapping("/get")
-    public ResponseEntity<String> getRestaurantsBasedOnLocation(@RequestBody Location location) {
-        System.out.println(location);
-        //SortedSet<Restaurant> restaurantSortedSet = new TreeSet<>();
-        List<Restaurant> restaurants = new ArrayList<>();
-        return ResponseEntity.status(200).body("{\"key\":\"value\"}");
+    public ResponseEntity<String> getRestaurantsBasedOnLocation(@RequestBody Location location) throws JsonProcessingException {
+        List<Restaurant> restaurantList = this.RESTAURANT_SERVICE.getRestaurantClosestTo(location);
+        String json = MAPPER.writeValueAsString(restaurantList);
+        return ResponseEntity.status(200).body(json); //"{\"key\":\"value\"}"
     }
 }
