@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <title>yummie app</title>
   <link href="css/index.css" rel="stylesheet" />
+  <link href="css/create-user.css" rel="stylesheet" />
   <script src="js/modules/get-user-name.js" defer></script>
 </head>
 <body>
@@ -34,9 +35,36 @@
   <main>
     <article>
       <h1>Find Restaurants</h1>
-      <p>
-        Found restaurants.
-      </p>
+      <form name="restaurant" action="http://localhost:8080/restaurant/get" method="get">
+        <p>Enter Coordinates:</p>
+        <p class="lattitude">
+          Lattitude:
+          <label>
+            <input type="number" min="-90" max="90" name="degrees" value="0" required />°
+          </label>
+          <label>
+            <input type="number" min="0" max="59" name="minutes" value="0" required />′
+          <label>
+          </label>
+            <input type="number" min="0" max="59" name="seconds" value="0" required />″
+          </label>
+          <output name="lattitude" class="red"></output>
+        </p>
+        <p class="longitude">
+          Longitude:
+          <label>
+            <input type="number" min="-180" max="180" name="degrees" value="0" required />°
+          </label>
+          <label>
+            <input type="number" min="0" max="59" name="minutes" value="0" required />′
+          </label>
+          <label>
+            <input type="number" min="0" max="59" name="seconds" value="0" required />″
+          </label>
+          <output name="longitude" class="red"></output>
+        </p>
+        <output></output>
+      </form>
     </article>
   </main>
   <footer>
