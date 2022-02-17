@@ -2,7 +2,6 @@ package be.jochenhansoul.yummieapp.controller;
 
 import be.jochenhansoul.yummieapp.model.user.User;
 import be.jochenhansoul.yummieapp.service.UserService;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,18 +19,12 @@ public class UserController {
 
     @CrossOrigin
     @PostMapping
-    public ResponseEntity<String> addUser(@RequestBody User user) throws JsonProcessingException {
-        //System.out.println("successfully created user " + user);
+    public ResponseEntity<String> addUser(@RequestBody User user) {
         Optional<User> optionalUser = this.USER_SERVICE.saveUser(user);
-        //System.out.println("after user service");
         if (optionalUser.isPresent()) {
             User savedUser = optionalUser.get();
-            //System.out.println(savedUser);
-            /*ObjectMapper mapper = new ObjectMapper();
-            System.out.println("turning into a json string:");
-            String json = mapper.writeValueAsString(savedUser);
-            System.out.println("ResultingJSONstring = " + json);*/
-            return ResponseEntity.status(201).body("{\"email\":\"" + savedUser.getEmail() + "\",\"password\":\"" + user.getPassword() + "\"}"); // "{\"key\":\"value\"}"
+            return ResponseEntity.status(201).body("{\"idUser\":\"" + savedUser.getIdUser()
+                    + "\",\"userName\":\"" + savedUser.getFirstName() + " " + savedUser.getLastName() + "\"}"); // "{\"key\":\"value\"}"
         } else {
             return ResponseEntity.status(422).body("user not created");
         }
