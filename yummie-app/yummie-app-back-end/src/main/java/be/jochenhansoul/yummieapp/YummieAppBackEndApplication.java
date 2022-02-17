@@ -28,44 +28,76 @@ public class YummieAppBackEndApplication {
         user1.setEmail("first.last@outlook.be");
         user1.setTelephone("+32 111 11 11 11");
 
+
+
         // location
-        Location location1 = new Location().setLatitude(0).setLongitude(1);
+        Location l1 = new Location().setLatitude(0).setLongitude(0);
+        Location l2 = new Location().setLatitude(100).setLongitude(0);
+        Location l3 = new Location().setLatitude(200).setLongitude(0);
+        Location l4 = new Location().setLatitude(300).setLongitude(0);
+        Location l5 = new Location().setLatitude(400).setLongitude(0);
+        Location l6 = new Location().setLatitude(500).setLongitude(0);
+        Location l7 = new Location().setLatitude(600).setLongitude(0);
 
         // restaurant
-        Restaurant restaurant1 = new Restaurant()
+        Restaurant r1 = new Restaurant()
                 .setIdUser(user1.getIdUser())
-                .setName("First Restaurant")
-                .setLocation(location1)
+                .setName("r1")
+                .setLocation(l1)
+                .setRestaurantCertificateLocation("url");
+        Restaurant r2 = new Restaurant()
+                .setIdUser(user1.getIdUser())
+                .setName("r2")
+                .setLocation(l2)
+                .setRestaurantCertificateLocation("url");
+        Restaurant r3 = new Restaurant()
+                .setIdUser(user1.getIdUser())
+                .setName("r3")
+                .setLocation(l3)
+                .setRestaurantCertificateLocation("url");
+        Restaurant r4 = new Restaurant()
+                .setIdUser(user1.getIdUser())
+                .setName("r4")
+                .setLocation(l4)
+                .setRestaurantCertificateLocation("url");
+        Restaurant r5 = new Restaurant()
+                .setIdUser(user1.getIdUser())
+                .setName("r5")
+                .setLocation(l5)
+                .setRestaurantCertificateLocation("url");
+        Restaurant r6 = new Restaurant()
+                .setIdUser(user1.getIdUser())
+                .setName("r6")
+                .setLocation(l6)
+                .setRestaurantCertificateLocation("url");
+        Restaurant r7 = new Restaurant()
+                .setIdUser(user1.getIdUser())
+                .setName("r7")
+                .setLocation(l7)
                 .setRestaurantCertificateLocation("url");
 
-        user1.addRestaurant(restaurant1);
+        user1.addRestaurant(r1);
+
 
         // saving
-        locationRepository.save(location1);
-        restaurantRepository.save(restaurant1);
+        // locations
+        locationRepository.save(l1);
+        locationRepository.save(l2);
+        locationRepository.save(l3);
+        locationRepository.save(l7);
+        locationRepository.save(l6);
+        locationRepository.save(l5);
+        locationRepository.save(l4);
+        // restaurants
+        restaurantRepository.save(r1);
+        restaurantRepository.save(r2);
+        restaurantRepository.save(r3);
+        restaurantRepository.save(r7);
+        restaurantRepository.save(r6);
+        restaurantRepository.save(r5);
+        restaurantRepository.save(r4);
+        // users
         userRepository.save(user1);
-
-        // receiving
-        /*Restaurant storedRestaurant = restaurantRepository.getRestaurantsByIdRestaurantUser(user.getUserId()).get(0);
-        System.out.println("stored restaurant");
-        System.out.println(storedRestaurant);*/
-
-        // getting stored user
-        User storedUser1 = userRepository.getUsersByEmail("first.last@outlook.be");
-        //System.out.println("stored user:");
-        //System.out.println(storedUser1);
-
-        // coordinates
-
-        System.out.println("get distance 0");
-        Location l1 = new Location(0, 0);
-        Location l2 = new Location(0, 0);
-        System.out.println(l1.getDistance(l2));
-
-        System.out.println("get distance london arlington");
-        Location london = new Location(51.5, 0);
-        Location arlington = new Location(38.8, -77.1);
-        System.out.println(london.getDistance(arlington));
     }
 
 }
