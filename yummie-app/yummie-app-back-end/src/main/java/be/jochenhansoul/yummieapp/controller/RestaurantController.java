@@ -9,7 +9,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Optional;
+import java.util.*;
 
 @RestController
 @RequestMapping("restaurant")
@@ -42,5 +42,14 @@ public class RestaurantController {
         } else {
             return ResponseEntity.status(400).body("Could not add location to database.");
         }
+    }
+
+    @CrossOrigin
+    @PostMapping("/get")
+    public ResponseEntity<String> getRestaurantsBasedOnLocation(@RequestBody Location location) {
+        System.out.println(location);
+        //SortedSet<Restaurant> restaurantSortedSet = new TreeSet<>();
+        List<Restaurant> restaurants = new ArrayList<>();
+        return ResponseEntity.status(200).body("{\"key\":\"value\"}");
     }
 }
