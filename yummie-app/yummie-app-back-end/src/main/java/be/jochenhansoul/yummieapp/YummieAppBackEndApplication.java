@@ -52,8 +52,20 @@ public class YummieAppBackEndApplication {
 
         // getting stored user
         User storedUser1 = userRepository.getUsersByEmail("first.last@outlook.be");
-        System.out.println("stored user:");
-        System.out.println(storedUser1);
+        //System.out.println("stored user:");
+        //System.out.println(storedUser1);
+
+        // coordinates
+
+        System.out.println("get distance 0");
+        Location l1 = new Location(0, 0);
+        Location l2 = new Location(0, 0);
+        System.out.println(l1.getDistance(l2));
+
+        System.out.println("get distance london arlington");
+        Location london = new Location(51.5, 0);
+        Location arlington = new Location(38.8, -77.1);
+        System.out.println(london.getDistance(arlington));
     }
 
 }
