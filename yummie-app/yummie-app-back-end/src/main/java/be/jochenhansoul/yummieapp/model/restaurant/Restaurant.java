@@ -28,8 +28,8 @@ public class Restaurant {
     @OneToOne
     @NotNull
     private Location location;
-    @NotNull
-    private LocalDate creationDate = LocalDate.now();
+    /*@NotNull
+    private LocalDate creationDate = LocalDate.now();*/
 
     @NotNull
     private String restaurantCertificateLocation;
@@ -61,11 +61,11 @@ public class Restaurant {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Restaurant that = (Restaurant) o;
-        return idRestaurant.equals(that.idRestaurant) && idUser.equals(that.idUser) && name.equals(that.name) && location.equals(that.location) && creationDate.equals(that.creationDate) && restaurantCertificateLocation.equals(that.restaurantCertificateLocation);
+        return idRestaurant.equals(that.idRestaurant) && idUser.equals(that.idUser) && name.equals(that.name) && location.equals(that.location) /*&& creationDate.equals(that.creationDate)*/ && restaurantCertificateLocation.equals(that.restaurantCertificateLocation);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(idRestaurant, idUser, name, location, creationDate, restaurantCertificateLocation);
+        return Objects.hash(idRestaurant, idUser, name, location/*, creationDate*/, restaurantCertificateLocation);
     }
 }
