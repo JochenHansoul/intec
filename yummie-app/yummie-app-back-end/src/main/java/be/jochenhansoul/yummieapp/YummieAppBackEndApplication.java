@@ -33,7 +33,7 @@ public class YummieAppBackEndApplication {
 
         // restaurant
         Restaurant restaurant1 = new Restaurant()
-                .setIdUser(user1.getUserId())
+                .setIdUser(user1.getIdUser())
                 .setName("First Restaurant")
                 .setLocation(location1)
                 .setRestaurantCertificateLocation("url");

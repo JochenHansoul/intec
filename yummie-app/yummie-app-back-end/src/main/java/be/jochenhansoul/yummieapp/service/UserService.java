@@ -24,7 +24,7 @@ public class UserService {
     }
 
     public Optional<User> addRestaurantToUser(Restaurant restaurant) {
-        User user = this.USER_REPOSITORY.getUsersByUserId(restaurant.getIdUser());
+        User user = this.USER_REPOSITORY.getUsersByIdUser(restaurant.getIdUser());
         if (user != null) {
             user.addRestaurant(restaurant);
             return Optional.of(this.USER_REPOSITORY.save(user));
