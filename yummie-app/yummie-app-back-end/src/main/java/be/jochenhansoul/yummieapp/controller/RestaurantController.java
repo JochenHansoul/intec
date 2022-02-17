@@ -5,6 +5,7 @@ import be.jochenhansoul.yummieapp.model.restaurant.Restaurant;
 import be.jochenhansoul.yummieapp.service.LocationService;
 import be.jochenhansoul.yummieapp.service.RestaurantService;
 import be.jochenhansoul.yummieapp.service.UserService;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,6 +14,9 @@ import java.util.Optional;
 @RestController
 @RequestMapping("restaurant")
 public class RestaurantController {
+
+    private final ObjectMapper MAPPER = new ObjectMapper(); // throws JsonProcessingException
+    //String json = MAPPER.writeValueAsString(savedObj); // for later use
 
     private final LocationService LOCATION_SERVICE;
     private final RestaurantService RESTAURANT_SERVICE;
