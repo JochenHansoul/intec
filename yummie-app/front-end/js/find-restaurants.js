@@ -8,6 +8,8 @@ const OUTPUT = RESTAURANT_FORM.querySelector("output");
 const TABLE = document.getElementsByClassName("restaurant-table")[0];
 const RESTAURANT_TABLE = document.getElementById("restaurant-tbody");
 
+const ID = sessionStorage.getItem("user-id");
+
 // functions
 const removeChildren = element => {
   while (element.hasChildNodes()) {
@@ -28,7 +30,7 @@ const createTable = tableData => {
 const sendResponse = restaurants => {
   TABLE.classList.remove("hidden");
   for (const RESTAURANT of restaurants) {
-    const RESTAURANT_DATA = [RESTAURANT.name, RESTAURANT.location.latitude, RESTAURANT.location.longitude]
+    const RESTAURANT_DATA = [RESTAURANT.name, RESTAURANT.location.latitude, RESTAURANT.location.longitude];
     RESTAURANT_TABLE.append(createTable(RESTAURANT_DATA));
   }
 };
@@ -43,5 +45,5 @@ RESTAURANT_FORM.addEventListener("submit", event => {
     lattitude: calculateLattitude(LATTITUDES[0].value, LATTITUDES[1].value, LATTITUDES[2].value),
     longitude: calculateLongitude(LONGITUDES[0].value, LONGITUDES[1].value, LONGITUDES[2].value)
   };
-  sendPost(RESTAURANT_FORM.action, LOCATION, sendResponse, sendError);
+  sendPost(RESTAURANT_FORM.action + "?id=" + ID, LOCATION, sendResponse, sendError);
 });

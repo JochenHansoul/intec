@@ -46,7 +46,10 @@ public class RestaurantController {
 
     @CrossOrigin
     @PostMapping("/get")
-    public ResponseEntity<String> getRestaurantsBasedOnLocation(@RequestBody Location location) throws JsonProcessingException {
+    public ResponseEntity<String> getRestaurantsBasedOnLocation(
+            @RequestBody Location location,
+            @RequestParam(name = "id", required = false) Long id) throws JsonProcessingException {
+        // id can later be used to get preferences
         List<Restaurant> restaurantList = this.RESTAURANT_SERVICE.getRestaurantClosestTo(location);
         String json = MAPPER.writeValueAsString(restaurantList);
         return ResponseEntity.status(200).body(json); //"{\"key\":\"value\"}"
