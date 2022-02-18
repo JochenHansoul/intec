@@ -5,7 +5,7 @@ const RESTAURANT_FORM = document.forms.restaurant;
 const LATTITUDES = RESTAURANT_FORM.querySelectorAll(".lattitude input");
 const LONGITUDES = RESTAURANT_FORM.querySelectorAll(".longitude input");
 const OUTPUT = RESTAURANT_FORM.querySelector("output");
-const RESTAURANT_TABLE = document.getElementById("restaurant-table");
+const RESTAURANT_TABLE = document.getElementById("restaurant-tbody");
 
 // functions
 const createTable = tableData => {
