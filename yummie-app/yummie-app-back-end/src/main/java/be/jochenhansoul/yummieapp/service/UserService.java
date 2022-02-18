@@ -23,6 +23,17 @@ public class UserService {
                 : Optional.empty();
     }
 
+    public Optional<User> loginUser(String email, String password) {
+        User user = this.USER_REPOSITORY.getUsersByEmail(email);
+        if (user == null) {
+            return Optional.empty();
+        } else if (user.getPassword().equals(password)) {
+            return Optional.of(user);
+        } else {
+            return Optional.empty();
+        }
+    }
+
     public Optional<User> addRestaurantToUser(Restaurant restaurant) {
         User user = this.USER_REPOSITORY.getUsersByIdUser(restaurant.getIdUser());
         if (user != null) {
