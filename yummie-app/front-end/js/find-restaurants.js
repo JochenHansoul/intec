@@ -8,6 +8,12 @@ const OUTPUT = RESTAURANT_FORM.querySelector("output");
 const RESTAURANT_TABLE = document.getElementById("restaurant-tbody");
 
 // functions
+const removeChildren = element => {
+  while (element.hasChildNodes()) {
+    element.lastChild.remove();
+  }
+};
+
 const createTable = tableData => {
   const TR = document.createElement("tr");
   for (const D of tableData) {
@@ -30,6 +36,7 @@ const sendError = error => OUTPUT.innerText = "Error: " + error.message;
 // main
 RESTAURANT_FORM.addEventListener("submit", event => {
   event.preventDefault();
+  removeChildren(RESTAURANT_TABLE);
   const LOCATION = {
     lattitude: calculateLattitude(LATTITUDES[0].value, LATTITUDES[1].value, LATTITUDES[2].value),
     longitude: calculateLongitude(LONGITUDES[0].value, LONGITUDES[1].value, LONGITUDES[2].value)
