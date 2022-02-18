@@ -5,9 +5,26 @@ const RESTAURANT_FORM = document.forms.restaurant;
 const LATTITUDES = RESTAURANT_FORM.querySelectorAll(".lattitude input");
 const LONGITUDES = RESTAURANT_FORM.querySelectorAll(".longitude input");
 const OUTPUT = RESTAURANT_FORM.querySelector("output");
+const RESTAURANT_TABLE = document.getElementById("restaurant-table");
 
 // functions
-const sendResponse = response => OUTPUT.innerText = "Succesfull: " + response;
+const createTable = tableData => {
+  const TR = document.createElement("tr");
+  for (const D of tableData) {
+    const C = document.createElement("td");
+    C.textContent = D
+    TR.append(C);
+  }
+  return TR;
+};
+
+const sendResponse = restaurants => {
+  for (const RESTAURANT of restaurants) {
+    const RESTAURANT_DATA = [RESTAURANT.name, RESTAURANT.location.latitude, RESTAURANT.location.longitude]
+    RESTAURANT_TABLE.append(createTable(REATAURNAT_DATA));
+  }
+};
+
 const sendError = error => OUTPUT.innerText = "Error: " + error.message;
 
 // main
