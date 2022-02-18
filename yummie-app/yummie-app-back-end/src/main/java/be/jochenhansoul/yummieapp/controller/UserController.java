@@ -30,6 +30,20 @@ public class UserController {
         }
     }
 
+    @CrossOrigin
+    @PostMapping("/login")
+    public ResponseEntity<String> loginUser(@RequestBody User user) {
+        // create method that does the same code
+        Optional<User> optionalUser = this.USER_SERVICE.loginUser(user.getEmail(), user.getPassword());
+        if (optionalUser.isPresent()) {
+            User savedUser = optionalUser.get();
+            return ResponseEntity.status(201).body("{\"idUser\":\"" + savedUser.getIdUser()
+                    + "\",\"nameUser\":\"" + savedUser.getFirstName() + " " + savedUser.getLastName() + "\"}"); // "{\"key\":\"value\"}"
+        } else {
+            return ResponseEntity.status(422).body("user not found");
+        }
+    }
+
     @ExceptionHandler(Exception.class)
     public ResponseEntity<String> sendUserException() {
         System.out.println("inside sendUserException");
