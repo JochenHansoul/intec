@@ -1,0 +1,13 @@
+/*
+  markup for the coordinates of a form
+*/
+
+.lattitude label input,
+.longitude label input {
+  width: 40px;
+}
+
+.lattitude label:first-child input,
+.longitude label:first-child input {
+  width: 48px;
+}
