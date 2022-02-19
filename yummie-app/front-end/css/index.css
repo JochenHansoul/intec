@@ -91,7 +91,7 @@ header nav ul a {
   position: relative;
 }
 
-.dropdown-menu {
+.dropdown-list {
   position: absolute;
   left: -90px;
   width: 210px;
@@ -105,13 +105,13 @@ header nav ul a {
   transition: opacity 150ms ease-in-out, transform 150ms ease-in-out;
 }
 
-.dropdown > a:hover + .dropdown-menu,
-.dropdown > a + .dropdown-menu:hover {
+.dropdown > a:hover ~ .dropdown-list,
+.dropdown > a ~ .dropdown-list:hover {
   opacity: 1;
   transform: translateY(0);
 }
 
-.dropdown-menu p {
+.dropdown-list li {
   padding: 3px;
 }
 

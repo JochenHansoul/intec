@@ -16,17 +16,15 @@
       </ul>
       <ul class="user-nav">
         <li id="user-name"></li>
-        <li class="user-name">
-          <div class="dropdown">
-            <a href="#"><img src="assets/user-icon.png" alt="user button" /></a>
-            <div class="dropdown-menu">
-              <a href="login-user.html"><p>Login User</p></a>
-              <a href="create-user.html"><p>Registrate User</p></a>
-            </div>
-            <div class="dropdown-menu hidden"><!-- for logout button -->
-              <a href="#!" id="logout-user" ><p>Logout User</p></a>
-            </div>
-          </div>
+        <li class="user-name dropdown">
+          <a href="#!"><img src="assets/user-icon.png" alt="user button" /></a>
+          <ul class="dropdown-list">
+            <li><a href="login-user.html">Login User</a></li>
+            <li><a href="create-user.html">Registrate User</a></li>
+          </ul>
+          <ul class="dropdown-list hidden"><!-- for logout button -->
+            <li>Logout User</li>
+          </ul>
         </li>
         <li>
           <a href="user-settings.html"><img src="assets/settings-icon.png" alt="settings button" /></a>
