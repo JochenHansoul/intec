@@ -25,12 +25,10 @@ public class UserService {
 
     public Optional<User> loginUser(String email, String password) {
         User user = this.USER_REPOSITORY.getUsersByEmail(email);
-        if (user == null) {
+        if (user == null || !user.getPassword().equals(password)) {
             return Optional.empty();
-        } else if (user.getPassword().equals(password)) {
-            return Optional.of(user);
         } else {
-            return Optional.empty();
+            return Optional.of(user);
         }
     }
 
