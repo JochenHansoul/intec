@@ -1,10 +1,27 @@
 "use strict";
 
-const USER_NAME_INPUT = document.getElementById("user-name");
+// elements
+const FULL_NAME_INPUT = document.getElementById("js-full-name");
+const LOGOUT_ELEMENT = document.getElementById("js-logout-user");
 
-const USER_NAME_LOCAL_STORAGE = window.sessionStorage.getItem("name-user");
+const LOGIN_DROPDOWN_LIST = document.querySelectorAll(".dropdown-list")[0];
+const LOGOUT_DROPDOWN_LIST = document.querySelectorAll(".dropdown-list")[1];
 
-if (USER_NAME_LOCAL_STORAGE !== null) {
-  USER_NAME_INPUT.append(USER_NAME_LOCAL_STORAGE);
+// session storage
+const ID_SESSION_STORAGE = sessionStorage.getItem("id-user");
+
+
+// main
+if (ID_SESSION_STORAGE !== null) {
+  // displays the username inside the header
+  FULL_NAME_INPUT.append(sessionStorage.getItem("full-name-user"));
+  // changing registrate/login dropdown list to logout dropdown list
+  LOGIN_DROPDOWN_LIST.classList.add("hidden");
+  LOGOUT_DROPDOWN_LIST.classList.remove("hidden");
+  // added logout click event
+  LOGOUT_ELEMENT.addEventListener("click", event => {
+    sessionStorage.removeItem("full-name-user");
+    sessionStorage.removeItem("id-user");
+  });
 }
 
