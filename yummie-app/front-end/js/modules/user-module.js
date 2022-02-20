@@ -22,6 +22,7 @@ if (ID_SESSION_STORAGE !== null) {
   LOGOUT_ELEMENT.addEventListener("click", event => {
     sessionStorage.removeItem("full-name-user");
     sessionStorage.removeItem("id-user");
+    location.href = "file:///home/jochenhansoul/Projects/intec/yummie-app/front-end/index.html";
   });
 }
 
