@@ -6,8 +6,7 @@ const FORM_OUTPUT = USER_FORM.querySelector("output[name=\"response\"]");
 
 // functions
 const sendResponse = user => {
-  sessionStorage.setItem("id-user", user.idUser);
-  sessionStorage.setItem("full-name-user", user.nameUser);
+  loginUser(user.idUser, user.nameUser);
   location.href = "file:///home/jochenhansoul/Projects/intec/yummie-app/front-end/find-restaurants.html";
 };
 
