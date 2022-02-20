@@ -3,12 +3,15 @@ package be.jochenhansoul.yummieapp.service;
 import be.jochenhansoul.yummieapp.model.restaurant.Restaurant;
 import be.jochenhansoul.yummieapp.model.user.User;
 import be.jochenhansoul.yummieapp.repository.UserRepository;
-import org.springframework.stereotype.Component;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
-@Component
-public class UserService {
+@Service
+public class UserService implements UserDetailsService {
     private final UserRepository USER_REPOSITORY;
     private final UserValidator USER_VALIDATOR;
 
@@ -24,12 +27,10 @@ public class UserService {
     }
 
     public Optional<User> loginUser(String email, String password) {
-        User user = this.USER_REPOSITORY.getUsersByEmail(email);
-        if (user == null || !user.getPassword().equals(password)) {
-            return Optional.empty();
-        } else {
-            return Optional.of(user);
-        }
+        Optional<User> user = this.USER_REPOSITORY.getUsersByEmail(email);
+        return (user.isEmpty() || !user.get().getPassword().equals(password))
+                ? Optional.empty()
+                : user;
     }
 
     public Optional<User> addRestaurantToUser(Restaurant restaurant) {
@@ -40,5 +41,11 @@ public class UserService {
         } else {
             return Optional.empty();
         }
+    }
+
+    @Override
+    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+        return this.USER_REPOSITORY.getUsersByEmail(email)
+                .orElseThrow(() -> new UsernameNotFoundException("User with email " + email + " not found"));
     }
 }
