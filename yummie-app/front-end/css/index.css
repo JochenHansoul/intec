@@ -105,8 +105,8 @@ header nav ul a {
   transition: opacity 150ms ease-in-out, transform 150ms ease-in-out;
 }
 
-.dropdown > a:hover ~ .dropdown-list,
-.dropdown > a ~ .dropdown-list:hover {
+.dropdown > img:hover ~ .dropdown-list,
+.dropdown > img ~ .dropdown-list:hover {
   opacity: 1;
   transform: translateY(0);
 }
