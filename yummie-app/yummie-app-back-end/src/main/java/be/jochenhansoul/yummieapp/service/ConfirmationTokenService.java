@@ -5,6 +5,8 @@ import be.jochenhansoul.yummieapp.repository.ConfirmationTokenRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 /*
 author: Kamer Elciyar
  */
@@ -20,5 +22,9 @@ public class ConfirmationTokenService {
 
     void deleteConfirmationToken(Long id){
         this.CONFIRMATION_TOKEN_REPOSITORY.deleteById(id);
+    }
+
+    public Optional<ConfirmationToken> findConfirmationTokenByToken(String token) {
+        return this.CONFIRMATION_TOKEN_REPOSITORY.getConfirmationTokenByConfirmationToken(token);
     }
 }
