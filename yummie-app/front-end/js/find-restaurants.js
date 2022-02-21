@@ -8,7 +8,7 @@ const OUTPUT = RESTAURANT_FORM.querySelector("output");
 const TABLE = document.getElementsByClassName("restaurant-table")[0];
 const RESTAURANT_TABLE = document.getElementById("restaurant-tbody");
 
-const ID = sessionStorage.getItem("user-id");
+
 
 // functions
 const removeChildren = element => {
@@ -40,10 +40,14 @@ const sendError = error => OUTPUT.innerText = "Error: " + error.message;
 // main
 RESTAURANT_FORM.addEventListener("submit", event => {
   event.preventDefault();
-  removeChildren(RESTAURANT_TABLE);
+  removeChildren(RESTAURANT_TABLE); // removing previous search
   const LOCATION = {
     lattitude: calculateLattitude(LATTITUDES[0].value, LATTITUDES[1].value, LATTITUDES[2].value),
     longitude: calculateLongitude(LONGITUDES[0].value, LONGITUDES[1].value, LONGITUDES[2].value)
   };
-  sendPost(RESTAURANT_FORM.action + "?id=" + ID, LOCATION, sendResponse, sendError);
+  sendPost(
+    RESTAURANT_FORM.action + "?id=" + sessionStorage.getItem("id-user"),
+    LOCATION,
+    sendResponse,
+    sendError);
 });
