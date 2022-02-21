@@ -1,6 +1,8 @@
 package be.jochenhansoul.yummieapp.controller;
 
+import be.jochenhansoul.yummieapp.model.user.ConfirmationToken;
 import be.jochenhansoul.yummieapp.model.user.User;
+import be.jochenhansoul.yummieapp.service.ConfirmationTokenService;
 import be.jochenhansoul.yummieapp.service.UserService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -12,9 +14,11 @@ import java.util.Optional;
 public class UserController {
 
     private final UserService USER_SERVICE;
+    private final ConfirmationTokenService CONFIRMATION_TOKEN_SERVICE;
 
-    public UserController(UserService userService) {
+    public UserController(UserService userService, ConfirmationTokenService confirmationTokenService) {
         this.USER_SERVICE = userService;
+        this.CONFIRMATION_TOKEN_SERVICE = confirmationTokenService;
     }
 
     @CrossOrigin
@@ -42,6 +46,13 @@ public class UserController {
         } else {
             return ResponseEntity.status(422).body("user not found");
         }
+    }
+
+    @GetMapping("/confirm")
+    String confirmMail(@RequestParam("token") String token) {
+        Optional<ConfirmationToken> optionalConfirmationToken = this.CONFIRMATION_TOKEN_SERVICE.findConfirmationTokenByToken(token);
+        optionalConfirmationToken.ifPresent(this.USER_SERVICE::confirmUser);
+        return "/sign-in";
     }
 
     @ExceptionHandler(Exception.class)
