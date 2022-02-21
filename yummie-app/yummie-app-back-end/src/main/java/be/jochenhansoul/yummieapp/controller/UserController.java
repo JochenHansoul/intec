@@ -24,11 +24,7 @@ public class UserController {
     @CrossOrigin
     @PostMapping("/sign-up")
     public ResponseEntity<String> signUp(@RequestBody User user) {
-        System.out.println("sign-up user:");
-        System.out.println(user);
         this.USER_SERVICE.signUpUser(user);
-        System.out.println("signUpUser works");
-
         Optional<User> optionalUser = this.USER_SERVICE.loginUser(user.getEmail(), user.getPassword());
         if (optionalUser.isPresent()) {
             User savedUser = optionalUser.get();
