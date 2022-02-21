@@ -23,8 +23,10 @@ public class UserController {
 
     @CrossOrigin
     @PostMapping("/sign-up")
-    public ResponseEntity<String> addUser(@RequestBody User user) {
-        Optional<User> optionalUser = this.USER_SERVICE.saveUser(user);
+    public ResponseEntity<String> signUp(@RequestBody User user) {
+        this.USER_SERVICE.signUpUser(user);
+
+        Optional<User> optionalUser = this.USER_SERVICE.loginUser(user.getEmail(), user.getPassword());
         if (optionalUser.isPresent()) {
             User savedUser = optionalUser.get();
             return ResponseEntity.status(201).body("{\"idUser\":\"" + savedUser.getIdUser()
@@ -36,7 +38,7 @@ public class UserController {
 
     @CrossOrigin
     @PostMapping("/sign-in")
-    public ResponseEntity<String> loginUser(@RequestBody User user) {
+    public ResponseEntity<String> signIn(@RequestBody User user) {
         // create method that does the same code
         Optional<User> optionalUser = this.USER_SERVICE.loginUser(user.getEmail(), user.getPassword());
         if (optionalUser.isPresent()) {
