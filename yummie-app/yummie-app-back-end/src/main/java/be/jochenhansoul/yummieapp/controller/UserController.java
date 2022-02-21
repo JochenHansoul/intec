@@ -24,7 +24,10 @@ public class UserController {
     @CrossOrigin
     @PostMapping("/sign-up")
     public ResponseEntity<String> signUp(@RequestBody User user) {
+        System.out.println("sign-up user:");
+        System.out.println(user);
         this.USER_SERVICE.signUpUser(user);
+        System.out.println("signUpUser works");
 
         Optional<User> optionalUser = this.USER_SERVICE.loginUser(user.getEmail(), user.getPassword());
         if (optionalUser.isPresent()) {
@@ -39,6 +42,7 @@ public class UserController {
     @CrossOrigin
     @PostMapping("/sign-in")
     public ResponseEntity<String> signIn(@RequestBody User user) {
+        System.out.println("sign-in user:");
         // create method that does the same code
         Optional<User> optionalUser = this.USER_SERVICE.loginUser(user.getEmail(), user.getPassword());
         if (optionalUser.isPresent()) {
