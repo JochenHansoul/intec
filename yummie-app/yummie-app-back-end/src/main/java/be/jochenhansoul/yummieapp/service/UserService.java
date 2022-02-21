@@ -39,6 +39,14 @@ public class UserService implements UserDetailsService {
         this.CONFIRMATION_TOKEN_SERVICE.saveConfirmationToken(confirmationToken);
     }
 
+    void confirmUser(ConfirmationToken confirmationToken) {
+        final User user = confirmationToken.getUser();
+        user.setEnabled(true);
+        this.USER_REPOSITORY.save(user);
+        this.CONFIRMATION_TOKEN_SERVICE.deleteConfirmationToken(confirmationToken.getId());
+
+    }
+
     public Optional<User> saveUser(User user) {
         return (this.USER_VALIDATOR.validateUser(user))
                 ? Optional.of(this.USER_REPOSITORY.save(user))
