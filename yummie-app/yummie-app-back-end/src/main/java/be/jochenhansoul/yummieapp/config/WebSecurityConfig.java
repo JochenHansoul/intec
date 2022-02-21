@@ -22,16 +22,17 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     public void configure(HttpSecurity http) throws Exception {
-        http/*.csrf().disable()*/
+        http.csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/sign-up/**", "/sign-in/**")
-                .permitAll()
-                .anyRequest()
+                .antMatchers("/user/sign-up/***", "/user/sign-in/***")
+                .permitAll();
+        // Unable to connect with the front-end if I add this
+                /*.anyRequest()
                 .authenticated()
                 .and()
                 .formLogin()
                 .loginPage("/sign-in")
-                .permitAll();
+                .permitAll();*/
     }
 
     @Autowired
