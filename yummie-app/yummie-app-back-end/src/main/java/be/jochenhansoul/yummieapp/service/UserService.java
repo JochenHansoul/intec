@@ -41,14 +41,14 @@ public class UserService implements UserDetailsService {
                 .orElseThrow(() -> new UsernameNotFoundException("User with email " + email + " not found"));
     }
 
-    void signUpUser(User user) {
+    public void signUpUser(User user) {
         user.setPassword(this.BCRYPT_PASSWORD_ENCODER.encode(user.getPassword()));
         final User createdUser = this.USER_REPOSITORY.save(user);
         final ConfirmationToken confirmationToken = new ConfirmationToken(user);
         this.CONFIRMATION_TOKEN_SERVICE.saveConfirmationToken(confirmationToken);
     }
 
-    void sendConfirmationMail(String userMail, String token) {
+    public void sendConfirmationMail(String userMail, String token) {
         final SimpleMailMessage mailMessage = new SimpleMailMessage();
         mailMessage.setTo(userMail);
         mailMessage.setSubject("Mail Confirmation Link!");
@@ -59,7 +59,7 @@ public class UserService implements UserDetailsService {
         this.EMAIL_SENDER_SERVICE.sendEmail(mailMessage);
     }
 
-    void confirmUser(ConfirmationToken confirmationToken) {
+    public void confirmUser(ConfirmationToken confirmationToken) {
         final User user = confirmationToken.getUser();
         user.setEnabled(true);
         this.USER_REPOSITORY.save(user);
