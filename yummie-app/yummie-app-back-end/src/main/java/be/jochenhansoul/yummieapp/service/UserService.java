@@ -15,24 +15,24 @@ import java.util.Optional;
 
 @Service
 public class UserService implements UserDetailsService {
-    private final BCryptPasswordEncoder BCRYPT_PASSWORD_ENCODER = new BCryptPasswordEncoder();
-
     private final UserRepository USER_REPOSITORY;
     private final UserValidator USER_VALIDATOR;
     private final ConfirmationTokenService CONFIRMATION_TOKEN_SERVICE;
     private final EmailSenderService EMAIL_SENDER_SERVICE;
-
+    private final BCryptPasswordEncoder BCRYPT_PASSWORD_ENCODER;
 
     public UserService(
             UserRepository userRepository,
             UserValidator userValidator,
             ConfirmationTokenService confirmationTokenService,
-            EmailSenderService emailSenderService) {
+            EmailSenderService emailSenderService,
+            BCryptPasswordEncoder bCryptPasswordEncoder) {
 
         this.USER_REPOSITORY = userRepository;
         this.USER_VALIDATOR = userValidator;
         this.CONFIRMATION_TOKEN_SERVICE = confirmationTokenService;
         this.EMAIL_SENDER_SERVICE = emailSenderService;
+        this.BCRYPT_PASSWORD_ENCODER = bCryptPasswordEncoder;
     }
 
     @Override
