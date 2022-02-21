@@ -4,6 +4,7 @@ import be.jochenhansoul.yummieapp.model.restaurant.Restaurant;
 import be.jochenhansoul.yummieapp.model.user.ConfirmationToken;
 import be.jochenhansoul.yummieapp.model.user.User;
 import be.jochenhansoul.yummieapp.repository.UserRepository;
+import org.springframework.mail.SimpleMailMessage;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -19,11 +20,19 @@ public class UserService implements UserDetailsService {
     private final UserRepository USER_REPOSITORY;
     private final UserValidator USER_VALIDATOR;
     private final ConfirmationTokenService CONFIRMATION_TOKEN_SERVICE;
+    private final EmailSenderService EMAIL_SENDER_SERVICE;
 
-    public UserService(UserRepository userRepository, UserValidator userValidator, ConfirmationTokenService confirmationTokenService) {
+
+    public UserService(
+            UserRepository userRepository,
+            UserValidator userValidator,
+            ConfirmationTokenService confirmationTokenService,
+            EmailSenderService emailSenderService) {
+
         this.USER_REPOSITORY = userRepository;
         this.USER_VALIDATOR = userValidator;
         this.CONFIRMATION_TOKEN_SERVICE = confirmationTokenService;
+        this.EMAIL_SENDER_SERVICE = emailSenderService;
     }
 
     @Override
@@ -37,6 +46,17 @@ public class UserService implements UserDetailsService {
         final User createdUser = this.USER_REPOSITORY.save(user);
         final ConfirmationToken confirmationToken = new ConfirmationToken(user);
         this.CONFIRMATION_TOKEN_SERVICE.saveConfirmationToken(confirmationToken);
+    }
+
+    void sendConfirmationMail(String userMail, String token) {
+        final SimpleMailMessage mailMessage = new SimpleMailMessage();
+        mailMessage.setTo(userMail);
+        mailMessage.setSubject("Mail Confirmation Link!");
+        mailMessage.setFrom("<MAIL>");
+        mailMessage.setText(
+                "Thank you for registering. Please click on the below link to activate your account." + "http://localhost:8080/sign-up/confirm?token="
+                        + token);
+        this.EMAIL_SENDER_SERVICE.sendEmail(mailMessage);
     }
 
     void confirmUser(ConfirmationToken confirmationToken) {
