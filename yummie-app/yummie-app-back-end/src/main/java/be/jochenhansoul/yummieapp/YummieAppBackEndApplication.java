@@ -16,16 +16,16 @@ public class YummieAppBackEndApplication {
 
     public static void main(String[] args) {
         ConfigurableApplicationContext ctx = SpringApplication.run(YummieAppBackEndApplication.class, args);
-        /*UserRepository userRepository = ctx.getBean(UserRepository.class);
+        UserRepository userRepository = ctx.getBean(UserRepository.class);
         LocationRepository locationRepository = ctx.getBean(LocationRepository.class);
         RestaurantRepository restaurantRepository = ctx.getBean(RestaurantRepository.class);
 
         // user
         User user1 = new User();
-        user1.setFirstName("first1");
-        user1.setLastName("last1");
-        user1.setPassword("pass1");
-        user1.setEmail("first.last@outlook.be");
+        user1.setFirstName("first0");
+        user1.setLastName("last0");
+        user1.setPassword("pass0");
+        user1.setEmail("first0.last0@outlook.be");
         user1.setTelephone("+32 111 11 11 11");
 
 
@@ -97,7 +97,8 @@ public class YummieAppBackEndApplication {
         restaurantRepository.save(r5);
         restaurantRepository.save(r4);
         // users
-        userRepository.save(user1);*/
+        userRepository.save(user1);
+        user1 = userRepository.getUsersByEmail(user1.getEmail()).get();
     }
 
 }
