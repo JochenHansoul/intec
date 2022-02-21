@@ -49,7 +49,7 @@ public class UserController {
     }
 
     @GetMapping("/confirm")
-    String confirmMail(@RequestParam("token") String token) {
+    public String confirmMail(@RequestParam("token") String token) {
         Optional<ConfirmationToken> optionalConfirmationToken = this.CONFIRMATION_TOKEN_SERVICE.findConfirmationTokenByToken(token);
         optionalConfirmationToken.ifPresent(this.USER_SERVICE::confirmUser);
         return "/sign-in";

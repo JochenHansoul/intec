@@ -16,11 +16,11 @@ author: Kamer Elciyar
 public class ConfirmationTokenService {
     private final ConfirmationTokenRepository CONFIRMATION_TOKEN_REPOSITORY;
 
-    void saveConfirmationToken(ConfirmationToken confirmationToken) {
+    public void saveConfirmationToken(ConfirmationToken confirmationToken) {
         this.CONFIRMATION_TOKEN_REPOSITORY.save(confirmationToken);
     }
 
-    void deleteConfirmationToken(Long id){
+    public void deleteConfirmationToken(Long id){
         this.CONFIRMATION_TOKEN_REPOSITORY.deleteById(id);
     }
 
