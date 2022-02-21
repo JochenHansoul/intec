@@ -17,4 +17,8 @@ public class ConfirmationTokenService {
     void saveConfirmationToken(ConfirmationToken confirmationToken) {
         this.CONFIRMATION_TOKEN_REPOSITORY.save(confirmationToken);
     }
+
+    void deleteConfirmationToken(Long id){
+        this.CONFIRMATION_TOKEN_REPOSITORY.deleteById(id);
+    }
 }
