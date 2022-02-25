@@ -98,7 +98,7 @@ public class YummieAppBackEndApplication {
         restaurantRepository.save(r4);
         // users
         userRepository.save(user1);
-        user1 = userRepository.getUsersByEmail(user1.getEmail()).get();
+        //user1 = userRepository.getUsersByEmail(user1.getEmail()).get();
     }
 
 }
