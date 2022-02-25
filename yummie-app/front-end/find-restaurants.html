@@ -39,43 +39,41 @@
     </nav>
   </header>
   <main>
-    <article>
-      <h1>Find Restaurants</h1>
-      <form name="restaurant" action="http://localhost:8080/restaurant/get" method="post">
-        <p>Enter Coordinates:</p>
-        <p class="lattitude">
-          Lattitude:
-          <label>
-            <input type="number" min="-90" max="90" name="degrees" value="0" required />°
-          </label>
-          <label>
-            <input type="number" min="0" max="59" name="minutes" value="0" required />′
-          </label>
-          <label>
-            <input type="number" min="0" max="59" name="seconds" value="0" required />″
-          </label>
-        </p>
-        <p class="longitude">
-          Longitude:
-          <label>
-            <input type="number" min="-180" max="180" name="degrees" value="0" required />°
-          </label>
-          <label>
-            <input type="number" min="0" max="59" name="minutes" value="0" required />′
-          </label>
-          <label>
-            <input type="number" min="0" max="59" name="seconds" value="0" required />″
-          </label>
-        </p>
-        <p>
-          <button type="submit">Submit</button>
-        </p>
-        <p>
-          <output></output>
-        </p>
-        <p>
-      </form>
-    </article>
+    <h1>Find Restaurants</h1>
+    <form name="restaurant" action="http://localhost:8080/restaurant/get" method="post">
+      <p>Enter Coordinates:</p>
+      <p class="lattitude">
+        Lattitude:
+        <label>
+          <input type="number" min="-90" max="90" name="degrees" value="0" required />°
+        </label>
+        <label>
+          <input type="number" min="0" max="59" name="minutes" value="0" required />′
+        </label>
+        <label>
+          <input type="number" min="0" max="59" name="seconds" value="0" required />″
+        </label>
+      </p>
+      <p class="longitude">
+        Longitude:
+        <label>
+          <input type="number" min="-180" max="180" name="degrees" value="0" required />°
+        </label>
+        <label>
+          <input type="number" min="0" max="59" name="minutes" value="0" required />′
+        </label>
+        <label>
+          <input type="number" min="0" max="59" name="seconds" value="0" required />″
+        </label>
+      </p>
+      <p>
+        <button type="submit">Submit</button>
+      </p>
+      <p>
+        <output></output>
+      </p>
+      <p>
+    </form>
     <!-- restaurant data -->
     <table class="restaurant-table hidden">
       <thead>

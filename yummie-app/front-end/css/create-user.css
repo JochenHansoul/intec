@@ -1,7 +1,7 @@
 /************
 * center form
 *************/
-main > article > h1 {
+main > h1 {
   margin: 0 auto;
   margin-top: 90px;
   margin-bottom: 16px;

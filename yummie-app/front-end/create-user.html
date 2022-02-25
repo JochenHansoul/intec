@@ -37,51 +37,49 @@
     </nav>
   </header>
   <main>
-    <article>
-      <h1>Registrate User</h1>
-      <form name="user" action="http://localhost:8080/user/sign-up" method="post">
-        <p>
-          <label>first name: <input name="firstName" value="first1" required /></label>
-        </p>
-        <p>
-          <label>last name: <input name="lastName" value="last1" required /></label>
-        </p>
-        <p>
-          gender:
-          <label>
-            <input type="radio" name="gender" value="UNKNOWN" checked />unknown
-          </label>
-          <label>
-            <input type="radio" name="gender" value="MALE" />male
-          </label>
-          <label>
-            <input type="radio" name="gender" value="FEMALE" />female
-          </label>
-          <label>
-            <input type="radio" name="gender" value="OTHER" />other
-          </label>
-        </p>
-        <p>
-          <label>birth date: <input type="date" name="birthDate" value="2000-01-01" required /></label>
-        </p>
-        <p>
-          <label>password: <input type="password" name="password" value="passw1" required /></label>
-        </p>
-        <p>
-          <label>verify password: <input type="password" name="password" value="passw1" required /></label>
-          <output name="password" class="red"></output>
-        </p>
-        <p>
-          <label>email address: <input type="email" name="email" value="first.last@outlook.be" required /></label>
-        </p>
-        <p>
-          <button type="submit">Submit</button>
-        </p>
-        <p>
-          <output name="response" class="red"></output>
-        </p>
-      </form>
-    </article>
+    <h1>Registrate User</h1>
+    <form name="user" action="http://localhost:8080/user/sign-up" method="post">
+      <p>
+        <label>first name: <input name="firstName" value="first1" required /></label>
+      </p>
+      <p>
+        <label>last name: <input name="lastName" value="last1" required /></label>
+      </p>
+      <p>
+        gender:
+        <label>
+          <input type="radio" name="gender" value="UNKNOWN" checked />unknown
+        </label>
+        <label>
+          <input type="radio" name="gender" value="MALE" />male
+        </label>
+        <label>
+          <input type="radio" name="gender" value="FEMALE" />female
+        </label>
+        <label>
+          <input type="radio" name="gender" value="OTHER" />other
+        </label>
+      </p>
+      <p>
+        <label>birth date: <input type="date" name="birthDate" value="2000-01-01" required /></label>
+      </p>
+      <p>
+        <label>password: <input type="password" name="password" value="passw1" required /></label>
+      </p>
+      <p>
+        <label>verify password: <input type="password" name="password" value="passw1" required /></label>
+        <output name="password" class="red"></output>
+      </p>
+      <p>
+        <label>email address: <input type="email" name="email" value="first.last@outlook.be" required /></label>
+      </p>
+      <p>
+        <button type="submit">Submit</button>
+      </p>
+      <p>
+        <output name="response" class="red"></output>
+      </p>
+    </form>
   </main>
   <footer>
     <ul>

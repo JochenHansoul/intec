@@ -122,8 +122,7 @@ main {
   margin-top: 40px;
   margin-left: auto;
   margin-right: auto;
-  width: 55vw;
-  min-width: 800px;
+  width: 1200px;
 }
 
 main h1 {
@@ -162,15 +161,6 @@ body > footer > ul > li {
   list-style-type: none;
 }
 
-/*
-  bug in contact list:
-  when the horizontal view is verry small the content of
-  the contact info list is moved downward and pushes the
-  screen down so that an empty space underneath the footer
-  appears.
-  solution:
-  with dynamic styles change paddig-left to a smaller size.
-*/
 .contact-info-list li {
   padding-left: 30%;
   text-align: left;
@@ -182,4 +172,19 @@ body > footer > ul > li {
 .contact-info-list li:first-child {
   margin-bottom: 4px;
   font-size: 16px;
+}
+
+/*
+  media screen
+*/
+
+@media only screen and (max-width: 900px) {
+  main {
+    width: 355px;
+  }
+
+  .contact-info-list li {
+    padding-left: 0;
+    padding-right: 0;
+  }
 }
