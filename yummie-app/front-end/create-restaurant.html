@@ -40,10 +40,10 @@
   <main>
     <h1>Add Restaurant</h1>
     <form name="restaurant" action="http://localhost:8080/restaurant/create" method="post">
-      <p>
-        <label>restaurant name: <input name="restaurantName" value="restaurent1" required /></label>
+      <p >
+        <label>restaurant name: <input name="name" value="restaurent1" required /></label>
       </p>
-      <p class="lattitude">
+      <p name="lattitude" class="coordinates">
         Lattitude:
         <label>
           <input type="number" min="-90" max="90" name="degrees" value="0" required />°
@@ -54,9 +54,8 @@
         </label>
           <input type="number" min="0" max="59" name="seconds" value="0" required />″
         </label>
-        <output name="lattitude" class="red"></output>
       </p>
-      <p class="longitude">
+      <p name="longitude" class="coordinates">
         Longitude:
         <label>
           <input type="number" min="-180" max="180" name="degrees" value="0" required />°
@@ -67,7 +66,6 @@
         <label>
           <input type="number" min="0" max="59" name="seconds" value="0" required />″
         </label>
-        <output name="longitude" class="red"></output>
       </p>
       <p>
         <label>Certificate (pdf only): <input type="file" accept="application/pdf" name="certificate" /></label>
