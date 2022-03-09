@@ -2,13 +2,11 @@
 
 // constants
 const RESTAURANT_FORM = document.forms.restaurant;
-const LATTITUDES = RESTAURANT_FORM.querySelectorAll(".lattitude input");
-const LONGITUDES = RESTAURANT_FORM.querySelectorAll(".longitude input");
-const OUTPUT = RESTAURANT_FORM.querySelector("output");
-const TABLE = document.getElementsByClassName("restaurant-table")[0];
+const LATTITUDES = RESTAURANT_FORM.querySelectorAll("p[name=\"lattitude\"] label input");
+const LONGITUDES = RESTAURANT_FORM.querySelectorAll("p[name=\"longitude\"] label input");
+const OUTPUT = RESTAURANT_FORM.getElementsByTagName("output").response;
+const TABLE = document.getElementById("restaurant-table");
 const RESTAURANT_TABLE = document.getElementById("restaurant-tbody");
-
-
 
 // functions
 const removeChildren = element => {

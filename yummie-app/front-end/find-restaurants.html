@@ -42,7 +42,7 @@
     <h1>Find Restaurants</h1>
     <p>Enter Coordinates:</p>
     <form name="restaurant" action="http://localhost:8080/restaurant/get" method="post">
-      <p class="lattitude">
+      <p name="lattitude" class="coordinates">
         Lattitude:
         <label>
           <input type="number" name="degrees" min="-90" max="90" value="0" required />°
@@ -54,7 +54,7 @@
           <input type="number" name="seconds" min="0" max="59" value="0" required />″
         </label>
       </p>
-      <p class="longitude">
+      <p name="longitude" class="coordinates">
         Longitude:
         <label>
           <input type="number" name="degrees" min="-180" max="180" value="0" required />°
@@ -70,12 +70,12 @@
         <button type="submit">Submit</button>
       </p>
       <p>
-        <output></output>
+        <output name="response"></output>
       </p>
       <p>
     </form>
     <!-- restaurant data -->
-    <table class="restaurant-table hidden">
+    <table id="restaurant-table" class="hidden">
       <thead>
         <tr>
           <th>Name</th>
