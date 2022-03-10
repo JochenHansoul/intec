@@ -2,8 +2,10 @@
 
 // constants
 const RESTAURANT_FORM = document.forms.restaurant;
-const LATTITUDES = RESTAURANT_FORM.querySelectorAll("p[name=\"lattitude\"] label input");
-const LONGITUDES = RESTAURANT_FORM.querySelectorAll("p[name=\"longitude\"] label input");
+const LATTITUDES = RESTAURANT_FORM.querySelector("#lattitude")
+  .getElementsByTagName("input");
+const LONGITUDES = RESTAURANT_FORM.querySelector("#longitude")
+  .getElementsByTagName("input");
 const OUTPUT = RESTAURANT_FORM.getElementsByTagName("output").response;
 const TABLE = document.getElementById("restaurant-table");
 const RESTAURANT_TABLE = document.getElementById("restaurant-tbody");
