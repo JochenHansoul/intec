@@ -32,8 +32,8 @@ const sendError = error => OUTPUT.innerText = "Error: " + error.message;
 RESTAURANT_FORM.addEventListener("submit", event => {
   event.preventDefault();
   const LOCATION = {
-    lattitude: calculateLattitude(LATTITUDES[0].value, LATTITUDES[1].value, LATTITUDES[2].value),
-    longitude: calculateLongitude(LONGITUDES[0].value, LONGITUDES[1].value, LONGITUDES[2].value)
+    lattitude: calculateLattitude(LATTITUDES.degrees.value, LATTITUDES.minutes.value, LATTITUDES.seconds.value),
+    longitude: calculateLongitude(LONGITUDES.degrees.value, LONGITUDES.minutes.value, LONGITUDES.seconds.value)
   };
   sendPost(
     RESTAURANT_FORM.action + "?id=" + sessionStorage.getItem("id-user"),
