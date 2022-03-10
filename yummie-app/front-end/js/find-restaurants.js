@@ -29,10 +29,9 @@ const createTable = tableData => {
 
 const sendResponse = restaurants => {
   TABLE.classList.remove("hidden");
-  for (const RESTAURANT of restaurants) {
-    const RESTAURANT_DATA = [RESTAURANT.name, RESTAURANT.location.latitude, RESTAURANT.location.longitude];
-    RESTAURANT_TABLE.append(createTable(RESTAURANT_DATA));
-  }
+  RESTAURANT_TABLE.replaceChildren(...(restaurants.map(restaurant => {
+    return createTable([restaurant.name, restaurant.location.latitude, restaurant.location.longitude]);
+  })));
 };
 
 const sendError = error => OUTPUT.innerText = "Error: " + error.message;
@@ -40,7 +39,6 @@ const sendError = error => OUTPUT.innerText = "Error: " + error.message;
 // main
 RESTAURANT_FORM.addEventListener("submit", event => {
   event.preventDefault();
-  removeChildren(RESTAURANT_TABLE); // removing previous search
   const LOCATION = {
     lattitude: calculateLattitude(LATTITUDES[0].value, LATTITUDES[1].value, LATTITUDES[2].value),
     longitude: calculateLongitude(LONGITUDES[0].value, LONGITUDES[1].value, LONGITUDES[2].value)
