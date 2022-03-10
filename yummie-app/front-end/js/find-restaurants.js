@@ -11,13 +11,7 @@ const TABLE = document.getElementById("restaurant-table");
 const RESTAURANT_TABLE = document.getElementById("restaurant-tbody");
 
 // functions
-const removeChildren = element => {
-  while (element.hasChildNodes()) {
-    element.lastChild.remove();
-  }
-};
-
-const createTable = tableData => {
+const createTableRow = tableData => {
   const TR = document.createElement("tr");
   for (const D of tableData) {
     const C = document.createElement("td");
@@ -30,7 +24,7 @@ const createTable = tableData => {
 const sendResponse = restaurants => {
   TABLE.classList.remove("hidden");
   RESTAURANT_TABLE.replaceChildren(...(restaurants.map(restaurant => {
-    return createTable([restaurant.name, restaurant.location.latitude, restaurant.location.longitude]);
+    return createTableRow([restaurant.name, restaurant.location.latitude, restaurant.location.longitude]);
   })));
 };
 
