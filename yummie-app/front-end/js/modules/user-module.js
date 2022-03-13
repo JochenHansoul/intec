@@ -11,21 +11,23 @@ const ID_SESSION_STORAGE = sessionStorage.getItem("id-user");
 
 
 // functions
-const loginUser = (id, fullName) => {
-  sessionStorage.setItem("id-user", id);
-  sessionStorage.setItem("full-name-user", fullName);
+const loginUser = user => {
+  sessionStorage.setItem("id-user", user.idUser);
+  sessionStorage.setItem("first-name", user.firstName);
+  sessionStorage.setItem("last-name", user.lastName);
 };
 
 const logoutUser = () => {
   sessionStorage.removeItem("id-user");
-  sessionStorage.removeItem("full-name-user");
+  sessionStorage.removeItem("first-name");
+  sessionStorage.removeItem("last-name");
 };
 
 
 // main
 if (ID_SESSION_STORAGE !== null) {
   // displays the username inside the header
-  FULL_NAME_INPUT.append(sessionStorage.getItem("full-name-user"));
+  FULL_NAME_INPUT.append(sessionStorage.getItem("first-name") + " " + sessionStorage.getItem("last-name"));
   // changing registrate/login dropdown list to logout dropdown list
   LOGIN_DROPDOWN_LIST.classList.add("hidden");
   LOGOUT_DROPDOWN_LIST.classList.remove("hidden");

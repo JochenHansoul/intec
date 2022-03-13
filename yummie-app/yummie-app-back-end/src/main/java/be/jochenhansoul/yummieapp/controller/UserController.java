@@ -29,7 +29,8 @@ public class UserController {
         if (optionalUser.isPresent()) {
             User savedUser = optionalUser.get();
             return ResponseEntity.status(201).body("{\"idUser\":\"" + savedUser.getIdUser()
-                    + "\",\"nameUser\":\"" + savedUser.getFirstName() + " " + savedUser.getLastName() + "\"}"); // "{\"key\":\"value\"}"
+                    + "\",\"firstName\":\"" + savedUser.getFirstName()
+                    + "\",\"lastName\":\"" + savedUser.getLastName() + "\"}"); // "{\"key\":\"value\"}"
         } else {
             return ResponseEntity.status(422).body("user not created");
         }
@@ -44,7 +45,8 @@ public class UserController {
         if (optionalUser.isPresent()) {
             User savedUser = optionalUser.get();
             return ResponseEntity.status(201).body("{\"idUser\":\"" + savedUser.getIdUser()
-                    + "\",\"nameUser\":\"" + savedUser.getFirstName() + " " + savedUser.getLastName() + "\"}"); // "{\"key\":\"value\"}"
+                    + "\",\"firstName\":\"" + savedUser.getFirstName()
+                    + "\",\"lastName\":\"" + savedUser.getLastName() + "\"}");
         } else {
             return ResponseEntity.status(422).body("user not found");
         }
