@@ -9,13 +9,13 @@ const TABLE = document.getElementById("restaurant-table");
 const RESTAURANT_TABLE = document.getElementById("restaurant-tbody");
 
 // functions
-const createTableRow = tableData => {
+const createTableRow = dataList => {
   const TR = document.createElement("tr");
-  for (const D of tableData) {
-    const C = document.createElement("td");
-    C.textContent = D
-    TR.append(C);
-  }
+  dataList.forEach(data => {
+    const TD = document.createElement("td");
+    TD.appendChild(document.createTextNode(data));
+    TR.append(TD);
+  });
   return TR;
 };
 
@@ -26,7 +26,7 @@ const sendResponse = restaurants => {
   })));
 };
 
-const sendError = error => OUTPUT.innerText = "Error: " + error.message;
+const sendError = error => OUTPUT.replaceChildren(document.createTextNode("Error: " + error.message));
 
 // main
 RESTAURANT_FORM.addEventListener("submit", event => {
