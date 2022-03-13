@@ -22,7 +22,7 @@ RESTAURANT_FORM.addEventListener("submit", event => {
   event.preventDefault();
   // creating location
   const RESTAURANT = {
-    idUser: 1,
+    idUser: sessionStorage.getItem("id-user"),
     name: INPUTS.name.value,
     location: {
       lattitude: calculateLattitude(LATTITUDES.degrees.value, LATTITUDES.minutes.value, LATTITUDES.seconds.value),
