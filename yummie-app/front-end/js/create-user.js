@@ -13,7 +13,7 @@ const sendResponse = user => {
 };
 
 const sendError = error => {
-  FORM_OUTPUT.innerText = "Error creating user: " + error.message;
+  FORM_OUTPUT.replaceChildren(document.createTextNode("Error creating user: " + error.message));
 };
 
 // main

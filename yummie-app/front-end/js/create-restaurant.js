@@ -8,8 +8,14 @@ const LONGITUDES = RESTAURANT_FORM.children.longitude.getElementsByTagName("inpu
 const RESPONSE_OUTPUT = RESTAURANT_FORM.getElementsByTagName("output").response;
 
 // functions
-const sendResponse = x => RESPONSE_OUTPUT.innerText = "Restaurant succesfully saved";
-const sendError = x => RESPONSE_OUTPUT.innerText = "Could not save restaurant. Error: " + x.message;
+const sendResponse = x => {
+  RESPONSE_OUTPUT
+    .replaceChildren(document.createTextNode("Restaurant succesfully saved"));
+};
+const sendError = x => {
+  RESPONSE_OUTPUT
+    .replaceChildren(document.createTextNode("Could not save restaurant. Error: " + x.message));
+};
 
 // main
 RESTAURANT_FORM.addEventListener("submit", event => {
