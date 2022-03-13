@@ -18,16 +18,14 @@ const loginUser = user => {
 };
 
 const logoutUser = () => {
-  sessionStorage.removeItem("id-user");
-  sessionStorage.removeItem("first-name");
-  sessionStorage.removeItem("last-name");
+  Object.keys(sessionStorage).forEach(key => sessionStorage.removeItem(key));
 };
-
 
 // main
 if (ID_SESSION_STORAGE !== null) {
   // displays the username inside the header
-  FULL_NAME_INPUT.append(sessionStorage.getItem("first-name") + " " + sessionStorage.getItem("last-name"));
+  FULL_NAME_INPUT.append(
+    sessionStorage.getItem("first-name") + " " + sessionStorage.getItem("last-name"));
   // changing registrate/login dropdown list to logout dropdown list
   LOGIN_DROPDOWN_LIST.classList.add("hidden");
   LOGOUT_DROPDOWN_LIST.classList.remove("hidden");
@@ -37,4 +35,3 @@ if (ID_SESSION_STORAGE !== null) {
     location.href = "file:///home/jochenhansoul/Projects/intec/yummie-app/front-end/index.html";
   });
 }
-
