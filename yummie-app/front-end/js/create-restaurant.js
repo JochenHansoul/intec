@@ -8,13 +8,13 @@ const LONGITUDES = RESTAURANT_FORM.children.longitude.getElementsByTagName("inpu
 const RESPONSE_OUTPUT = RESTAURANT_FORM.getElementsByTagName("output").response;
 
 // functions
-const sendResponse = x => {
+const sendResponse = response => {
   RESPONSE_OUTPUT
     .replaceChildren(document.createTextNode("Restaurant succesfully saved"));
 };
-const sendError = x => {
+const sendError = error => {
   RESPONSE_OUTPUT
-    .replaceChildren(document.createTextNode("Could not save restaurant. Error: " + x.message));
+    .replaceChildren(document.createTextNode("Could not save restaurant. Error: " + error.message));
 };
 
 // main
@@ -25,8 +25,14 @@ RESTAURANT_FORM.addEventListener("submit", event => {
     idUser: sessionStorage.getItem("id-user"),
     name: INPUTS.name.value,
     location: {
-      lattitude: calculateLattitude(LATTITUDES.degrees.value, LATTITUDES.minutes.value, LATTITUDES.seconds.value),
-      longitude: calculateLongitude(LONGITUDES.degrees.value, LONGITUDES.minutes.value, LONGITUDES.seconds.value)
+      lattitude: calculateLattitude(
+        parseInt(LATTITUDES.degrees.value),
+        parseInt(LATTITUDES.minutes.value),
+        parseInt(LATTITUDES.seconds.value)),
+      longitude: calculateLongitude(
+        parseInt(LONGITUDES.degrees.value),
+        parseInt(LONGITUDES.minutes.value),
+        parseInt(LONGITUDES.seconds.value))
     },
     file: INPUTS.certificate.value
   };
