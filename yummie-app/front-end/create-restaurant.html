@@ -39,33 +39,21 @@
   </header>
   <main>
     <h1>Add Restaurant</h1>
-    <form name="restaurant" action="http://localhost:8080/restaurant/create" method="post">
-      <p >
+    <form name="restaurant" action="http://localhost:8080/restaurant/create">
+      <p>
         <label>restaurant name: <input name="name" value="restaurent1" required /></label>
       </p>
       <p id="lattitude" class="coordinates">
         Lattitude:
-        <label>
-          <input type="number" name="degrees" value="0" min="-90" max="90" required />°
-        </label>
-        <label>
-          <input type="number" name="minutes" value="0" min="0" max="59" required />′
-        <label>
-        </label>
-          <input type="number" name="seconds" value="0" min="0" max="59" required />″
-        </label>
+        <label><input type="number" name="degrees" value="0" min="-90" max="90" required />°</label>
+        <label><input type="number" name="minutes" value="0" min="0" max="59" required />′</label>
+        <label><input type="number" name="seconds" value="0" min="0" max="59" required />″</label>
       </p>
       <p id="longitude" class="coordinates">
         Longitude:
-        <label>
-          <input type="number" name="degrees" value="0" min="-180" max="180" required />°
-        </label>
-        <label>
-          <input type="number" name="minutes" value="0" min="0" max="59" required />′
-        </label>
-        <label>
-          <input type="number" name="seconds" value="0" min="0" max="59" required />″
-        </label>
+        <label><input type="number" name="degrees" value="0" min="-180" max="180" required />°</label>
+        <label><input type="number" name="minutes" value="0" min="0" max="59" required />′</label>
+        <label><input type="number" name="seconds" value="0" min="0" max="59" required />″</label>
       </p>
       <p>
         <label>Certificate (pdf only): <input type="file" name="certificate" accept="application/pdf" /></label>
