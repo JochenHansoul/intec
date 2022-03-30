@@ -2,8 +2,8 @@
 
 // utitily function for lower two functions
 const calculateCoordinate = (degrees, minutes, seconds, range) => {
-  const N = parseInt(degrees);
-  const RESULT = Math.abs(N) + (parseInt(minutes) / 60) + (parseInt(seconds) / 60);
+  const N = degrees;
+  const RESULT = Math.abs(N) + (minutes / 60) + (seconds / 60);
   if (RESULT > range) {
     return (N < 0) ? range * -1 : range;
   } else {
