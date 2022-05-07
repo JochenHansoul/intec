@@ -11,11 +11,11 @@ const calculateCoordinate = (degrees, minutes, seconds, range) => {
   }
 };
 
-const calculateLattitude = (degrees, minutes, seconds) => {
+export const calculateLattitude = (degrees, minutes, seconds) => {
    return calculateCoordinate(degrees, minutes, seconds, 90);
 };
 
-const calculateLongitude = (degrees, minutes, seconds) => {
+export const calculateLongitude = (degrees, minutes, seconds) => {
    return calculateCoordinate(degrees, minutes, seconds, 180);
 };
 

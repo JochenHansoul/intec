@@ -1,5 +1,9 @@
 "use strict";
 
+import { getFormObject } from "./modules/get-form-object.js";
+import { sendPost } from "./modules/send-post.js";
+import { calculateLattitude, calculateLongitude } from "./modules/coordinates.js";
+
 // constants
 const RESTAURANT_FORM = document.forms.restaurant;
 const INPUTS = RESTAURANT_FORM.getElementsByTagName("input");
@@ -20,7 +24,7 @@ const sendError = error => {
 // main
 RESTAURANT_FORM.addEventListener("submit", event => {
   event.preventDefault();
-  // creating location
+  // creating restaurant object
   const RESTAURANT = {
     idUser: sessionStorage.getItem("id-user"),
     name: INPUTS.name.value,
@@ -36,5 +40,6 @@ RESTAURANT_FORM.addEventListener("submit", event => {
     },
     file: INPUTS.certificate.value
   };
+  // sending post
   sendPost(RESTAURANT_FORM.action, RESTAURANT, sendResponse, sendError);
 });

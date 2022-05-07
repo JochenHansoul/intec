@@ -1,6 +1,7 @@
 "use strict";
 
 import { sendPost } from "./modules/send-post.js";
+import { calculateLattitude, calculateLongitude } from "./modules/coordinates.js";
 
 // constants
 const RESTAURANT_FORM = document.forms.restaurant;
