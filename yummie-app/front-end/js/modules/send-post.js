@@ -8,7 +8,7 @@ const DEFAULT_HEADER = {
 }
 
 
-const sendPost = (
+export const sendPost = (
   url,
   obj = {},
   action = x => {},
