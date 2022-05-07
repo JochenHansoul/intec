@@ -32,6 +32,7 @@ if (ID_SESSION_STORAGE !== null) {
   // added logout click event
   LOGOUT_ELEMENT.addEventListener("click", event => {
     logoutUser();
-    location.href = "file:///home/jochenhansoul/Projects/intec/yummie-app/front-end/index.html";
+    //location.href = "file:///home/jochenhansoul/Projects/intec/yummie-app/front-end/index.html";
+    location.href = location.origin + "/index.html"
   });
 }
