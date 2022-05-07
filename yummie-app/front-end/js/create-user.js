@@ -1,5 +1,8 @@
 "use strict";
 
+import { getFormObject } from "./modules/get-form-object.js";
+import { sendPost } from "./modules/send-post.js";
+
 // constants
 const USER_FORM = document.forms.user;
 const PASSWORD_INPUTS = USER_FORM.querySelectorAll("input[type=\"password\"]");
@@ -9,7 +12,8 @@ const FORM_OUTPUT = USER_FORM.querySelector("output[name=\"response\"]");
 // functions
 const sendResponse = user => {
   loginUser(user);
-  location.href = "file:///home/jochenhansoul/Projects/intec/yummie-app/front-end/find-restaurants.html";
+  //location.href = "file:///home/jochenhansoul/Projects/intec/yummie-app/front-end/find-restaurants.html";
+  location.href = location.origin + "/find-restaurants.html"
 };
 
 const sendError = error => {

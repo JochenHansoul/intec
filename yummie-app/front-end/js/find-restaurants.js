@@ -1,5 +1,7 @@
 "use strict";
 
+import { sendPost } from "./modules/send-post.js";
+
 // constants
 const RESTAURANT_FORM = document.forms.restaurant;
 const LATTITUDES = RESTAURANT_FORM.children.lattitude.getElementsByTagName("input");
